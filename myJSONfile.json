@@ -1,0 +1,503 @@
+{
+    "singleProject": {
+        "employeeSalaryList": [{
+                "phaseDetailsList": [{
+                        "phaseID": 1,
+                        "phaseName": "consulting",
+                        "budgetHr": 0,
+                        "actualHr": 0,
+                        "impact": ""
+                    },
+                    {
+                        "phaseID": 2,
+                        "phaseName": "Requirements",
+                        "budgetHr": 0,
+                        "actualHr": 0,
+                        "impact": ""
+                    },
+                    {
+                        "phaseID": 3,
+                        "phaseName": "Concept",
+                        "budgetHr": 0,
+                        "actualHr": 0,
+                        "impact": ""
+                    },
+                    {
+                        "phaseID": 4,
+                        "phaseName": "Detailed Design",
+                        "budgetHr": 0,
+                        "actualHr": 0,
+                        "impact": ""
+                    },
+                    {
+                        "phaseID": 5,
+                        "phaseName": "Fabrication",
+                        "budgetHr": 0,
+                        "actualHr": 0,
+                        "impact": ""
+                    },
+                    {
+                        "phaseID": 6,
+                        "phaseName": "Evaluation/ user study",
+                        "budgetHr": 0,
+                        "actualHr": 0,
+                        "impact": ""
+                    },
+                    {
+                        "phaseID": 7,
+                        "phaseName": "Reporting",
+                        "budgetHr": 0,
+                        "actualHr": 0,
+                        "impact": ""
+                    },
+                    {
+                        "phaseID": 8,
+                        "phaseName": "Validation",
+                        "budgetHr": 0,
+                        "actualHr": 0,
+                        "impact": ""
+                    }
+                ],
+                "empID": 2,
+                "empName": "Reneil Pascua",
+                "wage": 100
+            },
+            {
+                "phaseDetailsList": [{
+                        "phaseID": 1,
+                        "phaseName": "consulting",
+                        "budgetHr": 0,
+                        "actualHr": 0,
+                        "impact": ""
+                    },
+                    {
+                        "phaseID": 2,
+                        "phaseName": "Requirements",
+                        "budgetHr": 0,
+                        "actualHr": 0,
+                        "impact": ""
+                    },
+                    {
+                        "phaseID": 3,
+                        "phaseName": "Concept",
+                        "budgetHr": 0,
+                        "actualHr": 0,
+                        "impact": ""
+                    },
+                    {
+                        "phaseID": 4,
+                        "phaseName": "Detailed Design",
+                        "budgetHr": 0,
+                        "actualHr": 0,
+                        "impact": ""
+                    },
+                    {
+                        "phaseID": 5,
+                        "phaseName": "Fabrication",
+                        "budgetHr": 0,
+                        "actualHr": 0,
+                        "impact": ""
+                    },
+                    {
+                        "phaseID": 6,
+                        "phaseName": "Evaluation/ user study",
+                        "budgetHr": 0,
+                        "actualHr": 0,
+                        "impact": ""
+                    },
+                    {
+                        "phaseID": 7,
+                        "phaseName": "Reporting",
+                        "budgetHr": 0,
+                        "actualHr": 0,
+                        "impact": ""
+                    },
+                    {
+                        "phaseID": 8,
+                        "phaseName": "Validation",
+                        "budgetHr": 0,
+                        "actualHr": 0,
+                        "impact": ""
+                    }
+                ],
+                "empID": 3,
+                "empName": "Perry Li",
+                "wage": 200
+            }
+        ],
+        "ID": 1,
+        "Name": "ISSP Projectfjeiojoi",
+        "desc": "Web Application for project management. The clients will be able to view/edit ongoing and past projects in both high level and low level details such as but not limited to final budget of the project, completion timeline, and individual project members’ invested hours respectively.",
+        "salaryBudget": 7551322233,
+        "totalInvoice": 41833223,
+        "materialBudget": 123232018,
+        "spendToDate": 62323412,
+        "startDate": "2019-12-26T08:00:00.000Z",
+        "endDate": "2019-12-31T08:00:00.000Z",
+        "completion": 43,
+        "businessCode": "NA",
+        "costMultiplier": 1.75,
+        "isProposal": false,
+        "isUnderISO13485": false,
+        "recoredStoredCompleted": 99,
+        "progressSurveyRsult": true,
+        "progressSurveySent": true,
+        "followupSurveySent": true,
+        "followupSurveyResult": false,
+        "lead": [{
+            "empID": 1,
+            "name": "Peter Ahn",
+            "wage": 100
+        }],
+        "member": [{
+                "empID": 2,
+                "name": "Reneil Pascua",
+                "wage": 100
+            },
+            {
+                "empID": 3,
+                "name": "Perry Li",
+                "wage": 200
+            }
+        ],
+        "phaseArr": [{
+                "phaseID": 1,
+                "name": "consulting",
+                "startDate": "2019-11-16T08:00:00.000Z",
+                "endDate": "2019-11-30T08:00:00.000Z",
+                "isRecordDone": true,
+                "predictedDurationInWeeks": 20,
+                "actualDurationInWeeks": 25,
+                "impact": "high impact"
+            },
+            {
+                "phaseID": 2,
+                "name": "Requirements",
+                "startDate": "2019-12-01T08:00:00.000Z",
+                "endDate": "2019-12-05T08:00:00.000Z",
+                "isRecordDone": true,
+                "predictedDurationInWeeks": 20,
+                "actualDurationInWeeks": 25,
+                "impact": "high impact"
+            },
+            {
+                "phaseID": 3,
+                "name": "Concept",
+                "startDate": "2019-12-06T08:00:00.000Z",
+                "endDate": "2019-12-21T08:00:00.000Z",
+                "isRecordDone": true,
+                "predictedDurationInWeeks": 20,
+                "actualDurationInWeeks": 25,
+                "impact": "high impact"
+            },
+            {
+                "phaseID": 4,
+                "name": "Detailed Design",
+                "startDate": "2019-12-22T08:00:00.000Z",
+                "endDate": "2020-01-10T08:00:00.000Z",
+                "isRecordDone": true,
+                "predictedDurationInWeeks": 20,
+                "actualDurationInWeeks": 25,
+                "impact": "high impact"
+            },
+            {
+                "phaseID": 5,
+                "name": "Fabrication",
+                "startDate": "2020-01-10T08:00:00.000Z",
+                "endDate": "2020-01-20T08:00:00.000Z",
+                "isRecordDone": true,
+                "predictedDurationInWeeks": 20,
+                "actualDurationInWeeks": 25,
+                "impact": "high impact"
+            },
+            {
+                "phaseID": 6,
+                "name": "Evaluation/ user study",
+                "startDate": "2020-01-21T08:00:00.000Z",
+                "endDate": "2020-01-31T08:00:00.000Z",
+                "isRecordDone": true,
+                "predictedDurationInWeeks": 20,
+                "actualDurationInWeeks": 25,
+                "impact": "high impact"
+            },
+            {
+                "phaseID": 7,
+                "name": "Reporting",
+                "startDate": "2020-02-01T08:00:00.000Z",
+                "endDate": "2020-02-10T08:00:00.000Z",
+                "isRecordDone": true,
+                "predictedDurationInWeeks": 20,
+                "actualDurationInWeeks": 25,
+                "impact": "high impact"
+            },
+            {
+                "phaseID": 8,
+                "name": "Validation",
+                "startDate": "2020-02-11T08:00:00.000Z",
+                "endDate": "2020-02-15T08:00:00.000Z",
+                "isRecordDone": true,
+                "predictedDurationInWeeks": 20,
+                "actualDurationInWeeks": 25,
+                "impact": "high impact"
+            }
+        ],
+        "workloadArr": [{
+                "empID": 1,
+                "empName": "Peter Ahn",
+                "month1": 0,
+                "month2": 0,
+                "month3": 23,
+                "month4": 31,
+                "month5": 5,
+                "month6": 6
+            },
+            {
+                "empID": 2,
+                "empName": "Reneil Pascua",
+                "month1": 12,
+                "month2": 3,
+                "month3": 0,
+                "month4": 0,
+                "month5": 0,
+                "month6": 0
+            },
+            {
+                "empID": 3,
+                "empName": "Perry Li",
+                "month1": 10,
+                "month2": 9,
+                "month3": 8,
+                "month4": 7,
+                "month5": 6,
+                "month6": 99
+            }
+
+        ],
+        "invoiceArr": [{
+                "amount": 997,
+                "date": "2019-12-02T08:00:00.000Z"
+            },
+            {
+                "amount": 471,
+                "date": "2019-12-12T08:00:00.000Z"
+            },
+            {
+                "amount": 642,
+                "date": "2019-12-22T08:00:00.000Z"
+            }
+        ],
+        "material": [{
+                "phaseID": 1,
+                "phaseName": "consulting",
+                "actualBudget": 200,
+                "projectedBudget": 100,
+                "impact": "over $100"
+            },
+            {
+                "phaseID": 2,
+                "phaseName": "Requirements",
+                "actualBudget": 200,
+                "projectedBudget": 100,
+                "impact": "over $100"
+            },
+            {
+                "phaseID": 3,
+                "phaseName": "Concept",
+                "actualBudget": 200,
+                "projectedBudget": 100,
+                "impact": "over $100"
+            },
+            {
+                "phaseID": 4,
+                "phaseName": "Detailed Design",
+                "actualBudget": 200,
+                "projectedBudget": 100,
+                "impact": "over $100"
+            },
+            {
+                "phaseID": 5,
+                "phaseName": "Fabrication",
+                "actualBudget": 200,
+                "projectedBudget": 100,
+                "impact": "over $100"
+            },
+            {
+                "phaseID": 6,
+                "phaseName": "Evaluation/ user study",
+                "actualBudget": 200,
+                "projectedBudget": 100,
+                "impact": "over $100"
+            },
+            {
+                "phaseID": 7,
+                "phaseName": "Reporting",
+                "actualBudget": 200,
+                "projectedBudget": 100,
+                "impact": "over $100"
+            },
+            {
+                "phaseID": 8,
+                "phaseName": "Validation",
+                "actualBudget": 200,
+                "projectedBudget": 100,
+                "impact": "over $100"
+            }
+        ]
+    },
+    "employees": [{
+            "empID": 1,
+            "name": "Peter Ahn",
+            "wage": 100
+        },
+        {
+            "empID": 2,
+            "name": "Reneil Pascua",
+            "wage": 100
+        },
+        {
+            "empID": 3,
+            "name": "Perry Li",
+            "wage": 100
+        },
+        {
+            "empID": 4,
+            "name": "Luca Hsieh",
+            "wage": 100
+        },
+        {
+            "empID": 5,
+            "name": "Susanna Vinson",
+            "wage": 100
+        },
+        {
+            "empID": 6,
+            "name": "Mali French",
+            "wage": 100
+        },
+        {
+            "empID": 7,
+            "name": "Mayur Watt",
+            "wage": 100
+        },
+        {
+            "empID": 8,
+            "name": "Shauna Pemberton",
+            "wage": 100
+        },
+        {
+            "empID": 9,
+            "name": "Korban Bloggs",
+            "wage": 100
+        },
+        {
+            "empID": 10,
+            "name": "Zacharias Cotton",
+            "wage": 100
+        },
+        {
+            "empID": 11,
+            "name": "Bobbie Chung",
+            "wage": 100
+        },
+        {
+            "empID": 12,
+            "name": "Cally Wooten",
+            "wage": 100
+        },
+        {
+            "empID": 13,
+            "name": "Trent Blanchard",
+            "wage": 100
+        }
+    ],
+    "allWorkloads": [{
+            "projectID": 0,
+            "projectName": "ISSP",
+            "empID": 1,
+            "empName": "Reneil Pascua",
+            "month1": 70,
+            "month2": 35,
+            "month3": 14,
+            "month4": 0,
+            "month5": 0,
+            "month6": 0,
+            "projectCompletion": 80,
+            "projectEndDate": "2019-11-06T04:55:36.730Z"
+        },
+        {
+            "projectID": 0,
+            "projectName": "ISSP",
+            "empID": 2,
+            "empName": "Perry Li",
+            "month1": 98,
+            "month2": 14,
+            "month3": 28,
+            "month4": 0,
+            "month5": 0,
+            "month6": 0,
+            "projectCompletion": 80,
+            "projectEndDate": "2019-11-06T04:55:36.730Z"
+        },
+        {
+            "projectID": 1,
+            "projectName": "Project2",
+            "empID": 1,
+            "empName": "Reneil Pascua",
+            "month1": 70,
+            "month2": 35,
+            "month3": 14,
+            "month4": 0,
+            "month5": 0,
+            "month6": 0,
+            "projectCompletion": 75,
+            "projectEndDate": "2019-11-06T04:55:36.730Z"
+        },
+        {
+            "projectID": 1,
+            "projectName": "Project2",
+            "empID": 2,
+            "empName": "Jaimie Borisoff",
+            "month1": 12,
+            "month2": 21,
+            "month3": 43,
+            "month4": 0,
+            "month5": 0,
+            "month6": 0,
+            "projectCompletion": 75,
+            "projectEndDate": "2019-11-06T04:55:36.730Z"
+        },
+        {
+            "projectID": 1,
+            "projectName": "Project2",
+            "empID": 3,
+            "empName": "Lisa Boulton",
+            "month1": 43,
+            "month2": 21,
+            "month3": 42,
+            "month4": 0,
+            "month5": 0,
+            "month6": 0,
+            "projectCompletion": 75,
+            "projectEndDate": "2019-11-06T04:55:36.730Z"
+        },
+        {
+            "projectID": 1,
+            "projectName": "Project2",
+            "empID": 4,
+            "empName": "Rory Dougall ",
+            "month1": 33,
+            "month2": 22,
+            "month3": 11,
+            "month4": 0,
+            "month5": 0,
+            "month6": 0,
+            "projectCompletion": 75,
+            "projectEndDate": "2019-11-06T04:55:36.730Z"
+        }
+    ],
+    "allVacation": [{ "empID": 1, "empName": "Reneil Pascua", "month1": 70, "month2": 35, "month3": 14, "month4": 0, "month5": 0, "month6": 0 }, { "empID": 2, "empName": "Perry Li", "month1": 98, "month2": 14, "month3": 28, "month4": 0, "month5": 0, "month6": 0 }, { "empID": 3, "empName": "Lisa Boulton", "month1": 70, "month2": 35, "month3": 14, "month4": 0, "month5": 0, "month6": 0 }, { "empID": 4, "empName": "Jaimie Borisoff", "month1": 12, "month2": 21, "month3": 43, "month4": 0, "month5": 0, "month6": 0 }, { "empID": 5, "empName": "Rory Dougall ", "month1": 33, "month2": 22, "month3": 11, "month4": 0, "month5": 0, "month6": 0 }],
+    "allProjects": [{ "projectID": 0, "projectName": "ISSP", "leadName": "Peter Ahn", "startDate": "2019-11-07T06:27:43.386Z", "endDate": "2019-11-07T06:27:43.386Z", "completion": 80, "salaryBudget": 10000, "salaryInvoiced": 8000, "recoredStoredCompleted": 75, "underISO13485": true, "businessCode": "K73.1/8731", "progressSurveySent": true, "progressSurveyRsult": false, "followupSurveySent": false, "followupSurveyResult": false }, { "projectID": 1, "projectName": "Baby Calmer", "leadName": "Gord", "startDate": "2019-11-07T06:27:43.386Z", "endDate": "2019-11-07T06:27:43.386Z", "completion": 75, "salaryBudget": 20000, "salaryInvoiced": 15000, "recoredStoredCompleted": 50, "underISO13485": false, "businessCode": "NA", "progressSurveySent": true, "progressSurveyRsult": true, "followupSurveySent": false, "followupSurveyResult": false }, { "projectID": 2, "projectName": "JB Exercise machine", "leadName": "Johanne", "startDate": "2019-11-07T06:27:43.386Z", "endDate": "2019-11-07T06:27:43.386Z", "completion": 75, "salaryBudget": 20000, "salaryInvoiced": 15000, "recoredStoredCompleted": 50, "underISO13485": false, "businessCode": "DL33.10/3842", "progressSurveySent": true, "progressSurveyRsult": true, "followupSurveySent": false, "followupSurveyResult": false }, { "projectID": 3, "projectName": "project name 1", "leadName": "team lead", "startDate": "2019-11-07T06:27:43.386Z", "endDate": "2019-11-07T06:27:43.386Z", "completion": 0, "salaryBudget": 20000, "salaryInvoiced": 13000, "recoredStoredCompleted": 0, "underISO13485": false, "businessCode": "NA", "progressSurveySent": false, "progressSurveyRsult": false, "followupSurveySent": false, "followupSurveyResult": false }, { "projectID": 4, "projectName": "project name 2", "leadName": "team lead2", "startDate": "2019-11-07T06:27:43.386Z", "endDate": "2019-11-07T06:27:43.386Z", "completion": 0, "salaryBudget": 10000, "salaryInvoiced": 9000, "recoredStoredCompleted": 0, "underISO13485": false, "businessCode": "NA", "progressSurveySent": false, "progressSurveyRsult": false, "followupSurveySent": false, "followupSurveyResult": false }],
+    "allProposals": [{ "projectID": 0, "projectName": "proposal name 1", "leadName": "lead name 1", "salaryBudget": 10000 }, { "projectID": 1, "projectName": "another proposal name 2", "leadName": " another lead name 2", "salaryBudget": 21000 }, { "projectID": 2, "projectName": "proposal name 3", "leadName": "lead name 3", "salaryBudget": 9000 }]
+
+
+}
