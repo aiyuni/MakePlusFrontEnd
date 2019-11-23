@@ -1,0 +1,65 @@
+<h5>{{employeeSalary.empName}}</h5>
+<p-table [value]="employeeSalary.phaseDetailsList" [ngStyle]="{'width':'200px'}">
+    <ng-template pTemplate="header">
+        <tr>
+            <th [ngStyle]="{'width':'1px'}"></th>
+            <th [ngStyle]="{'width':'60px'}">Budget Hours</th>
+            <th [ngStyle]="{'width':'60px'}">Actual Hours</th>
+            <th [ngStyle]="{'width':'60px'}">Budget</th>
+            <th [ngStyle]="{'width':'60px'}">Actual</th>
+            <th>Impact</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-i="rowIndex">
+        <tr>
+            <td [ngStyle]="setPhaseBackgroundColor(i)"></td>
+
+            <td pEditableColumn>
+                <p-cellEditor>
+                    <ng-template pTemplate="input">
+                        <input pInputText type="text" [(ngModel)]="rowData.budgetHr" [disabled]="readMode" (input)="onTextEnterdInField($event)">
+                    </ng-template>
+                    <ng-template pTemplate="output">
+                        {{rowData.budgetHr}}
+                    </ng-template>
+                </p-cellEditor>
+            </td>
+
+
+            <td pEditableColumn>
+                <p-cellEditor>
+                    <ng-template pTemplate="input">
+                        <input pInputText type="text" [(ngModel)]="rowData.actualHr" required [disabled]="readMode" (input)="onTextEnterdInField($event)">
+                    </ng-template>
+                    <ng-template pTemplate="output">
+                        {{rowData.actualHr}}
+                    </ng-template>
+                </p-cellEditor>
+            </td>
+            <td>{{employeeSalary.wage * rowData.budgetHr | currency}}</td>
+            <td>{{employeeSalary.wage * rowData.actualHr | currency}}</td>
+
+
+            <td pEditableColumn>
+                <p-cellEditor>
+                    <ng-template pTemplate="input">
+                        <input pInputText type="text" [(ngModel)]="rowData.impact" required [disabled]="readMode">
+                    </ng-template>
+                    <ng-template pTemplate="output">
+                        {{rowData.impact}}
+                    </ng-template>
+                </p-cellEditor>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <tr>
+            <td [ngClass]="['text-align-left']"></td>
+            <td [ngClass]="['text-align-right']">{{projectTotalSalaryBugetHr }}</td>
+            <td [ngClass]="['text-align-right']">{{projectTotalSalaryActualHr }}</td>
+            <td [ngClass]="['text-align-right']">{{employeeSalary.wage * projectTotalSalaryBugetHr | currency}}</td>
+            <td [ngClass]="['text-align-right']">{{employeeSalary.wage * projectTotalSalaryActualHr | currency}}</td>
+            <td [ngClass]="['text-align-right']">{{employeeSalary.wage *(projectTotalSalaryBugetHr - projectTotalSalaryActualHr) | currency}}</td>
+        </tr>
+    </ng-template>
+</p-table>

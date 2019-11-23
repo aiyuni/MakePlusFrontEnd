@@ -1,0 +1,41 @@
+mat-card {
+    margin: 10px;
+    width: fit-content;
+}
+
+.mat-elevation-z8 {
+    box-shadow: inherit;
+    border: 0px;
+}
+
+p-table {
+    width: fit-content;
+}
+
+p-table tr {
+    /* height: 48px; */
+}
+
+p-table th {
+    background-color: white !important;
+    text-align: left;
+    font-size: 12px;
+    border-width: 0px !important;
+    border-bottom-width: 1px !important;
+}
+
+p-table td {
+    font-size: 12px;
+    border-width: 0px !important;
+    border-bottom-width: 1px !important;
+}
+
+p-table tr {}
+
+p-table td input {
+    font-size: 12px;
+}
+
+.ui-state-highlight {
+    /* background-color: #F9AA33 !important; */
+}

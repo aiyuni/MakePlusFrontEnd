@@ -1,0 +1,30 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav style="background-color: #4a6572;" #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+        <mat-toolbar>
+            <p class="sidebarTextColor">Hi,</p>
+        </mat-toolbar>
+        <mat-divider></mat-divider>
+        <mat-nav-list class="sidebarTextColor">
+            <a mat-list-item [routerLink]="['']" class="sidebarTextColor">Home</a>
+            <mat-divider></mat-divider>
+            <a mat-list-item [routerLink]="['/workloadSummery']" class="sidebarTextColor">Workload Summery</a>
+            <mat-divider></mat-divider>
+            <a mat-list-item [routerLink]="['systemAdmin']" class="sidebarTextColor">Add New Employee</a>
+            <mat-divider></mat-divider>
+            <a mat-list-item [routerLink]="['vacationEntry']" class="sidebarTextColor">Vacation Entry</a>
+        </mat-nav-list>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <mat-toolbar style="background-color: #232f34; color:white;">
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="true">
+                <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+            </button>
+            <span>MAKE+</span>
+        </mat-toolbar>
+
+        <router-outlet></router-outlet>
+
+    </mat-sidenav-content>
+</mat-sidenav-container>

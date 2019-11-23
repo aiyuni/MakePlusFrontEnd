@@ -1,0 +1,74 @@
+mat-card {
+    margin: 10px;
+    width: fit-content;
+}
+
+.mat-elevation-z8 {
+    box-shadow: inherit;
+    border: 0px;
+}
+
+p-table {
+    width: fit-content;
+}
+
+p-table tr {
+    height: 48px;
+}
+
+p-table th {
+    background-color: white !important;
+    text-align: left;
+    font-size: 14px;
+    border-width: 0px !important;
+    border-bottom-width: 1px !important;
+}
+
+p-table td {
+    font-size: 14px;
+    border-width: 0px !important;
+    border-bottom-width: 1px !important;
+}
+
+p-table tr {
+    background-color: white !important;
+}
+
+p-table td input {
+    font-size: 12px;
+}
+
+.ui-state-highlight {
+    /* background-color: #F9AA33 !important; */
+}
+
+>>>body .ui-widget {
+    font-size: 12px !important;
+}
+
+>>>* {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+>>>body .ui-table .ui-table-caption {
+    background-color: white;
+    border-width: 0px;
+}
+
+>>>.ui-table .ui-paginator-bottom {
+    background-color: white;
+    border-width: 0px;
+}
+
+>>>input {
+    padding: 0.429em;
+    border-radius: 3px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #a6a6a6;
+}
+
+>>>.ui-state-active {
+    background-color: #232f34 !important;
+    color: #ffffff;
+}

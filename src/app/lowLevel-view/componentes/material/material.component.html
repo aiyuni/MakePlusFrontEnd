@@ -1,0 +1,77 @@
+<!-- <p [style.background-color]="true? 'blue' : 'green'"> Hello Color World! </p>
+<p bind-style.color="true? 'blue' : 'green'"> Hello Color World! </p>
+<p style.color="{{true ? 'blue' : 'green'}}"> Hello Color World! </p> -->
+
+<mat-card>
+    <mat-card-title class="cardTitle">Material Tracking</mat-card-title>
+    <p-table [value]="material" [style]="{'width':'400px'}">
+        <ng-template pTemplate="header">
+            <tr>
+                <th [ngStyle]="{'width':'1px'}"></th>
+                <th>Phase Name</th>
+                <th [ngStyle]="{'width':'70px'}">Predicted</th>
+                <th [ngStyle]="{'width':'70px'}">Actual</th>
+                <th [ngStyle]="{'width':'90px'}">Impact</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-i="rowIndex">
+            <tr>
+                <td [ngStyle]="setPhaseBackgroundColor(i)"></td>
+                <td pEditableColumn>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <input pInputText type="text" [(ngModel)]="rowData.phaseName" [disabled]="true">
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{rowData.phaseName}}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+
+
+                <td pEditableColumn>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <input pInputText type="text" [(ngModel)]="rowData.projectedBudget" required [disabled]="readMode" (input)="onTextEnterdInField($event)">
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            ${{rowData.projectedBudget}}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+
+
+                <td pEditableColumn>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <input pInputText type="text" [(ngModel)]="rowData.actualBudget" required [disabled]="readMode" (input)="onTextEnterdInField($event)">
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            ${{rowData.actualBudget}}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+
+
+                <td pEditableColumn>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <input pInputText type="text" [(ngModel)]="rowData.impact" required [disabled]="readMode">
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{rowData.impact}}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="footer">
+            <tr>
+                <td colspan="2" [ngClass]="['text-align-left']">Totals</td>
+                <td [ngClass]="['text-align-right']">{{totalMaterialPredicted | currency}}</td>
+                <td [ngClass]="['text-align-right']">{{totalMaterialActual | currency}}</td>
+                <td [ngClass]="['text-align-right']">{{totalMaterialPredicted - totalMaterialActual | currency}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</mat-card>

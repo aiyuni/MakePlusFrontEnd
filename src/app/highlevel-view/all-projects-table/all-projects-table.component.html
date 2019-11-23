@@ -1,0 +1,100 @@
+<mat-toolbar>
+    <mat-toolbar-row style="background-color: #344955; color: white; text-align: right;">
+        <button mat-stroked-button class="toolBarButton" routerLink="/newProject">New</button>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Projects</mat-card-title>
+    </mat-card-header>
+    <div>
+        <p-table #dt sortField="startDate" [columns]="cols" [value]="allProjects" [paginator]="true" [rows]="40" (onFilter)="printFilteredItems($event)">
+            <ng-template pTemplate="colgroup" let-columns>
+                <colgroup>
+                    <col *ngFor="let col of cols">
+                </colgroup>
+            </ng-template>
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th [ngStyle]="{'width':'170px'}">Project Name</th>
+                    <th [ngStyle]="{'width':'150px'}">Project Lead</th>
+                    <th [ngStyle]="{'width':'90px'}">Start date</th>
+                    <th [ngStyle]="{'width':'90px'}">End date</th>
+                    <th [ngStyle]="{'width':'80px'}">Completion</th>
+                    <th [ngStyle]="{'width':'110px'}">Salary Budget</th>
+                    <th [ngStyle]="{'width':'110px'}">Salary Invoiced</th>
+                    <th [ngStyle]="{'width':'60px'}">Records</th>
+                    <th [ngStyle]="{'width':'80px'}">ISO 13485</th>
+                    <th [ngStyle]="{'width':'100px'}">Business Codes</th>
+                    <th [ngStyle]="">In progress survey sent</th>
+                    <th [ngStyle]="">In progress survey result</th>
+                    <th [ngStyle]="">Follow up survey sent</th>
+                    <th [ngStyle]="">Follow up survey result</th>
+                </tr>
+
+                <tr>
+                    <th *ngFor="let col of columns" [ngSwitch]="col.field">
+                        <input *ngSwitchCase="'projectName'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, 'contains')" [ngStyle]="{'width':'100%'}">
+                        <input *ngSwitchCase="'leadName'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, 'contains')" [ngStyle]="{'width':'100%'}">
+
+
+                        <div *ngSwitchCase="'completion'">
+                            Value > {{yearFilter}}%
+                            <i class="fa fa-close" (click)="yearFilter=null;dt.filter(null, col.field, col.filterMatchMode)" style="cursor:pointer" *ngIf="yearFilter"></i>
+                            <p-slider [style]="{'width':'100%','margin-top':'8px'}" [(ngModel)]="yearFilter" [min]="-1" [max]="101" (onChange)="onYearChange($event, dt)"></p-slider>
+                        </div>
+
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns">
+                <tr [pSelectableRow]="rowData">
+                    <td [ngClass]="['text-align-left']">
+                        <a [routerLink]="['/project', rowData['projectID']]">
+                        {{rowData['projectName']}}</a>
+                    </td>
+                    <td [ngClass]="['text-align-left']">{{rowData['leadName']}}</td>
+                    <td>{{rowData['startDate'] | date:"yyyy/MM/dd"}}</td>
+                    <td>{{rowData['endDate'] | date:"yyyy/MM/dd"}}</td>
+                    <td>{{rowData['completion']}}%</td>
+                    <td [ngClass]="['text-align-right']">{{rowData['salaryBudget'] | currency}}</td>
+                    <td [ngClass]="['text-align-right']">{{rowData['salaryInvoiced'] | currency}}</td>
+                    <td>{{rowData['recoredStoredCompleted']}}%</td>
+                    <td>
+                        <mat-checkbox [checked]="rowData['underISO13485']" [disabled]="true"></mat-checkbox>
+                    </td>
+                    <td>{{rowData['businessCode']}}</td>
+                    <td>
+                        <mat-checkbox [checked]="rowData['progressSurveySent']" [disabled]="true"></mat-checkbox>
+                    </td>
+                    <td>
+                        <mat-checkbox [checked]="rowData['progressSurveyRsult']" [disabled]="true"></mat-checkbox>
+                    </td>
+                    <td>
+                        <mat-checkbox [checked]="rowData['followupSurveySent']" [disabled]="true"></mat-checkbox>
+                    </td>
+                    <td>
+                        <mat-checkbox [checked]="rowData['followupSurveyResult']" [disabled]="true"></mat-checkbox>
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="footer">
+                <tr>
+                    <td colspan="1" [ngClass]="['text-align-left']">Totals</td>
+                    <td colspan="4"></td>
+                    <td [ngClass]="['text-align-right']">{{totalSalaryBuget | currency}}</td>
+                    <td [ngClass]="['text-align-right']">{{totalInvoiced | currency}}</td>
+                    <td colspan="7"></td>
+                    <!-- <td colspan="0"></td> -->
+                </tr>
+                <tr>
+                    <td colspan="1" [ngClass]="['text-align-left']">Balance</td>
+                    <td colspan="5"></td>
+                    <td [ngClass]="['text-align-right']">{{balance | currency}}</td>
+                    <td colspan="6"></td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+
+</mat-card>

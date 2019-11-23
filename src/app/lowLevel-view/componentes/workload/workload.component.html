@@ -1,0 +1,91 @@
+<mat-card>
+    <mat-card-title class="cardTitle">Workload</mat-card-title>
+    <p-table [value]="workloadArr" [style]="{'width':'600px'}">
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width:180px">Name</th>
+                <th>{{months[0]|date:'MMM'}}</th>
+                <th>{{months[1]|date:'MMM'}}</th>
+                <th>{{months[2]|date:'MMM'}}</th>
+                <th>{{months[3]|date:'MMM'}}</th>
+                <th>{{months[4]|date:'MMM'}}</th>
+                <th>{{months[5]|date:'MMM'}}</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData>
+            <tr>
+                <td pEditableColumn>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <input pInputText type="text" [(ngModel)]="rowData.empName" [disabled]="true">
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{rowData.empName}}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+                <td pEditableColumn style="text-align: center;">
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <input pInputText type="text" [(ngModel)]="rowData.month1" required [disabled]="readMode">
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{rowData.month1}}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+                <td pEditableColumn style="text-align: center;">
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <input pInputText type="text" [(ngModel)]="rowData.month2" required [disabled]="readMode">
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{rowData.month2}}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+                <td pEditableColumn style="text-align: center;">
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <input pInputText type="text" [(ngModel)]="rowData.month3" required [disabled]="readMode">
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{rowData.month3}}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+                <td pEditableColumn style="text-align: center;">
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <input pInputText type="text" [(ngModel)]="rowData.month4" required [disabled]="readMode">
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{rowData.month4}}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+                <td pEditableColumn style="text-align: center;">
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <input pInputText type="text" [(ngModel)]="rowData.month5" required [disabled]="readMode">
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{rowData.month5}}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+                <td pEditableColumn style="text-align: center;">
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <input pInputText type="text" [(ngModel)]="rowData.month6" required [disabled]="readMode">
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{rowData.month6}}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+
+            </tr>
+        </ng-template>
+    </p-table>
+</mat-card>

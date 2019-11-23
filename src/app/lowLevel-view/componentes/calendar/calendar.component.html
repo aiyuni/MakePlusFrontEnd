@@ -1,0 +1,8 @@
+<!-- <p-calendar [(ngModel)]="value"></p-calendar> -->
+<p-calendar dateFormat="yyyy/mm/dd" [numberOfMonths]="3" [inline]="true" styleClass="yourClass" selectionMode="multiple" maxDateCount=0>
+    <ng-template pTemplate="date" let-date>
+        <span [ngStyle]="{backgroundColor:hightlighDate(date.day,date.month,date.year),color:colorDate(date.day,date.month,date.year)}" style="border-radius:0%; display: inline-block; width:100%; height: 100%; padding: 5px;">{{date.day}}</span>
+
+
+    </ng-template>
+</p-calendar>

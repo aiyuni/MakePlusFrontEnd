@@ -1,0 +1,145 @@
+<div *ngIf="isDataLoaded">
+    <mat-toolbar>
+        <mat-toolbar-row style="background-color: #344955; color: white; text-align: right;">
+            <button mat-stroked-button class="toolBarButton" routerLink="/project/{{project.ID}}" (click)=" submit(project) ">Submit</button>
+            <a routerLink="">
+                <button mat-stroked-button class="toolBarButtonSecondary ">Cancel</button>
+            </a>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <mat-card>
+
+
+        <mat-horizontal-stepper [linear]="true" #stepper style="width: 100%;">
+            <mat-step>
+                <ng-template matStepLabel>Data Type</ng-template>
+
+                <label class="container">New Project
+                    <input type="radio" name="food" [(ngModel)]="project.isProposal" [value]="false">
+                    <span class="checkmark"></span>
+                  </label>
+
+                <label class="container">New Proposal
+                        <input type="radio" name="food" [(ngModel)]="project.isProposal" [value]="true">
+                        <span class="checkmark"></span>
+                      </label>
+
+                <div>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </mat-step>
+
+            <mat-step>
+                <ng-template matStepLabel>Fill-in General Info</ng-template>
+                <app-overview [project]="project " [readMode]="false " (teamChangedEvent)="getPhaseChangedEvent() "></app-overview>
+                <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button> </div>
+            </mat-step>
+
+            <mat-step>
+                <ng-template matStepLabel>Phases Planning</ng-template>
+                <mat-card>
+                    <mat-card-title class="cardTitle ">Phase</mat-card-title>
+                    <table>
+                        <tr>
+                            <td>
+                                <app-phase [phases]="project.phaseArr " [readMode]="false " [project]="project " (phaseChangedEvent)="getPhaseChangedEvent() "></app-phase>
+                            </td>
+
+                            <td>
+                                <app-calendar [phases]="project.phaseArr "></app-calendar>
+                            </td>
+                        </tr>
+                    </table>
+                </mat-card>
+                <app-phase-tracking [phases]="project.phaseArr " [readMode]="false " [porject]="project " [phaseChangedEventListener]="eventsSubject.asObservable() "></app-phase-tracking>
+
+                <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button> </div>
+            </mat-step>
+
+            <mat-step>
+                <ng-template matStepLabel>Salary Planning</ng-template>
+                <app-salary [employeeSalaryArr]="project.employeeSalaryList " [readMode]="false " [project]="project " [phaseChangedEvent]="eventsSubject.asObservable() "></app-salary>
+                <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button> </div>
+            </mat-step>
+
+            <mat-step>
+                <ng-template matStepLabel>Material Planning</ng-template>
+                <app-material [readMode]="false " [material]="project.material " [project]="project " [phaseChangedEvent]="eventsSubject.asObservable() "></app-material>
+                <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button> </div>
+            </mat-step>
+
+            <mat-step>
+                <ng-template matStepLabel>Done</ng-template>
+                <button mat-stroked-button class="toolBarButton" (click)=" submit(project) ">Submit</button>
+                <a routerLink="">
+                    <button mat-stroked-button class="toolBarButtonSecondary ">Cancel</button>
+                </a>
+                <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                </div>
+            </mat-step>
+        </mat-horizontal-stepper>
+    </mat-card>
+</div>
+
+
+<!-- <div *ngIf="isDataLoaded">
+    <mat-toolbar>
+        <mat-toolbar-row style="background-color: #344955; color: white; text-align: right;">
+            <button mat-stroked-button class="toolBarButton" routerLink="/project/{{project.ID}}" (click)=" submit(project) ">Submit</button>
+            <a routerLink="">
+                <button mat-stroked-button class="toolBarButtonSecondary ">Cancel</button>
+            </a>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+    <app-overview [project]="project " [readMode]="false " (teamChangedEvent)="getPhaseChangedEvent() "></app-overview>
+    <app-workload [workloadArr]="project.workloadArr " [readMode]="false "></app-workload>
+    <mat-card>
+        <mat-card-title class="cardTitle ">Phase</mat-card-title>
+        <table>
+            <tr>
+                <td>
+                    <app-phase [phases]="project.phaseArr " [readMode]="false " [project]="project " (phaseChangedEvent)="getPhaseChangedEvent() "></app-phase>
+                </td>
+
+                <td>
+                    <app-calendar [phases]="project.phaseArr "></app-calendar>
+                </td>
+            </tr>
+        </table>
+    </mat-card>
+
+    <table>
+        <tr>
+            <td>
+                <app-phase-tracking [phases]="project.phaseArr " [readMode]="false " [porject]="project " [phaseChangedEventListener]="eventsSubject.asObservable() "></app-phase-tracking>
+            </td>
+
+            <td>
+                <app-material [readMode]="false " [material]="project.material " [project]="project " [phaseChangedEvent]="eventsSubject.asObservable() "></app-material>
+            </td>
+            <td>
+                <app-invoice [invoices]="project.invoiceArr " [readMode]="false " [project]="project "></app-invoice>
+            </td>
+        </tr>
+    </table>
+
+
+    <table>
+        <tr>
+            <td>
+                <app-salary [employeeSalaryArr]="project.employeeSalaryList " [readMode]="false " [project]="project " [phaseChangedEvent]="eventsSubject.asObservable() "></app-salary>
+
+            </td>
+        </tr>
+    </table>
+</div> -->

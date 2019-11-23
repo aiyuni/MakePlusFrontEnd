@@ -1,0 +1,18 @@
+mat-card {
+    margin: 10px;
+    width: fit-content;
+}
+
+.toolBarButton {
+    color: #344955;
+    border-collapse: white;
+    background-color: #F9AA33;
+    margin: 5px;
+}
+
+.toolBarButtonSecondary {
+    color: white;
+    border-collapse: white;
+    background-color: #4a6572;
+    margin: 5px;
+}

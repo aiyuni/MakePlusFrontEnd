@@ -1,0 +1,47 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Proposals</mat-card-title>
+    </mat-card-header>
+    <div>
+        <p-table #dt [columns]="cols" [value]="allProposals" [paginator]="true" [rows]="40" (onFilter)="printFilteredItems($event)">
+            <ng-template pTemplate="header" let-columns>
+
+                <tr>
+                    <th [ngStyle]="{'width':'200px'}">Proposal Name</th>
+                    <th [ngStyle]="{'width':'150px'}">Project Lead</th>
+                    <th></th>
+                    <th [ngStyle]="{'width':'120px'}">Salary Budget</th>
+                </tr>
+
+                <tr>
+                    <th *ngFor="let col of columns" [ngSwitch]="col.field">
+                        <input *ngSwitchCase="'projectName'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, 'contains')" [ngStyle]="{'width':'100%'}">
+                        <input *ngSwitchCase="'leadName'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, 'contains')" [ngStyle]="{'width':'100%'}">
+
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns">
+                <tr [pSelectableRow]="rowData">
+                    <td [ngClass]="['text-align-left']">
+                        <a [routerLink]="['/project', rowData['projectID']]">
+                        
+                        {{rowData['projectName']}}</a>
+
+                    </td>
+                    <td [ngClass]="['text-align-left']">{{rowData['leadName']}}</td>
+                    <td></td>
+
+                    <td [ngClass]="['text-align-right']">{{rowData['salaryBudget'] | currency}}</td>
+
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="footer">
+                <tr>
+                    <td colspan="3" [ngClass]="['text-align-left']">Totals</td>
+                    <td [ngClass]="['text-align-right']">{{total | currency}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</mat-card>

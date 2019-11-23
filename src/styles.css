@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* overwrite page calendar table width */
+body .ui-datepicker table td > a, body .ui-datepicker table td > span  {
+    padding: 0em;
+  }
+  body .ui-datepicker table td {
+    padding: 0em;
+} body .ui-datepicker {
+    border: 0px solid #a6a6a6;
+}

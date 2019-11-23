@@ -1,0 +1,63 @@
+<mat-card>
+    <mat-card-title class="cardTitle">Invoice</mat-card-title>
+    <p-table [style]="{'width':'280px'}" [columns]="cols" [value]="invoices" selectionMode="single" [(selection)]="selectedInvo" (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="15">
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                    {{col.header}}
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr [pSelectableRow]="rowData">
+                <td *ngFor="let col of columns" style="text-align: center;">
+                    <span *ngIf="col.header=='date'">{{rowData[col.field] | date:"yyyy/MM/dd"}}</span>
+                    <span *ngIf="col.header!='date'">{{rowData[col.field] | currency }}</span>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="footer">
+            <tr>
+                <td style="text-align: right;">Totals</td>
+                <td style="text-align: right;">{{calculateTotal() | currency }}</td>
+            </tr>
+        </ng-template>
+        <!-- <ng-template pTemplate="summary" let-rowData *ngIf="readMode">
+            <div style="text-align:left;">
+                <button mat-raised-button color="primary" (click)="showDialogToAdd()">Add</button>
+                <button type="button" pButton icon="fa fa-plus" (click)="showDialogToAdd()" label="Add"></button>
+            </div>
+        </ng-template> -->
+    </p-table>
+    <button color="primary" (click)="showDialogToAdd()" style="margin: 10px; margin-left: 77%;" *ngIf="!readMode">Add</button>
+
+</mat-card>
+
+
+
+<p-dialog header="Invoice Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" [style]="{width: '300px'}" appendTo="body" *ngIf="!readMode">
+    <div class="ui-g ui-fluid" *ngIf="invo">
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="date">Date</label>
+            </div>
+            <div class="ui-g-8">
+                <input pInputText id="date" [(ngModel)]="invo.date" type="date" placeholder="today" />
+            </div>
+        </div>
+        <div class=" ui-g-12 ">
+            <div class="ui-g-4 ">
+                <label for="amount ">Amount</label>
+            </div>
+            <div class="ui-g-8 ">
+                <input pInputText id="amount " [(ngModel)]="invo.amount " type="number" />
+            </div>
+        </div>
+    </div>
+    <p-footer>
+        <div class="ui-dialog-buttonpane ui-helper-clearfix ">
+            <button type="button " pButton icon="fa fa-close " (click)="delete() " label="Delete "></button>
+            <button type="button " pButton icon="fa fa-check " (click)="save() " label="Save "></button>
+        </div>
+    </p-footer>
+</p-dialog>

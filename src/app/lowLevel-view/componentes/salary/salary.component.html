@@ -1,0 +1,10 @@
+<mat-card>
+    <mat-card-title class="cardTitle">Salary Tracking</mat-card-title>
+    <table>
+        <tr>
+            <td *ngFor="let emp of employeeSalaryArr">
+                <app-salary-individual [readMode]="readMode" [employeeSalary]="emp" [project]="project" [phaseChangeListener]="eventsSubject.asObservable()"></app-salary-individual>
+            </td>
+        </tr>
+    </table>
+</mat-card>

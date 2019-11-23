@@ -1,0 +1,51 @@
+<div *ngIf="isDataLoaded">
+    <mat-toolbar>
+        <mat-toolbar-row style="background-color: #344955; color: white; text-align: right;">
+            <a routerLink="/project/edit/{{project.ID}}">
+                <button mat-stroked-button class="toolBarButton">Modify</button>
+            </a>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+    <app-overview [project]="project" [readMode]="true" (teamChangedEvent)="getPhaseChangedEvent()"></app-overview>
+    <app-workload [workloadArr]="project.workloadArr" [readMode]="true"></app-workload>
+    <mat-card>
+        <mat-card-title class="cardTitle">Phase</mat-card-title>
+        <table>
+            <tr>
+                <td>
+                    <app-phase [phases]="project.phaseArr" [readMode]="true" [project]="project" (phaseChangedEvent)="getPhaseChangedEvent()"></app-phase>
+                </td>
+
+                <td>
+                    <app-calendar [phases]="project.phaseArr"></app-calendar>
+                </td>
+            </tr>
+        </table>
+    </mat-card>
+
+    <table>
+        <tr>
+            <td>
+                <app-phase-tracking [phases]="project.phaseArr" [readMode]="true" [porject]="project" [phaseChangedEventListener]="eventsSubject.asObservable()"></app-phase-tracking>
+            </td>
+
+            <td>
+                <app-material [readMode]="true" [material]="project.material" [project]="project" [phaseChangedEvent]="eventsSubject.asObservable()"></app-material>
+            </td>
+            <td>
+                <app-invoice [invoices]="project.invoiceArr" [readMode]="true" [project]="project"></app-invoice>
+            </td>
+        </tr>
+    </table>
+
+
+    <table>
+        <tr>
+            <td>
+                <app-salary [employeeSalaryArr]="project.employeeSalaryList" [readMode]="true" [project]="project" [phaseChangedEvent]="eventsSubject.asObservable()"></app-salary>
+
+            </td>
+        </tr>
+    </table>
+</div>

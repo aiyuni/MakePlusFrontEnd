@@ -1,0 +1,80 @@
+<p-table [style]="{'width':'450px'}" [columns]="cols" [value]="phases" selectionMode="single" [(selection)]="selectedPhase" (onRowSelect)="onRowSelect($event)" [paginator]="false" [rows]="15">
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th [ngStyle]="{'width':'1px'}"></th>
+            <th>Name</th>
+            <th [ngStyle]="{'width':'110px'}">Start Date</th>
+            <th [ngStyle]="{'width': '110px'}">End Date</th>
+            <th [ngStyle]="{'width':'60px'}">Record</th>
+
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns" let-i="rowIndex">
+        <tr [pSelectableRow]="rowData">
+            <td [ngStyle]="setPhaseBackgroundColor(i)"></td>
+            <td> {{rowData['name'] }}</td>
+            <td>{{rowData['startDate'] | date:"yyyy/MM/dd" }}</td>
+            <td>{{rowData['endDate'] | date:"yyyy/MM/dd" }}</td>
+            <td [ngStyle]="{'text-align':'center'}">
+                <mat-checkbox [checked]="rowData.recordDone" [disabled]="true"></mat-checkbox>
+            </td>
+            <!-- <td></td>
+                <td *ngFor="let col of columns">
+                    <span *ngIf="col.header=='Name'" style="width: 100%;display: inline-block;">{{rowData[col.field] }}</span>
+                    <span *ngIf="col.header=='Start Date'">{{rowData[col.field] | date:"yyyy/MM/dd"}}</span>
+                    <span *ngIf="col.header=='End Date'">{{rowData[col.field] | date:"yyyy/MM/dd"}}</span>
+                    <span *ngIf="col.header=='Record'"><mat-checkbox [checked]="rowData.recordDone" [disabled]="true"></mat-checkbox></span>
+
+                </td> -->
+        </tr>
+    </ng-template>
+
+</p-table>
+<button color="primary" (click)="showDialogToAdd()" style="margin: 10px;" *ngIf="!readMode">Add</button>
+
+
+
+
+<p-dialog *ngIf="!readMode" header="Invoice Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" [style]="{width: '300px'}" appendTo="body">
+    <div class="ui-g ui-fluid" *ngIf="phase">
+        <div class=" ui-g-12 ">
+            <div class="ui-g-4 ">
+                <label for="name ">Name</label>
+            </div>
+            <div class="ui-g-8 ">
+                <input pInputText id="name " [(ngModel)]="phase.name " type="text" />
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="startDate">Start Date</label>
+            </div>
+            <div class="ui-g-8">
+                <input pInputText id="startDate" [(ngModel)]="phase.startDate" type="date" />
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="endDate">End Date</label>
+            </div>
+            <div class="ui-g-8">
+                <input pInputText id="endDate" [(ngModel)]="phase.endDate" type="date" />
+            </div>
+        </div>
+        <div class=" ui-g-12 ">
+            <div class="ui-g-4 ">
+                <label for="record ">Record</label>
+            </div>
+            <div class="ui-g-8 ">
+                <input pInputText id="record " [(ngModel)]="phase.isRecordDone " type="checkbox" />
+            </div>
+        </div>
+
+    </div>
+    <p-footer>
+        <div class="ui-dialog-buttonpane ui-helper-clearfix ">
+            <button type="button " pButton icon="fa fa-close " (click)="delete() " label="Delete "></button>
+            <button type="button " pButton icon="fa fa-check " (click)="save() " label="Save "></button>
+        </div>
+    </p-footer>
+</p-dialog>
