@@ -16,16 +16,8 @@
             <td>{{rowData['startDate'] | date:"yyyy/MM/dd" }}</td>
             <td>{{rowData['endDate'] | date:"yyyy/MM/dd" }}</td>
             <td [ngStyle]="{'text-align':'center'}">
-                <mat-checkbox [checked]="rowData.recordDone" [disabled]="true"></mat-checkbox>
+                <mat-checkbox [checked]="rowData.isRecordDone" [disabled]="true"></mat-checkbox>
             </td>
-            <!-- <td></td>
-                <td *ngFor="let col of columns">
-                    <span *ngIf="col.header=='Name'" style="width: 100%;display: inline-block;">{{rowData[col.field] }}</span>
-                    <span *ngIf="col.header=='Start Date'">{{rowData[col.field] | date:"yyyy/MM/dd"}}</span>
-                    <span *ngIf="col.header=='End Date'">{{rowData[col.field] | date:"yyyy/MM/dd"}}</span>
-                    <span *ngIf="col.header=='Record'"><mat-checkbox [checked]="rowData.recordDone" [disabled]="true"></mat-checkbox></span>
-
-                </td> -->
         </tr>
     </ng-template>
 

@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { MessageService } from './message.service';
 import { Employee } from '../classes/employee';
+import { frontEndTestMode } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,8 @@ import { Employee } from '../classes/employee';
 export class EmployeeListService {
 
   /** Test api call by using local sampleJson.json */
-  private url = 'http://localhost:3000/employees';
+  private url;
+   
 
   httpOptions = {
     headers: new HttpHeaders({ 
@@ -24,10 +26,14 @@ export class EmployeeListService {
   constructor(
     private http: HttpClient,
     private messageService: MessageService
-  ) { }
+  ) { 
+    this.url = 'https://localhost:44307/api/employeepage';    // .net api calls
+    if(frontEndTestMode)
+      this.url = 'http://localhost:3000/employees';             // myJJSONfile fake api calls. 
+  }
 
   getAllEmployees(): Observable<Employee[]> {
-    return this.http.get<Employee[]>("https://localhost:44307/api/employeepage").pipe(
+    return this.http.get<Employee[]>(this.url).pipe(
       tap(_ => this.log(`fetched project id`)),
       catchError(this.handleError<Employee[]>(`getProject id`))
     );
@@ -37,30 +43,13 @@ export class EmployeeListService {
   postEmployee (employee: Employee): Observable<Employee> {
     console.log("POST Sucessful");
     console.log(JSON.stringify(employee));
-    return this.http.post<Employee>("https://localhost:44307/api/employeepage", employee, this.httpOptions)
+    return this.http.post<Employee>(this.url, employee, this.httpOptions)
   .pipe(
     catchError(this.handleError('postProject', employee))
   );
 }
 
-  // private createDummyEmployees() {
-  //   return [
-  //     new Employee(1, "Peter Ahn",100),
-  //     new Employee(2, "Reneil Pascua",100), 
-  //     new Employee(3, "Perry Li",100),
-  //     new Employee(4, "Luca Hsieh",100),
-  //     new Employee(5, "Susanna Vinson",100),
-  //     new Employee(6, "Mali French",100),
-  //     new Employee(7, "Mayur Watt",100),
-  //     new Employee(8, "Shauna Pemberton",100),
-  //     new Employee(9, "Korban Bloggs",100),
-  //     new Employee(10, "Zacharias Cotton",100),
-  //     new Employee(11, "Bobbie Chung",100),
-  //     new Employee(12, "Cally Wooten",100),
-  //     new Employee(13, "Trent Blanchard",100),
-  //   ];
-
-  /**
+/**
 * Handle Http operation that failed.
 * Let the app continue.
 * @param operation - name of the operation that failed

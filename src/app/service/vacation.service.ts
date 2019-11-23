@@ -4,6 +4,7 @@ import { MessageService } from './message.service';
 import { VacationPageItem } from '../classes/vacationPageItem';
 import { Observable, of } from 'rxjs';
 import { tap, catchError, map } from 'rxjs/operators';
+import { frontEndTestMode } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,37 +12,35 @@ import { tap, catchError, map } from 'rxjs/operators';
 export class VacationService {
 
   /** Test api call by using local sampleJson.json */
-  private url = 'http://localhost:3000/allVacation';
+  private url ;
 
   constructor(
     private http: HttpClient,
     private messageService: MessageService
-  ) { }
+  ) { 
+    this.url = 'https://localhost:44307/api/vacationpage';   // TODO: Perry's url goes here.
+    if(frontEndTestMode)
+      this.url = 'http://localhost:3000/allVacation';
+  }
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
   getVacationArr(): Observable<VacationPageItem[]> {
-    return this.http.get<VacationPageItem[]>('https://localhost:44307/api/vacationpage').pipe(
+    return this.http.get<VacationPageItem[]>(this.url).pipe(
       tap(_ => this.log(`fetched all workloads`)),
       catchError(this.handleError<VacationPageItem[]>(`fetched all workloads failed`))
     );
-    // return of(this.createDummyVacationPageData());
+  };
 
-    };
-
-
-//  private createDummyVacationPageData(): VacationPageItem[] {
-//     let workVacationArr = [
-//       new VacationPageItem(1, "Reneil Pascua", 70, 35, 14, 0, 0, 0),
-//       new VacationPageItem(2, "Perry Li", 98, 14, 28, 0, 0, 0),
-//       new VacationPageItem(3, "Lisa Boulton", 70, 35, 14, 0, 0, 0),
-//       new VacationPageItem(4, "Jaimie Borisoff", 12, 21, 43, 0, 0, 0),
-//       new VacationPageItem(5, "Rory Dougall ", 33, 22, 11, 0, 0, 0),
-//        ];
-//     return workVacationArr;
-//   }
+  /** POST: add a new Project to the database */
+  postVacationArr (vactions: VacationPageItem[]): Observable<VacationPageItem[]> {
+    return this.http.post<VacationPageItem[]>(this.url, vactions, this.httpOptions)
+    .pipe(
+      catchError(this.handleError('postProject', vactions))
+    );
+  }
 
 
   /**
