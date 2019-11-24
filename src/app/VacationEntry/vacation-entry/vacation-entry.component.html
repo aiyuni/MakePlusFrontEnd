@@ -1,3 +1,11 @@
+<mat-toolbar>
+    <mat-toolbar-row style="background-color: #344955; color: white; text-align: right;">
+        <button mat-stroked-button class="toolBarButton" routerLink="" (click)="submit()">Submit</button>
+        <a routerLink="/workloadSummery">
+            <button mat-stroked-button class="toolBarButtonSecondary ">Cancel</button>
+        </a>
+    </mat-toolbar-row>
+</mat-toolbar>
 <mat-card>
     <mat-card-title>Vacation</mat-card-title>
     <p-table [value]="vacationArr" [style]="{'min-width':'600px'}">

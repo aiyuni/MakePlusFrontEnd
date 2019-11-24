@@ -12,7 +12,7 @@ import { frontEndTestMode } from 'src/environments/environment';
 })
 export class ProjectService {
 
-    emptyJSON = `{"employeeSalaryList":[],"ID":1,"Name":"","desc":"","salaryBudget":0,"totalInvoice":0,"materialBudget":0,"spendToDate":0,"startDate":null,"endDate":null,"completion":null,"businessCode":"NA","costMultiplier":null,"isProposal":false,"isUnderISO13485":false,"recoredStoredCompleted":null,"progressSurveyRsult":false,"progressSurveySent":false,"followupSurveySent":false,"followupSurveyResult":false,"lead":[],"member":[],"phaseArr":[],"workloadArr":[],"invoiceArr":[],"material":[]}`;
+    emptyJSON = `{"employeeSalaryList":[],"ID":1,"Name":"","desc":"","salaryBudget":0,"totalInvoice":0,"materialBudget":0,"spendToDate":0,"startDate":null,"endDate":null,"completion":0,"businessCode":"NA","costMultiplier":1,"isProposal":false,"isUnderISO13485":false,"recoredStoredCompleted":0,"progressSurveyRsult":false,"progressSurveySent":false,"followupSurveySent":false,"followupSurveyResult":false,"lead":[],"member":[],"phaseArr":[],"workloadArr":[],"invoiceArr":[],"material":[]}`;
     private projectUrl = 'api/project';  // URL to web api
     
     /** Test api call by using local sampleJson.json */

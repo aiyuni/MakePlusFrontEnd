@@ -3,6 +3,7 @@ import { EmployeeListService } from 'src/app/service/employee-list.service';
 import { Employee } from 'src/app/classes/employee';
 import { VacationPageItem } from 'src/app/classes/vacationPageItem';
 import { VacationService } from 'src/app/service/vacation.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vacation-entry',
@@ -16,6 +17,7 @@ export class VacationEntryComponent implements OnInit {
 
   constructor(
     private vacationService: VacationService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -45,4 +47,11 @@ export class VacationEntryComponent implements OnInit {
       });
   }
 
+  submit() {
+    this.vacationService.postVacationArr(this.vacationArr).subscribe(     
+      response=> {
+        console.log("response is: " + response);
+        this.router.navigate(['/workloadSummery']);
+      });
+  }
 }

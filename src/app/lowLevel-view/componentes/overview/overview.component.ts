@@ -7,6 +7,7 @@ import { WorkloadItem } from 'src/app/classes/workloadItem';
 import { EmployeeSalary } from 'src/app/classes/employeeSalary';
 import { PhaseDetail } from 'src/app/classes/phaseDetail';
 import { BusinessCodeService } from 'src/app/service/business-code.service';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 // import { BusinessCodeService } from 'src/app/service/business-Code.service';
 
 @Component({
@@ -39,7 +40,6 @@ export class OverviewComponent implements OnInit {
     this.getAllEmployees();
     this.getBusinessCodes();
   }
-
 
 
   private initTeamMembersOptions(): void {
@@ -191,14 +191,6 @@ export class OverviewComponent implements OnInit {
       });
   }
   getBusinessCodes(): void {
-  //   this.businessCodeService.getBusinessCodes()
-  //     .subscribe(res => {
-  //       this.businessCodeOptions = res;
-  //       console.log("business codes api get response");
-  //       console.log(JSON.stringify(this.businessCodeOptions));
-  //       this.initTeamMembersOptions();
-  //     });
-
   this.businessCodeOptions = [
     'NA',
     'K73.1/8731',
@@ -209,6 +201,31 @@ export class OverviewComponent implements OnInit {
     'DL3310/3845'
   ];
   }
+
+  // From Controler
+  recoredStoredFC = new FormControl('', [Validators.required, Validators.max(100), Validators.min(0)]);    
+  getRecoredStoredErrorMessage() {
+    return this.recoredStoredFC.hasError('required') ? 'You must enter a value' :
+        this.recoredStoredFC.hasError('max') ? 'Maximun is 100' :
+        this.recoredStoredFC.hasError('min') ? 'Minimun is 0' :
+          '';
+  }
+  completionFC = new FormControl('', [Validators.required, Validators.max(100), Validators.min(0)]);    
+  getCompletionErrorMessage() {
+    return this.completionFC.hasError('required') ? 'You must enter a value' :
+        this.completionFC.hasError('max') ? 'Maximun is 100' :
+        this.completionFC.hasError('min') ? 'Minimun is 0' :
+          '';
+  }
+  costMultiplierFC = new FormControl('', [Validators.required, Validators.max(10), Validators.min(0)]);    
+  getCostMultiplierErrorMessage() {
+    return this.costMultiplierFC.hasError('required') ? 'You must enter a value' :
+        this.costMultiplierFC.hasError('max') ? 'Maximun is 10' :
+        this.costMultiplierFC.hasError('min') ? 'Minimun is 0' :
+          '';
+  }
+
+
 }
 
 export interface BusinessCode {

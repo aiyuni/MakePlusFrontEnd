@@ -39,7 +39,8 @@
                         <!-- Cost Multiplier -->
                         <th>
                             <mat-form-field class="" style="width: 90px;">
-                                <input matInput placeholder="Cost Multiplier" [(ngModel)]="project.costMultiplier" [disabled]="readMode" type="number" class=" readOnly-Text textCenter">
+                                <input matInput placeholder="Cost Multiplier" [(ngModel)]="project.costMultiplier" [formControl]="costMultiplierFC" [disabled]="readMode" type="number" class=" readOnly-Text textCenter">
+                                <mat-error *ngIf="costMultiplierFC.invalid">{{getCostMultiplierErrorMessage()}}</mat-error>
                                 <span matSuffix></span>
                             </mat-form-field>
                         </th>
@@ -51,15 +52,17 @@
                         <!-- Completed -->
                         <th>
                             <mat-form-field class="" style="width: 90px;">
-                                <input matInput placeholder="Completed" [(ngModel)]="project.completion" [disabled]="readMode" type="number" class=" readOnly-Text textCenter">
+                                <input matInput placeholder="Completed" [formControl]="completionFC" [(ngModel)]="project.completion" [disabled]="readMode" type="number" class=" readOnly-Text textCenter">
                                 <span matSuffix>%</span>
+                                <mat-error *ngIf="completionFC.invalid">{{getCompletionErrorMessage()}}</mat-error>
                             </mat-form-field>
                         </th>
                         <!-- Records Stored Completed -->
                         <th>
                             <mat-form-field class="" style="width: 150px;">
-                                <input matInput placeholder="Records Stored Completed" [(ngModel)]="project.recoredStoredCompleted" type="number" [disabled]="readMode" class="textCenter readOnly-Text">
+                                <input matInput placeholder="Records Stored Completed" [formControl]="recoredStoredFC" [(ngModel)]="project.recoredStoredCompleted" type="number" [disabled]="readMode" class="textCenter readOnly-Text">
                                 <span matSuffix>%</span>
+                                <mat-error *ngIf="recoredStoredFC.invalid">{{getRecoredStoredErrorMessage()}}</mat-error>
                             </mat-form-field>
                         </th>
                         <!-- Business Code -->

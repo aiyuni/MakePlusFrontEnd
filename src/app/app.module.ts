@@ -27,7 +27,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { PickListModule } from 'primeng/picklist';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { DialogModule } from 'primeng/dialog';
-import { FormsModule } from '@angular/forms';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
@@ -65,6 +64,7 @@ import { VacationEntryComponent } from './VacationEntry/vacation-entry/vacation-
 import { SystemAdminComponent } from './SystemAdmin/system-admin/system-admin.component';
 import { VacationTableComponent } from './midLevel-view/component/vacation-table/vacation-table.component';
 import { NewProjectComponent } from './new-project/new-project.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -118,6 +118,7 @@ import { NewProjectComponent } from './new-project/new-project.component';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    ReactiveFormsModule,
     CheckboxModule,MatTabsModule,MatButtonToggleModule,MatStepperModule,MatRadioModule,
     PickListModule, MultiSelectModule, DialogModule,SliderModule
 

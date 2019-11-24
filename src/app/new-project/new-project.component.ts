@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProjectService } from '../service/project.service';
 import { Project } from '../classes/project';
@@ -25,7 +25,7 @@ export class NewProjectComponent implements OnInit {
   constructor(
     private projectService: ProjectService,
     private router: Router
-  ) { }
+  ) {   }
 
   ngOnInit() {
     this.project = new Project(null);
