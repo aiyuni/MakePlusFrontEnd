@@ -6,6 +6,9 @@ import { Project } from 'src/app/classes/project';
 import { PhaseDetail } from 'src/app/classes/phaseDetail';
 import { ProjectService } from 'src/app/service/project.service';
 import { ActivatedRoute } from '@angular/router';
+import { FormGroup, FormControl } from '@angular/forms';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-phase',
@@ -17,7 +20,11 @@ export class PhaseComponent implements OnInit {
   @Input() phases: PhaseItem[];
   @Input() readMode: boolean;
   @Input() project: Project;
+  @Input() formGroup:FormGroup;
   @Output() phaseChangedEvent= new EventEmitter<any>();
+
+  startTempDateCtr = new FormControl(new Date());
+  endTempDateCtr = new FormControl(new Date());
 
 
   displayedColumns: string[] = ['Name', 'Start Date', 'End Date', 'Records'];
@@ -31,6 +38,7 @@ export class PhaseComponent implements OnInit {
   constructor(  
     private route: ActivatedRoute,
     private projectService: ProjectService,
+    private _snackBar: MatSnackBar
     ) { }
 
   ngOnInit() {
@@ -47,11 +55,15 @@ export class PhaseComponent implements OnInit {
   }
 
   save() {
-    let startDate = new Date();
-    this.phase.startDate = this.parsDateFromStrToDate(this.phase.startDate.toString());
-    this.phase.endDate = this.parsDateFromStrToDate(this.phase.endDate.toString());
+    if(this.startTempDateCtr.status=="INVALID" || this.endTempDateCtr.status=="INVALID"){
+      console.log(this.startTempDateCtr);
+      console.log(this.endTempDateCtr);
+      this.openSnackBar('Invalidated dates','',2000);
+      return;
+    }
+    this.phase.startDate = this.startTempDateCtr.value.toISOString();
+    this.phase.endDate = this.endTempDateCtr.value.toISOString();
     if (this.newPhase) {
-
       this.projectService.getNextPhaseID()
       .subscribe(p => {
       var phaseID = p;
@@ -136,6 +148,8 @@ export class PhaseComponent implements OnInit {
     this.newPhase = true;
     this.phase = new PhaseItem(1, "", new Date(), new Date(),0,0,""); //TODO: The ID should be fixed
     this.displayDialog = true;
+    this.startTempDateCtr = new FormControl(new Date());
+    this.endTempDateCtr = new FormControl(new Date());
   }
 
   setPhaseBackgroundColor(i) {
@@ -155,6 +169,13 @@ export class PhaseComponent implements OnInit {
       'height': '12px',
     };
     return styles;
+  }
+
+
+  openSnackBar(message: string, action: string, duration:number) {
+    this._snackBar.open(message, action, {
+      duration: duration,
+    });
   }
 
 }

@@ -67,3 +67,19 @@ p-table td input {
     background-color: #F9AA33;
     color: #344955;
 }
+
+>>>.cdk-overlay-pane {
+    z-index: 2015;
+}
+
+>>>.cdk-overlay-backdrop {
+    z-index: 2011;
+}
+
+>>>.cdk-overlay-connected-position-bounding-box {
+    z-index: 2011;
+}
+
+>>>.cdk-overlay-container {
+    z-index: 2010;
+}
