@@ -62,7 +62,7 @@ export class PhaseComponent implements OnInit {
       return;
     }
     this.phase.startDate = this.startTempDateCtr.value.toISOString();
-    this.phase.endDate = this.endTempDateCtr.value.toISOString();
+    this.phase.endDate = this.endTempDateCtr.value.toString();
     if (this.newPhase) {
       this.projectService.getNextPhaseID()
       .subscribe(p => {
@@ -82,8 +82,9 @@ export class PhaseComponent implements OnInit {
 
   private addToSalaryTable(id:number) {
     var phaseName = this.phase.name;
-    let temp = new PhaseDetail(id, phaseName, 0, 0, "");
+    // let temp = new PhaseDetail(id, phaseName, 0, 0, "");
     for(var i = 0; i < this.project.employeeSalaryList.length;i++){
+      let temp = new PhaseDetail(id, phaseName, 0, 0, "");
       this.project.employeeSalaryList[i].phaseDetailsList.push(temp);
     }
   }
