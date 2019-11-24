@@ -165,12 +165,13 @@
         <!-- bottom row:teamLead -->
         <tr>
             <td colspan=2>
+                <!-- Team Leads -->
                 <mat-form-field class="full-width" floatLabel="always">
                     <mat-label>Team Lead</mat-label>
                     <table class="full-width">
                         <tr>
                             <td *ngIf="!readMode" style="width:160px;">
-                                <p-multiSelect [options]="allEmployeeItems" [(ngModel)]="teamLeadSelected" [panelStyle]="{minWidth:'12em'}" [filter]="true" (onChange)="teamLeadSelectionChanged($event.itemValue)" [showToggleAll]="false"></p-multiSelect>
+                                <p-multiSelect [options]="allEmployeeItems" [selectionLimit]="1" [(ngModel)]="teamLeadSelected" [panelStyle]="{minWidth:'12em'}" [filter]="true" (onChange)="teamLeadSelectionChanged($event.itemValue)" [showToggleAll]="false"></p-multiSelect>
                             </td>
                             <td>
                                 <input matInput placeholder="Select Team Lead" value="{{teamLeadSelected}}" [disabled]="true" class=" readOnly-Text">
@@ -179,6 +180,7 @@
                     </table>
                 </mat-form-field><br>
 
+                <!-- Team Members -->
                 <mat-form-field class="full-width" floatLabel="always">
                     <mat-label>Team Members</mat-label>
                     <table class="full-width">
