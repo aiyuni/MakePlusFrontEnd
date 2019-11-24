@@ -20,6 +20,7 @@ export class OverviewComponent implements OnInit {
 
   @Input() project: Project;
   @Input() readMode: boolean;
+  @Input() newProjectMode:boolean;
   @Input() spendtToDate: number;
   @Output() teamChangedEvent= new EventEmitter<any>();
 
@@ -34,6 +35,7 @@ export class OverviewComponent implements OnInit {
     private businessCodeService: BusinessCodeService,
   ) {
     this.allEmployeeItems = [];
+    this.newProjectMode = false;
   }
 
   ngOnInit() {

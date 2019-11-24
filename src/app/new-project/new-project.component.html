@@ -32,7 +32,7 @@
 
             <mat-step>
                 <ng-template matStepLabel>Fill-in General Info</ng-template>
-                <app-overview [project]="project " [readMode]="false " (teamChangedEvent)="getPhaseChangedEvent() "></app-overview>
+                <app-overview [project]="project " [readMode]="false " (teamChangedEvent)="getPhaseChangedEvent()" [newProjectMode]="true"></app-overview>
                 <div>
                     <button mat-button matStepperPrevious>Back</button>
                     <button mat-button matStepperNext>Next</button> </div>
