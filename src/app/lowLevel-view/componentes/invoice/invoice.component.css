@@ -39,3 +39,12 @@ p-table td input {
 .ui-state-highlight {
     /* background-color: #F9AA33 !important; */
 }
+
+>>>body .ui-paginator {
+    background-color: inherit;
+    border: 0px;
+}
+
+>>>body .ui-paginator .ui-paginator-pages .ui-paginator-page.ui-state-active {
+    background-color: #232f35;
+}

@@ -16,3 +16,11 @@ mat-card {
     background-color: #4a6572;
     margin: 5px;
 }
+
+::ng-deep snack-bar-container.custom-class {
+    background: #344955;
+}
+
+ ::ng-deep .custom-class .mat-simple-snackbar {
+    color: #F9AA33;
+}

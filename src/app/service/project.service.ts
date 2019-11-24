@@ -65,6 +65,9 @@ export class ProjectService {
 
     /** POST: add a new Project to the database */
     postProject (project: Project): Observable<Project> {
+        let url = this.url;
+        if(!frontEndTestMode)
+            url = 'http://localhost:3000/singleProjectPost';
         return this.http.post<Project>(this.url, project, this.httpOptions)
       .pipe(
         catchError(this.handleError('postProject', project))

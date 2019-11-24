@@ -1,31 +1,183 @@
 {
   "singleProject": {
-    "employeeSalaryList": [],
-    "ID": 2,
-    "Name": "ewf",
-    "desc": "wefew",
+    "employeeSalaryList": [
+      {
+        "phaseDetailsList": [
+          {
+            "phaseID": 1,
+            "phaseName": "consulting",
+            "budgetHr": 0,
+            "actualHr": 0,
+            "impact": ""
+          },
+          {
+            "phaseID": 2,
+            "phaseName": "Requirements",
+            "budgetHr": 0,
+            "actualHr": 0,
+            "impact": ""
+          },
+          {
+            "phaseID": 3,
+            "phaseName": "Concept",
+            "budgetHr": 0,
+            "actualHr": 0,
+            "impact": ""
+          },
+          {
+            "phaseID": 4,
+            "phaseName": "Detailed Design",
+            "budgetHr": 0,
+            "actualHr": 0,
+            "impact": ""
+          }
+        ],
+        "empID": 3,
+        "empName": "Perry Li",
+        "wage": 200
+      }
+    ],
+    "ID": 1,
+    "Name": "PETER Ahn",
+    "desc": "I love JSF",
     "salaryBudget": 0,
-    "totalInvoice": 0,
-    "materialBudget": 0,
-    "spendToDate": 0,
-    "startDate": null,
-    "endDate": null,
-    "completion": 0,
+    "totalInvoice": 2110,
+    "materialBudget": 400,
+    "spendToDate": 800,
+    "startDate": "2019-12-26T08:00:00.000Z",
+    "endDate": "2019-12-31T08:00:00.000Z",
+    "completion": 43,
     "businessCode": "NA",
-    "costMultiplier": 1,
+    "costMultiplier": 1.75,
     "isProposal": false,
     "isUnderISO13485": false,
-    "recoredStoredCompleted": 0,
-    "progressSurveyRsult": false,
-    "progressSurveySent": false,
-    "followupSurveySent": false,
+    "recoredStoredCompleted": 99,
+    "progressSurveyRsult": true,
+    "progressSurveySent": true,
+    "followupSurveySent": true,
     "followupSurveyResult": false,
-    "lead": [],
-    "member": [],
-    "phaseArr": [],
-    "workloadArr": [],
-    "invoiceArr": [],
-    "material": []
+    "lead": [
+      {
+        "empID": 1,
+        "name": "Peter Ahn",
+        "wage": 100
+      }
+    ],
+    "member": [
+      {
+        "empID": 3,
+        "name": "Perry Li",
+        "wage": 200
+      }
+    ],
+    "phaseArr": [
+      {
+        "phaseID": 1,
+        "name": "consulting",
+        "startDate": "2019-11-16T08:00:00.000Z",
+        "endDate": "2019-11-30T08:00:00.000Z",
+        "isRecordDone": true,
+        "predictedDurationInWeeks": 20,
+        "actualDurationInWeeks": 25,
+        "impact": "high impact"
+      },
+      {
+        "phaseID": 2,
+        "name": "Requirements",
+        "startDate": "2019-12-01T08:00:00.000Z",
+        "endDate": "2019-12-05T08:00:00.000Z",
+        "isRecordDone": true,
+        "predictedDurationInWeeks": 20,
+        "actualDurationInWeeks": 25,
+        "impact": "high impact"
+      },
+      {
+        "phaseID": 3,
+        "name": "Concept",
+        "startDate": "2019-12-06T08:00:00.000Z",
+        "endDate": "2019-12-21T08:00:00.000Z",
+        "isRecordDone": true,
+        "predictedDurationInWeeks": 20,
+        "actualDurationInWeeks": 25,
+        "impact": "high impact"
+      },
+      {
+        "phaseID": 4,
+        "name": "Detailed Design",
+        "startDate": "2019-12-22T08:00:00.000Z",
+        "endDate": "2020-01-10T08:00:00.000Z",
+        "isRecordDone": true,
+        "predictedDurationInWeeks": 20,
+        "actualDurationInWeeks": 25,
+        "impact": "high impact"
+      }
+    ],
+    "workloadArr": [
+      {
+        "empID": 1,
+        "empName": "Peter Ahn",
+        "month1": 0,
+        "month2": 0,
+        "month3": 23,
+        "month4": 31,
+        "month5": 5,
+        "month6": 6
+      },
+      {
+        "empID": 3,
+        "empName": "Perry Li",
+        "month1": 10,
+        "month2": 9,
+        "month3": 8,
+        "month4": 7,
+        "month5": 6,
+        "month6": 99
+      }
+    ],
+    "invoiceArr": [
+      {
+        "amount": 997,
+        "date": "2019-12-02T08:00:00.000Z"
+      },
+      {
+        "amount": 471,
+        "date": "2019-12-12T08:00:00.000Z"
+      },
+      {
+        "amount": 642,
+        "date": "2019-12-22T08:00:00.000Z"
+      }
+    ],
+    "material": [
+      {
+        "phaseID": 1,
+        "phaseName": "consulting",
+        "actualBudget": 200,
+        "projectedBudget": 100,
+        "impact": "over $100"
+      },
+      {
+        "phaseID": 2,
+        "phaseName": "Requirements",
+        "actualBudget": 200,
+        "projectedBudget": 100,
+        "impact": "over $100"
+      },
+      {
+        "phaseID": 3,
+        "phaseName": "Concept",
+        "actualBudget": 200,
+        "projectedBudget": 100,
+        "impact": "over $100"
+      },
+      {
+        "phaseID": 4,
+        "phaseName": "Detailed Design",
+        "actualBudget": 200,
+        "projectedBudget": 100,
+        "impact": "over $100"
+      }
+    ]
   },
   "employees": [
     {
@@ -347,5 +499,6 @@
   },
   "totalEmployeeID": {
     "id": 100
-  }
+  },
+  "singleProjectPost": {}
 }

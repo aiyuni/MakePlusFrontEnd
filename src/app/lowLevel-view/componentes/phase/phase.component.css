@@ -37,3 +37,33 @@ p-table td:not(:first-child) {
 p-table td input {
     font-size: 12px;
 }
+
+.toolBarButton {
+    color: #344955;
+    border-collapse: white;
+    background-color: #F9AA33;
+    margin: 5px;
+}
+
+.toolBarButtonSecondary {
+    color: white;
+    border-collapse: white;
+    background-color: #4a6572;
+    margin: 5px;
+}
+
+>>>body .ui-button:enabled:hover {
+    border-color: #F9AA33;
+    background-color: #F9AA33;
+    color: #344955;
+}
+
+>>>body .ui-button:enabled:focus {
+    box-shadow: 0 0 0 0.2em #4a6571;
+}
+
+>>>body .ui-button:enabled:active {
+    border-color: #F9AA33;
+    background-color: #F9AA33;
+    color: #344955;
+}

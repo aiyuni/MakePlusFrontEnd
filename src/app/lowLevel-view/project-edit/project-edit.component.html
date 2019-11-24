@@ -2,14 +2,14 @@
 <div *ngIf="isDataLoaded">
     <mat-toolbar>
         <mat-toolbar-row style="background-color: #344955; color: white; text-align: right;">
-            <button mat-stroked-button class="toolBarButton" routerLink="/project/{{project.ID}}" (click)=" submit(project) ">Submit</button>
+            <button mat-stroked-button class="toolBarButton" (click)="submit(project)">Submit</button>
             <a routerLink="/project/{{project.ID}} ">
                 <button mat-stroked-button class="toolBarButtonSecondary ">Cancel</button>
             </a>
         </mat-toolbar-row>
     </mat-toolbar>
 
-    <app-overview [project]="project " [readMode]="false " (teamChangedEvent)="getPhaseChangedEvent() "></app-overview>
+    <app-overview [project]="project " [readMode]="false " (teamChangedEvent)="getPhaseChangedEvent()" [formGroup]="formGroup"></app-overview>
     <app-workload [workloadArr]="project.workloadArr " [readMode]="false "></app-workload>
     <mat-card>
         <mat-card-title class="cardTitle ">Phase</mat-card-title>

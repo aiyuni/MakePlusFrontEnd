@@ -61,3 +61,31 @@
 >>>body .ui-table .ui-table-tbody>tr:nth-child(even).ui-state-highlight {
     color: #f9aa33;
 }
+
+>>>body .ui-button {
+    background-color: #f9aa33;
+    border-color: #f9aa33;
+}
+
+>>>body .ui-dialog .ui-dialog-titlebar {
+    background-color: #232f34;
+    color: white;
+    border-width: 0px;
+}
+
+>>>body .ui-dialog .ui-dialog-footer {
+    background-color: #344955;
+    border-color: #232f34;
+}
+
+>>>:focus {
+    outline: -webkit-focus-ring-color auto 0px;
+    outline-color: -webkit-focus-ring-color;
+    outline-style: inherit;
+    outline-width: 0px;
+}
+
+>>>body .ui-table .ui-editable-column input:focus {
+    outline: 2px solid #4a6571;
+    outline-offset: 0px;
+}

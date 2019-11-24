@@ -67,7 +67,10 @@
                 <td colspan="2" [ngClass]="['text-align-left']">Totals</td>
                 <td [ngClass]="['text-align-right']">{{totalPhasePredicted | currency}}</td>
                 <td [ngClass]="['text-align-right']">{{totalActualPredicted | currency}}</td>
-                <td [ngClass]="['text-align-right']">{{totalPhasePredicted -totalActualPredicted | currency}}</td>
+                <!-- hide total impact (total bueget - total actul) -->
+                <td [ngClass]="['text-align-right']">
+                    <!-- {{totalPhasePredicted -totalActualPredicted | currency}} -->
+                </td>
             </tr>
         </ng-template>
     </p-table>

@@ -29,6 +29,7 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { DialogModule } from 'primeng/dialog';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
@@ -99,6 +100,7 @@ import { LoadingComponent } from './loading/loading.component';
   imports: [
     MatCheckboxModule,
     ProgressSpinnerModule,
+    MatSnackBarModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,

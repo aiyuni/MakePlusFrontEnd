@@ -13,6 +13,7 @@ import { Observable } from 'rxjs';
 export class SalaryIndividualComponent implements OnInit {
   eventsSubscription: any
 
+  @Input() empIndex:number;
   @Input() employeeSalary:EmployeeSalary;
   @Input() readMode:boolean;
   @Input() project:Project;
@@ -26,6 +27,7 @@ export class SalaryIndividualComponent implements OnInit {
   ngOnInit() {
     this.calcuateTotal();
     this.eventsSubscription = this.phaseChangeListener.subscribe(() => this.calcuateTotal());
+    console.log(this.empIndex);
   }
 
   setPhaseBackgroundColor(i){
@@ -44,6 +46,7 @@ export class SalaryIndividualComponent implements OnInit {
       this.projectTotalSalaryActualHr += parseFloat(this.employeeSalary.phaseDetailsList[i].actualHr.toString());
     }
     this.updateProjectOverview();
+    console.log(this.project);
   }
 
 
@@ -62,8 +65,8 @@ export class SalaryIndividualComponent implements OnInit {
     for(var i = 0; i < this.project.employeeSalaryList.length; i++){
       var currentEmploy = this.project.employeeSalaryList[i];
       for(var j = 0; j < currentEmploy.phaseDetailsList.length; j++){
-        projectTotalSalaryBuget += parseFloat(currentEmploy.phaseDetailsList[j].budgetHr.toString()) * parseFloat(currentEmploy.wage.toString());
-        projectTotalSalaryActual += parseFloat(currentEmploy.phaseDetailsList[j].actualHr.toString()) * parseFloat(currentEmploy.wage.toString());
+        projectTotalSalaryBuget += parseFloat(currentEmploy.phaseDetailsList[j].budgetHr.toString()) * parseFloat(currentEmploy.wage.toString()) * parseFloat(this.project.costMultiplier.toString());
+        projectTotalSalaryActual += parseFloat(currentEmploy.phaseDetailsList[j].actualHr.toString()) * parseFloat(currentEmploy.wage.toString()) * parseFloat(this.project.costMultiplier.toString());
       }
     }
     this.project.salaryBudget = projectTotalSalaryBuget;

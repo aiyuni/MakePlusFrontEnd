@@ -7,7 +7,8 @@ import { WorkloadItem } from 'src/app/classes/workloadItem';
 import { EmployeeSalary } from 'src/app/classes/employeeSalary';
 import { PhaseDetail } from 'src/app/classes/phaseDetail';
 import { BusinessCodeService } from 'src/app/service/business-code.service';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl, ValidationErrors, ValidatorFn, AbstractControl } from '@angular/forms';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 // import { BusinessCodeService } from 'src/app/service/business-Code.service';
 
 @Component({
@@ -22,6 +23,7 @@ export class OverviewComponent implements OnInit {
   @Input() readMode: boolean;
   @Input() newProjectMode:boolean;
   @Input() spendtToDate: number;
+  @Input() formGroup:FormGroup;
   @Output() teamChangedEvent= new EventEmitter<any>();
 
   employees: Employee[];
@@ -29,6 +31,8 @@ export class OverviewComponent implements OnInit {
   teamMemberSelected: string[] = [];
   teamLeadSelected: string[] = [];
   businessCodeOptions: string[];
+  startDateCtr: FormControl;
+  endDateCtr: FormControl;
 
   constructor(
     private employeeListService: EmployeeListService,
@@ -39,8 +43,11 @@ export class OverviewComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.startDateCtr = new FormControl(this.project.startDate);
+    this.endDateCtr = new FormControl(this.project.endDate);
     this.getAllEmployees();
     this.getBusinessCodes();
+    this.putFormControlers();
   }
 
 
@@ -204,31 +211,58 @@ export class OverviewComponent implements OnInit {
   ];
   }
 
+
+
   // From Controler
+
+  
+
   recoredStoredFC = new FormControl('', [Validators.required, Validators.max(100), Validators.min(0)]);    
   getRecoredStoredErrorMessage() {
+    this.formGroup.get
     return this.recoredStoredFC.hasError('required') ? 'You must enter a value' :
         this.recoredStoredFC.hasError('max') ? 'Maximun is 100' :
         this.recoredStoredFC.hasError('min') ? 'Minimun is 0' :
           '';
   }
-  completionFC = new FormControl('', [Validators.required, Validators.max(100), Validators.min(0)]);    
+  completionFC = new FormControl('', [Validators.required, Validators.max(100), Validators.min(0)]);     
   getCompletionErrorMessage() {
     return this.completionFC.hasError('required') ? 'You must enter a value' :
         this.completionFC.hasError('max') ? 'Maximun is 100' :
         this.completionFC.hasError('min') ? 'Minimun is 0' :
           '';
   }
-  costMultiplierFC = new FormControl('', [Validators.required, Validators.max(10), Validators.min(0)]);    
+  costMultiplierFC = new FormControl('', [Validators.required, Validators.max(10), Validators.min(0)]);   
   getCostMultiplierErrorMessage() {
     return this.costMultiplierFC.hasError('required') ? 'You must enter a value' :
         this.costMultiplierFC.hasError('max') ? 'Maximun is 10' :
         this.costMultiplierFC.hasError('min') ? 'Minimun is 0' :
           '';
   }
+  putFormControlers(){
+    this.formGroup.addControl('Record Stored Completed', this.recoredStoredFC);
+    this.formGroup.addControl('Completed', this.completionFC);
+    this.formGroup.addControl('Cost Multiplier', this.costMultiplierFC);
+    this.formGroup.addControl('Start Date',this.startDateCtr);
+    this.formGroup.addControl('End Date',this.endDateCtr);
+  }
 
+  startDateChangeEvent(type: string, event: MatDatepickerInputEvent<Date>) {
+    this.project.startDate = event.value;
+  }
+  endDateChangeEvent(type: string, event: MatDatepickerInputEvent<Date>) {
+    this.project.endDate = event.value;
+  }
 
+  
+
+  
 }
+  
+
+
+
+
 
 export interface BusinessCode {
   value: string;

@@ -21,18 +21,16 @@
                         <!-- Start Date -->
                         <th>
                             <mat-form-field class="full-width" style="width: 150px;">
-                                <input matInput [matDatepicker]="startDate" placeholder="Start Date" [(ngModel)]="project.startDate" [readonly]="readMode" [disabled]="readMode" class=" readOnly-Text">
-                                <mat-datepicker-toggle matSuffix [for]="startDate">
-                                </mat-datepicker-toggle>
+                                <input matInput [matDatepicker]="startDate" placeholder="Start Date" [formControl]="startDateCtr" [readonly]="readMode" [disabled]="readMode" class=" readOnly-Text" (dateChange)="startDateChangeEvent('change', $event)">
+                                <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
                                 <mat-datepicker #startDate [disabled]="readMode"></mat-datepicker>
                             </mat-form-field>
                         </th>
                         <!-- End Date -->
                         <th>
                             <mat-form-field class="full-width" style="width: 150px;">
-                                <input matInput [matDatepicker]="endDate" placeholder="End Date" [(ngModel)]="project.endDate" [readonly]="readMode" [disabled]="readMode" class=" readOnly-Text">
-                                <mat-datepicker-toggle matSuffix [for]="endDate">
-                                </mat-datepicker-toggle>
+                                <input matInput [matDatepicker]="endDate" placeholder="End Date" [min]="project.startDate" [formControl]="endDateCtr" [readonly]="readMode" [disabled]="readMode" class=" readOnly-Text" (dateChange)="endDateChangeEvent('change', $event)">
+                                <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
                                 <mat-datepicker #endDate [disabled]="readMode"></mat-datepicker>
                             </mat-form-field>
                         </th>
