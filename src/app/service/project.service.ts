@@ -6,6 +6,7 @@ import { MessageService } from './message.service';
 
 import { Project } from '../classes/project';
 import { frontEndTestMode } from 'src/environments/environment';
+import { NextID } from '../classes/nextID';
 
 @Injectable({
     providedIn: 'root'
@@ -17,6 +18,7 @@ export class ProjectService {
     
     /** Test api call by using local sampleJson.json */
     private url;
+    private urlNextProjectID;
 
     httpOptions = {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -27,12 +29,19 @@ export class ProjectService {
         private messageService: MessageService) 
         {
             this.url = 'https://localhost:44307/api/individualprojectpages/';   // TODO: Perry's url goes here.
-            if(frontEndTestMode)
+            this.urlNextProjectID = 'URL HERE PERRY!'                           // TODO: Perry's url goes here.
+            if(frontEndTestMode){
               this.url = 'http://localhost:3000/singleProject';
+              this.urlNextProjectID = 'http://localhost:3000/totalProjectID'
+            }
          };
     
-    getNextProjectID(): Observable<number> {
-        return of(Math.floor(Math.random() * 10000) + 100);
+    getNextProjectID(): Observable<NextID> {
+        // return of(Math.floor(Math.random() * 10000) + 100);
+        return this.http.get<NextID>(this.urlNextProjectID).pipe(  
+            tap(_ => this.log(`fetched getNextProjectID`)),
+            catchError(this.handleError<NextID>(`getNextProjectID`))
+         );
       };
 
     getNextPhaseID(): Observable<number> {

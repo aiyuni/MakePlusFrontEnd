@@ -16,6 +16,7 @@ export class NewProjectComponent implements OnInit {
 
   project: Project;
   options: FormGroup;
+  isSubmitting:boolean;
   isDataLoaded:boolean;
 
   totalPhasePredicted = 0;
@@ -30,12 +31,13 @@ export class NewProjectComponent implements OnInit {
   ngOnInit() {
     this.project = new Project(null);
     this.isDataLoaded = false;
+    this.isSubmitting = false;
     this.projectService.getEmptyProject().subscribe(
       p => {
         this.project = p;
         this.projectService.getNextProjectID()
         .subscribe(p => {
-          this.project.ID = p;
+          this.project.ID = p.id + 1;
           console.log("Post new project.");
           console.log(this.project);
           this.isDataLoaded=true;
@@ -46,10 +48,11 @@ export class NewProjectComponent implements OnInit {
   }
 
   submit() {
+    this.isSubmitting = true;
     this.projectService.postProject(this.project).subscribe(     
       response=> {
         console.log("response is: " + response);
-        this.router.navigate(['/project/{project.ID}']);
+        this.router.navigate(['/project/'+this.project.ID]);
       });
   }
 

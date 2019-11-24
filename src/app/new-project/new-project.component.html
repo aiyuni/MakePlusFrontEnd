@@ -1,7 +1,8 @@
-<div *ngIf="isDataLoaded">
+<app-loading *ngIf="isSubmitting" [text]="'Saving...'"></app-loading>
+<div *ngIf="isDataLoaded && ! isSubmitting">
     <mat-toolbar>
         <mat-toolbar-row style="background-color: #344955; color: white; text-align: right;">
-            <button mat-stroked-button class="toolBarButton" routerLink="/project/{{project.ID}}" (click)=" submit(project) ">Submit</button>
+            <button mat-stroked-button class="toolBarButton" (click)=" submit(project) ">Submit</button>
             <a routerLink="">
                 <button mat-stroked-button class="toolBarButtonSecondary ">Cancel</button>
             </a>

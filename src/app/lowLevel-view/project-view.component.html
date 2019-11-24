@@ -1,3 +1,4 @@
+<app-loading *ngIf="! isDataLoaded" [text]="'Loading...'"></app-loading>
 <div *ngIf="isDataLoaded">
     <mat-toolbar>
         <mat-toolbar-row style="background-color: #344955; color: white; text-align: right;">

@@ -7,6 +7,7 @@ import { ProjectEditComponent } from './lowLevel-view/project-edit/project-edit.
 import { VacationEntryComponent } from './VacationEntry/vacation-entry/vacation-entry.component';
 import { SystemAdminComponent } from './SystemAdmin/system-admin/system-admin.component';
 import { NewProjectComponent } from './new-project/new-project.component';
+import { LoadingComponent } from './loading/loading.component';
 
 
 
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'vacationEntry', component: VacationEntryComponent},
   {path: 'systemAdmin', component: SystemAdminComponent},
   {path: 'newProject', component: NewProjectComponent},
+  {path: 'loading', component: LoadingComponent},
 ];
 
 @NgModule({

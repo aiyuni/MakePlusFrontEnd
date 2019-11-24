@@ -30,6 +30,7 @@ import { DialogModule } from 'primeng/dialog';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 import { CalendarModule } from 'primeng/calendar';
 import { TableModule } from 'primeng/table';
@@ -65,6 +66,7 @@ import { SystemAdminComponent } from './SystemAdmin/system-admin/system-admin.co
 import { VacationTableComponent } from './midLevel-view/component/vacation-table/vacation-table.component';
 import { NewProjectComponent } from './new-project/new-project.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoadingComponent } from './loading/loading.component';
 
 
 @NgModule({
@@ -91,10 +93,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SystemAdminComponent,
     VacationTableComponent,
     NewProjectComponent,
+    LoadingComponent,
 
   ],
   imports: [
     MatCheckboxModule,
+    ProgressSpinnerModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,
