@@ -40,8 +40,8 @@ export class SystemAdminComponent implements OnInit {
   writeEmployID(){
     this.employeeService.getTotalEmployeeID()
         .subscribe(p => {
-          this.newEmployee.empID = p.id + 1;
-          console.log("Post new project.");
+          this.newEmployee.empID = p.id;
+          console.log("writeEmployID");
           console.log(this.newEmployee);
         });
   }

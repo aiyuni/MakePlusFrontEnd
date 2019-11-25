@@ -49,7 +49,7 @@ export class PhaseComponent implements OnInit {
       { field: 'endDate', header: 'End Date' },
       { field: 'recordDone', header: 'Record' }
     ];
-    this.phaseCounter = 1;
+    this.phaseCounter = 0;
   }
   save() {
     if(this.startTempDateCtr.status=="INVALID" || this.endTempDateCtr.status=="INVALID"){
@@ -156,12 +156,11 @@ export class PhaseComponent implements OnInit {
 
     this.projectService.getTotalPhaseID()
       .subscribe(p => {
-        console.log(this.phase);
         console.log(p);
-        var phaseID = p.id + (this.phaseCounter++);
-        
+        var phaseID = p.id + (this.phaseCounter);
+        this.phaseCounter++;
         this.phase.phaseID = phaseID;
-        console.log("phase id loading.");
+        console.log("phase id updated.");
         console.log(this.phase);
     });
     this.displayDialog = true;

@@ -23,6 +23,27 @@
             "budgetHr": 0,
             "actualHr": 0,
             "impact": ""
+          },
+          {
+            "phaseID": 11,
+            "phaseName": "gji3",
+            "budgetHr": 0,
+            "actualHr": 0,
+            "impact": ""
+          },
+          {
+            "phaseID": 12,
+            "phaseName": "wefew",
+            "budgetHr": 0,
+            "actualHr": 0,
+            "impact": ""
+          },
+          {
+            "phaseID": 13,
+            "phaseName": "ffff",
+            "budgetHr": 0,
+            "actualHr": 0,
+            "impact": ""
           }
         ],
         "empID": 3,
@@ -93,6 +114,30 @@
         "predictedDurationInWeeks": 20,
         "actualDurationInWeeks": 25,
         "impact": "high impact"
+      },
+      {
+        "phaseID": 11,
+        "name": "gji3",
+        "startDate": "2019-11-25T23:05:48.460Z",
+        "endDate": "2019-11-25T23:05:48.460Z",
+        "predictedDurationInWeeks": 0,
+        "actualDurationInWeeks": 0
+      },
+      {
+        "phaseID": 12,
+        "name": "wefew",
+        "startDate": "2019-11-25T23:06:01.125Z",
+        "endDate": "2019-11-25T23:06:01.125Z",
+        "predictedDurationInWeeks": 0,
+        "actualDurationInWeeks": 0
+      },
+      {
+        "phaseID": 13,
+        "name": "ffff",
+        "startDate": "2019-11-25T23:06:26.798Z",
+        "endDate": "2019-11-25T23:06:26.799Z",
+        "predictedDurationInWeeks": 0,
+        "actualDurationInWeeks": 0
       }
     ],
     "workloadArr": [
@@ -152,6 +197,27 @@
         "actualBudget": 200,
         "projectedBudget": 100,
         "impact": "over $100"
+      },
+      {
+        "phaseID": 11,
+        "phaseName": "gji3",
+        "actualBudget": 0,
+        "projectedBudget": 0,
+        "impact": ""
+      },
+      {
+        "phaseID": 12,
+        "phaseName": "wefew",
+        "actualBudget": 0,
+        "projectedBudget": 0,
+        "impact": ""
+      },
+      {
+        "phaseID": 13,
+        "phaseName": "ffff",
+        "actualBudget": 0,
+        "projectedBudget": 0,
+        "impact": ""
       }
     ]
   },

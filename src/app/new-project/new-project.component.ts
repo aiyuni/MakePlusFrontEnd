@@ -39,7 +39,7 @@ export class NewProjectComponent implements OnInit {
         this.project = p;
         this.projectService.getTotalProjectID()
         .subscribe(p => {
-          this.project.ID = p.id + 1;
+          this.project.ID = p.id;
           console.log(this.project);
           this.isDataLoaded=true;
         });

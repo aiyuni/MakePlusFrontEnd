@@ -7,7 +7,7 @@ export const environment = {
 };
 
 export const frontEndTestMode = {
-  forntEndTestMode: false
+  forntEndTestMode: true
 }
 
 /*
