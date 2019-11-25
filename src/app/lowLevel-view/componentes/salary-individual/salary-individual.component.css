@@ -37,3 +37,12 @@ p-table td {
 p-table td input {
     font-size: 12px;
 }
+
+>>>body .ui-table .ui-table-caption,
+body .ui-table .ui-table-summary {
+    background-color: white;
+    border-width: 0px;
+    border-bottom: 2px solid #4a6572;
+    border-top: 2px solid #4a6572;
+    ;
+}

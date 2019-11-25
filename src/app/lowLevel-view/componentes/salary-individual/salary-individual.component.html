@@ -1,15 +1,15 @@
-<h5>{{employeeSalary.empName}}</h5>
-<p-table [value]="project.employeeSalaryList[empIndex].phaseDetailsList" [ngStyle]="{'width':'200px'}">
-    <!-- <p-table [value]="employeeSalary.phaseDetailsList" [ngStyle]="{'width':'200px'}"> -->
-
+<p-table [value]="project.employeeSalaryList[empIndex].phaseDetailsList" [style]="{'width':'275px'}">
+    <ng-template pTemplate="caption">
+        {{employeeSalary.empName}}
+    </ng-template>
     <ng-template pTemplate="header">
         <tr>
-            <th [ngStyle]="{'width':'1px'}"></th>
-            <th [ngStyle]="{'width':'60px'}">Budget Hours</th>
-            <th [ngStyle]="{'width':'60px'}">Actual Hours</th>
-            <th [ngStyle]="{'width':'60px'}">Budget</th>
-            <th [ngStyle]="{'width':'60px'}">Actual</th>
-            <th>Impact</th>
+            <th [ngStyle]="{'width':'5px'}"></th>
+            <th [ngStyle]="{'width':'50px'}">Budget Hours</th>
+            <th [ngStyle]="{'width':'50px'}">Actual Hours</th>
+            <th [ngStyle]="{'width':'50px'}">Budget</th>
+            <th [ngStyle]="{'width':'50px'}">Actual</th>
+            <th [ngStyle]="{'width':'60px'}">Impact</th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-rowData let-i="rowIndex">

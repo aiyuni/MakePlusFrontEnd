@@ -1,10 +1,17 @@
 <mat-card>
     <mat-card-title class="cardTitle">Salary Tracking</mat-card-title>
-    <table>
+    <div class="containerOfEmployeeSalary">
+        <div *ngFor="let emp of employeeSalaryArr; let i = index" class="ItemOfEmployeeSalary">
+            <app-salary-individual [readMode]="readMode" [empIndex]="i" [employeeSalary]="emp" [project]="project" [phaseChangeListener]="eventsSubject.asObservable()"></app-salary-individual>
+        </div>
+    </div>
+
+
+    <!-- <table>
         <tr>
             <td *ngFor="let emp of employeeSalaryArr; let i = index">
                 <app-salary-individual [readMode]="readMode" [empIndex]="i" [employeeSalary]="emp" [project]="project" [phaseChangeListener]="eventsSubject.asObservable()"></app-salary-individual>
             </td>
         </tr>
-    </table>
+    </table> -->
 </mat-card>

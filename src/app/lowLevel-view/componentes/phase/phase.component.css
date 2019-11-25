@@ -49,6 +49,7 @@ p-table td input {
 .addButton {
     color: #F9AA33;
     border-collapse: #4a6572;
+    margin-top: 10px;
     /* background-color: #4a6572; */
 }
 

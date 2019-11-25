@@ -37,3 +37,18 @@ p-table td {
 p-table td input {
     font-size: 12px;
 }
+
+app-salary-individual {
+    display: inline-block;
+    width: 290px;
+}
+
+.containerOfEmployeeSalary {
+    display: block;
+    width: 900px;
+}
+
+.ItemOfEmployeeSalary {
+    display: inline-block;
+    width: 290px;
+}
