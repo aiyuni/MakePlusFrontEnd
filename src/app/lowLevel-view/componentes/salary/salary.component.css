@@ -40,15 +40,17 @@ p-table td input {
 
 app-salary-individual {
     display: inline-block;
-    width: 290px;
+    width: 385px;
 }
 
 .containerOfEmployeeSalary {
     display: block;
-    width: 900px;
+    max-width: 1180px;
 }
 
 .ItemOfEmployeeSalary {
     display: inline-block;
-    width: 290px;
+    width: 385px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

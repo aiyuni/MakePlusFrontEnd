@@ -1,4 +1,4 @@
-<p-table [value]="project.employeeSalaryList[empIndex].phaseDetailsList" [style]="{'width':'275px'}">
+<p-table [value]="project.employeeSalaryList[empIndex].phaseDetailsList" [style]="{'width':'380px'}">
     <ng-template pTemplate="caption">
         {{employeeSalary.empName}}
     </ng-template>
@@ -7,8 +7,8 @@
             <th [ngStyle]="{'width':'5px'}"></th>
             <th [ngStyle]="{'width':'50px'}">Budget Hours</th>
             <th [ngStyle]="{'width':'50px'}">Actual Hours</th>
-            <th [ngStyle]="{'width':'50px'}">Budget</th>
-            <th [ngStyle]="{'width':'50px'}">Actual</th>
+            <th [ngStyle]="{'width':'100px'}">Budget</th>
+            <th [ngStyle]="{'width':'100px'}">Actual</th>
             <th [ngStyle]="{'width':'60px'}">Impact</th>
         </tr>
     </ng-template>
@@ -40,7 +40,7 @@
                     </ng-template>
                 </p-cellEditor>
             </td>
-            <td>{{employeeSalary.wage * rowData.budgetHr * project.costMultiplier | currency}}</td>
+            <td>{{employeeSalary.wage * rowData.budgetHr * project.costMultiplier | currency}} wage={{employeeSalary.wage}} multiplier={{project.costMultiplier}} hr={{rowData.budgetHr}}</td>
             <td>{{employeeSalary.wage * rowData.actualHr * project.costMultiplier | currency}}</td>
 
 
