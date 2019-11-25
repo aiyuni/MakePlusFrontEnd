@@ -20,6 +20,7 @@ export class SystemAdminComponent implements OnInit {
 
   ngOnInit() {
     this.newEmployee = new Employee(0,"EmpoyeeName", 50);
+    this.writeEmployID();
   }
 
   submit(employee:Employee) {
