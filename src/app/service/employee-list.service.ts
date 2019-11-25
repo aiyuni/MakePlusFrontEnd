@@ -58,7 +58,8 @@ getTotalEmployeeID(): Observable<NextID> {
   return this.http.get<NextID>(this.urlNextEmplyeeID).pipe(  
     tap(_ => this.log(`fetched getTotalEmployeeID`)),
     catchError(this.handleError<NextID>(`getTotalEmployeeID`))
-);
+  );
+}
 
 /**
 * Handle Http operation that failed.
