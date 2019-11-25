@@ -30,8 +30,8 @@ export class ProjectService {
         private messageService: MessageService) 
         {
             this.url = 'https://localhost:44307/api/individualprojectpages/';   // TODO: Perry's url goes here.
-            this.urlNextProjectID = 'URL HERE PERRY!'                           // TODO: Perry's url goes here.
-            this.urlNextPhaseID = 'URL HERE PERRY!'                             // TODO: Perry's url goes here.
+            this.urlNextProjectID = 'https://localhost:44307/api/HighLevelPage/totalProjects'                           // TODO: Perry's url goes here.
+            this.urlNextPhaseID = 'https://localhost:44307/api/HighLevelPage/totalPhases'                             // TODO: Perry's url goes here.
             if(frontEndTestMode.forntEndTestMode){
               this.url = 'http://localhost:3000/singleProject';
               this.urlNextProjectID = 'http://localhost:3000/totalProjectID'

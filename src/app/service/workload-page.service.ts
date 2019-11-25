@@ -18,7 +18,7 @@ export class WorkloadPageService {
     private http: HttpClient,
     private messageService: MessageService
   ) { 
-    this.url = 'http://localhost:3000/allWorkloads';   // TODO: Perry's url goes here.
+    this.url = 'http://localhost:44307/api/MiddleLevelPage';   // TODO: Perry's url goes here.
     if(frontEndTestMode.forntEndTestMode)
       this.url = 'http://localhost:3000/allWorkloads';
   }

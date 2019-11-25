@@ -21,7 +21,7 @@ export class ProjectListService {
     private http: HttpClient,
     private messageService: MessageService
   ) { 
-    this.url = 'http://localhost:3000/allProjects';   // TODO: Perry's url goes here.
+    this.url = '//api/HighLevelPage/projects';   // TODO: Perry's url goes here.
     if(frontEndTestMode.forntEndTestMode)
       this.url = 'http://localhost:3000/allProjects';
   }
