@@ -6,6 +6,8 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { MessageService } from './message.service';
 import { Employee } from '../classes/employee';
 import { frontEndTestMode } from 'src/environments/environment';
+import { NextID } from '../classes/nextID';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +16,7 @@ export class EmployeeListService {
 
   /** Test api call by using local sampleJson.json */
   private url;
+  private urlNextEmplyeeID;
    
 
   httpOptions = {
@@ -28,8 +31,10 @@ export class EmployeeListService {
     private messageService: MessageService
   ) { 
     this.url = 'https://localhost:44307/api/employeepage';    // .net api calls
+    this.urlNextEmplyeeID = 'Perry goes here lol.';           // Perry's url goes here.
     if(frontEndTestMode)
       this.url = 'http://localhost:3000/employees';             // myJJSONfile fake api calls. 
+      this.urlNextEmplyeeID = ' http://localhost:3000/totalEmployeeID';
   }
 
   getAllEmployees(): Observable<Employee[]> {
@@ -48,6 +53,12 @@ export class EmployeeListService {
     catchError(this.handleError('postProject', employee))
   );
 }
+
+getTotalEmployeeID(): Observable<NextID> {
+  return this.http.get<NextID>(this.urlNextEmplyeeID).pipe(  
+    tap(_ => this.log(`fetched getTotalEmployeeID`)),
+    catchError(this.handleError<NextID>(`getTotalEmployeeID`))
+);
 
 /**
 * Handle Http operation that failed.

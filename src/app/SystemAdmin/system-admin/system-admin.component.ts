@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Employee } from 'src/app/classes/employee';
 import { EmployeeListService } from 'src/app/service/employee-list.service';
 import { ActivatedRoute } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-system-admin',
@@ -14,6 +15,7 @@ export class SystemAdminComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private employeeService: EmployeeListService,
+    private _snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
@@ -24,8 +26,28 @@ export class SystemAdminComponent implements OnInit {
     console.log("new employee created!");
     console.log(employee);
     this.employeeService.postEmployee(employee).subscribe(
-      response=>console.log(response),
-      err => console.log(err)
+      response=>{
+        console.log(response);
+        this.openSnackBar(`New employee ${this.newEmployee.empID} ${this.newEmployee.name} saved.`,'',2000);
+      },
+      err => {
+        console.log(err);
+        this.openSnackBar(`Saving new employee ${this.newEmployee.empID} Error.`,'',2000);
+      }
     );
+  }
+  writeEmployID(){
+    this.employeeService.getTotalEmployeeID()
+        .subscribe(p => {
+          this.newEmployee.empID = p.id + 1;
+          console.log("Post new project.");
+          console.log(this.newEmployee);
+        });
+  }
+
+  openSnackBar(message: string, action: string, duration:number) {
+    this._snackBar.open(message, action, {
+      duration: duration,
+    });
   }
 }

@@ -19,6 +19,7 @@ export class ProjectService {
     /** Test api call by using local sampleJson.json */
     private url;
     private urlNextProjectID;
+    private urlNextPhaseID;
 
     httpOptions = {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -30,22 +31,27 @@ export class ProjectService {
         {
             this.url = 'https://localhost:44307/api/individualprojectpages/';   // TODO: Perry's url goes here.
             this.urlNextProjectID = 'URL HERE PERRY!'                           // TODO: Perry's url goes here.
+            this.urlNextPhaseID = 'URL HERE PERRY!'                             // TODO: Perry's url goes here.
             if(frontEndTestMode){
               this.url = 'http://localhost:3000/singleProject';
               this.urlNextProjectID = 'http://localhost:3000/totalProjectID'
+              this.urlNextPhaseID = 'http://localhost:3000/totalPhaseID'                                    
             }
          };
     
-    getNextProjectID(): Observable<NextID> {
+    getTotalProjectID(): Observable<NextID> {
         // return of(Math.floor(Math.random() * 10000) + 100);
         return this.http.get<NextID>(this.urlNextProjectID).pipe(  
-            tap(_ => this.log(`fetched getNextProjectID`)),
-            catchError(this.handleError<NextID>(`getNextProjectID`))
+            tap(_ => this.log(`fetched getTotalProjectID`)),
+            catchError(this.handleError<NextID>(`getTotalProjectID`))
          );
       };
 
-    getNextPhaseID(): Observable<number> {
-        return of(Math.floor(Math.random() * 10000) + 100);
+    getTotalPhaseID(): Observable<NextID> {
+        return this.http.get<NextID>(this.urlNextPhaseID).pipe(  
+            tap(_ => this.log(`fetched getTotalPhaseID`)),
+            catchError(this.handleError<NextID>(`getTotalPhaseID`))
+         );
       };
 
     getEmptyProject(){
