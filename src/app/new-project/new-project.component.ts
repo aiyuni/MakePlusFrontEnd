@@ -52,9 +52,13 @@ export class NewProjectComponent implements OnInit {
     this.isSubmitting = true;
     this.projectService.postProject(this.project).subscribe(     
       response=> {
-        console.log("response is: " + response);
-        this.openSnackBar(`New project: ${this.project.Name} saved successfully`,'',3000);
-        this.router.navigate(['/project/'+this.project.ID]);
+        this.projectService.postProject(this.project).subscribe(
+          response => {
+            console.log("response is: " + response);
+            this.openSnackBar(`New project: ${this.project.Name} saved successfully`,'',3000);
+            this.router.navigate(['/project/'+this.project.ID]);
+          }
+        )
       });
   }
 

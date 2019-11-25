@@ -16,12 +16,14 @@ import { frontEndTestMode } from 'src/environments/environment';
 export class ProjectListService {
   /** Test api call by using local sampleJson.json */
   private url ;
+  private urlProposals;
   // = 'http://localhost:3000/';
   constructor(
     private http: HttpClient,
     private messageService: MessageService
   ) { 
-    this.url = '//api/HighLevelPage/projects';   // TODO: Perry's url goes here.
+    this.url = 'https://localhost:44307/api/HighLevelPage/projects';   // TODO: Perry's url goes here.
+    this.urlProposals = 'https://localhost:44307/api/HighLevelPage/proposals';
     if(frontEndTestMode.forntEndTestMode)
       this.url = 'http://localhost:3000/allProjects';
   }
@@ -38,7 +40,7 @@ export class ProjectListService {
   };
 
   getAllProposals(): Observable<ProposalListItem[]> {
-    return this.http.get<ProposalListItem[]>(this.url).pipe(
+    return this.http.get<ProposalListItem[]>(this.urlProposals).pipe(
       tap(_ => this.log(`fetched project id`)),
       catchError(this.handleError<ProposalListItem[]>(`getAllProposals id`))
     );
