@@ -30,7 +30,7 @@ p-table td {
     border-bottom-width: 1px !important;
 }
 
-p-table td:not(:first-child) {
+p-table td {
     /* background-color: white !important; */
 }
 

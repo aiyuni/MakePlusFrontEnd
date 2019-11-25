@@ -29,8 +29,8 @@
             </div>
         </ng-template> -->
     </p-table>
-    <button color="primary" (click)="showDialogToAdd()" style="margin: 10px; margin-left: 77%;" *ngIf="!readMode">Add</button>
-
+    <!-- <button color="primary" (click)="showDialogToAdd()" style="margin: 10px; margin-left: 77%;" *ngIf="!readMode">Add</button> -->
+    <button mat-button class="addButton" (click)="showDialogToAdd()" *ngIf="!readMode">Add</button>
 </mat-card>
 
 
@@ -38,26 +38,23 @@
 <p-dialog header="Invoice Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" [style]="{width: '300px'}" appendTo="body" *ngIf="!readMode">
     <div class="ui-g ui-fluid" *ngIf="invo">
         <div class="ui-g-12">
-            <div class="ui-g-4">
-                <label for="date">Date</label>
-            </div>
-            <div class="ui-g-8">
-                <input pInputText id="date" [(ngModel)]="invo.date" type="date" placeholder="today" />
-            </div>
+            <mat-form-field>
+                <input matInput [matDatepicker]="invoDate" placeholder="Invoice Date" [(ngModel)]="invo.date">
+                <mat-datepicker-toggle matSuffix [for]="invoDate"></mat-datepicker-toggle>
+                <mat-datepicker #invoDate></mat-datepicker>
+            </mat-form-field>
         </div>
         <div class=" ui-g-12 ">
-            <div class="ui-g-4 ">
-                <label for="amount ">Amount</label>
-            </div>
-            <div class="ui-g-8 ">
-                <input pInputText id="amount " [(ngModel)]="invo.amount " type="number" />
-            </div>
+            <mat-form-field>
+                <!-- <input pInputText id="name" [(ngModel)]="phase.name " type="text" /> -->
+                <input matInput placeholder="Amount" [(ngModel)]="invo.amount " type="number" class="readOnly-Text textCenter" required>
+            </mat-form-field>
         </div>
     </div>
     <p-footer>
         <div class="ui-dialog-buttonpane ui-helper-clearfix ">
-            <button type="button " pButton icon="fa fa-close " (click)="delete() " label="Delete "></button>
-            <button type="button " pButton icon="fa fa-check " (click)="save() " label="Save "></button>
+            <button type="button " pButton (click)="delete() " label="Delete "></button>
+            <button type="button " pButton (click)="save() " label="Save "></button>
         </div>
     </p-footer>
 </p-dialog>

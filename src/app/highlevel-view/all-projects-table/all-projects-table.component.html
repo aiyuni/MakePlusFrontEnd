@@ -5,7 +5,7 @@
 </mat-toolbar>
 <mat-card>
     <mat-card-header>
-        <mat-card-title>Projects</mat-card-title>
+        <mat-card-title class="cardTitle">Projects</mat-card-title>
     </mat-card-header>
     <div>
         <p-table #dt sortField="startDate" [columns]="cols" [value]="allProjects" [paginator]="true" [rows]="40" (onFilter)="printFilteredItems($event)">

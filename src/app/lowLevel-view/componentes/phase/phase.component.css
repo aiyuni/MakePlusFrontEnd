@@ -30,7 +30,7 @@ p-table td {
     border-bottom-width: 1px !important;
 }
 
-p-table td:not(:first-child) {
+p-table {
     background-color: white !important;
 }
 
@@ -43,6 +43,13 @@ p-table td input {
     border-collapse: white;
     background-color: #F9AA33;
     margin: 5px;
+    margin-left: 0px;
+}
+
+.addButton {
+    color: #F9AA33;
+    border-collapse: #4a6572;
+    /* background-color: #4a6572; */
 }
 
 .toolBarButtonSecondary {
@@ -50,6 +57,7 @@ p-table td input {
     border-collapse: white;
     background-color: #4a6572;
     margin: 5px;
+    margin-left: 0px;
 }
 
 >>>body .ui-button:enabled:hover {
@@ -82,4 +90,26 @@ p-table td input {
 
 >>>.cdk-overlay-container {
     z-index: 2010;
+}
+
+>>>.mat-icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 2px;
+    font-size: 14px;
+    margin-top: 2px;
+}
+
+>>>body .ui-table .ui-table-tbody>tr.ui-state-highlight {
+    background-color: #4a6571 !important;
+    color: white;
+}
+
+>>>body .ui-table .ui-table-tbody>tr:nth-child(even).ui-state-highlight {
+    background-color: #4a6571 !important;
+    color: white;
+}
+
+>>>body .ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-icon:hover {
+    color: white;
 }

@@ -180,5 +180,17 @@ mat-card {
 
 >>>.mat-horizontal-stepper-header {
     height: 80px !important;
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
+}
+
+>>>.mat-step-header .mat-step-icon-selected,
+.mat-step-header .mat-step-icon-state-done,
+.mat-step-header .mat-step-icon-state-edit {
+    background-color: #232f34;
+}
+
+>>>.mat-step-header .mat-step-icon-selected,
+.mat-step-header .mat-step-icon-state-done,
+.mat-step-header .mat-step-icon-state-edit {
+    background-color: #232f34 !important;
 }

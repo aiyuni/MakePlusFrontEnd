@@ -32,8 +32,9 @@ export class SalaryIndividualComponent implements OnInit {
 
   setPhaseBackgroundColor(i){
     let styles = {
-      'background-color': PhaseColors.colors[i],
-      'color': 'white',
+      'color': PhaseColors.colors[i],
+      'font-weight': 'bold',
+      'width': '10px'
     };
     return styles;
   }

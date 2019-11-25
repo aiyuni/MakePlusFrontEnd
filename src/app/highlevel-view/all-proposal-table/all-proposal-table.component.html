@@ -1,6 +1,6 @@
 <mat-card>
     <mat-card-header>
-        <mat-card-title>Proposals</mat-card-title>
+        <mat-card-title class="cardTitle">Proposals</mat-card-title>
     </mat-card-header>
     <div>
         <p-table #dt [columns]="cols" [value]="allProposals" [paginator]="true" [rows]="40" (onFilter)="printFilteredItems($event)">

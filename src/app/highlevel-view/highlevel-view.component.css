@@ -1,0 +1,7 @@
+>>>body a:hover {
+    color: #f9aa33;
+}
+
+>>>body a {
+    color: hsl(202, 24%, 27%);
+}

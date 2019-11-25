@@ -11,35 +11,36 @@
 
     <app-overview [project]="project " [readMode]="false " (teamChangedEvent)="getPhaseChangedEvent()" [formGroup]="formGroup"></app-overview>
     <app-workload [workloadArr]="project.workloadArr " [readMode]="false "></app-workload>
-    <mat-card>
-        <mat-card-title class="cardTitle ">Phase</mat-card-title>
-        <table>
-            <tr>
-                <td>
-                    <app-phase [phases]="project.phaseArr " [readMode]="false " [project]="project " (phaseChangedEvent)="getPhaseChangedEvent() "></app-phase>
-                </td>
 
-                <td>
-                    <app-calendar [phases]="project.phaseArr "></app-calendar>
-                </td>
-            </tr>
-        </table>
-    </mat-card>
+    <div class="col-container">
+        <mat-card>
+            <mat-card-title class="cardTitle ">Phase</mat-card-title>
+            <table>
+                <tr>
+                    <td>
+                        <app-phase [phases]="project.phaseArr " [readMode]="false " [project]="project " (phaseChangedEvent)="getPhaseChangedEvent() "></app-phase>
+                    </td>
 
-    <table>
-        <tr>
-            <td>
-                <app-phase-tracking [phases]="project.phaseArr " [readMode]="false " [porject]="project " [phaseChangedEventListener]="eventsSubject.asObservable() "></app-phase-tracking>
-            </td>
+                    <td>
+                        <app-calendar [phases]="project.phaseArr "></app-calendar>
+                    </td>
+                </tr>
+            </table>
+        </mat-card>
+    </div>
 
-            <td>
-                <app-material [readMode]="false " [material]="project.material " [project]="project " [phaseChangedEvent]="eventsSubject.asObservable() "></app-material>
-            </td>
-            <td>
-                <app-invoice [invoices]="project.invoiceArr " [readMode]="false " [project]="project "></app-invoice>
-            </td>
-        </tr>
-    </table>
+    <div class="col-container">
+        <div class="col">
+            <app-phase-tracking [phases]="project.phaseArr " [readMode]="false " [porject]="project " [phaseChangedEventListener]="eventsSubject.asObservable() "></app-phase-tracking>
+        </div>
+        <div class="col">
+            <app-material [readMode]="false " [material]="project.material " [project]="project " [phaseChangedEvent]="eventsSubject.asObservable() "></app-material>
+        </div>
+        <div class="col">
+            <app-invoice [invoices]="project.invoiceArr " [readMode]="false " [project]="project "></app-invoice>
+        </div>
+    </div>
+
 
 
     <table>

@@ -14,7 +14,7 @@
     </ng-template>
     <ng-template pTemplate="body" let-rowData let-i="rowIndex">
         <tr>
-            <td [ngStyle]="setPhaseBackgroundColor(i)"></td>
+            <td [ngStyle]="setPhaseBackgroundColor(i)">{{i+1}}</td>
 
             <td pEditableColumn>
                 <p-cellEditor>

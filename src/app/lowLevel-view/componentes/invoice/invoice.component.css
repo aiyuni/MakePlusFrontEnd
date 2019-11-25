@@ -1,6 +1,7 @@
 mat-card {
-    margin: 10px;
+    /* margin: 10px; */
     width: fit-content;
+    height: auto;
 }
 
 .mat-elevation-z8 {
@@ -47,4 +48,10 @@ p-table td input {
 
 >>>body .ui-paginator .ui-paginator-pages .ui-paginator-page.ui-state-active {
     background-color: #232f35;
+}
+
+.addButton {
+    color: #F9AA33;
+    border-collapse: #4a6572;
+    /* background-color: #4a6572; */
 }

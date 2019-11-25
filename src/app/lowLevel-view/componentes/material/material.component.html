@@ -7,7 +7,7 @@
     <p-table [value]="material" [style]="{'width':'400px'}">
         <ng-template pTemplate="header">
             <tr>
-                <th [ngStyle]="{'width':'1px'}"></th>
+                <!-- <th [ngStyle]="{'width':'1px'}"></th> -->
                 <th>Phase Name</th>
                 <th [ngStyle]="{'width':'70px'}">Predicted</th>
                 <th [ngStyle]="{'width':'70px'}">Actual</th>
@@ -16,14 +16,14 @@
         </ng-template>
         <ng-template pTemplate="body" let-rowData let-i="rowIndex">
             <tr>
-                <td [ngStyle]="setPhaseBackgroundColor(i)"></td>
-                <td pEditableColumn>
+                <!-- <td [ngStyle]="setPhaseBackgroundColor(i)"></td> -->
+                <td pEditableColumn [ngStyle]="setPhaseBackgroundColor(i)">
                     <p-cellEditor>
                         <ng-template pTemplate="input">
-                            <input pInputText type="text" [(ngModel)]="rowData.phaseName" [disabled]="true">
+                            {{i+1}} {{rowData.phaseName}}
                         </ng-template>
                         <ng-template pTemplate="output">
-                            {{rowData.phaseName}}
+                            {{i+1}} {{rowData.phaseName}}
                         </ng-template>
                     </p-cellEditor>
                 </td>
@@ -67,7 +67,7 @@
         </ng-template>
         <ng-template pTemplate="footer">
             <tr>
-                <td colspan="2" [ngClass]="['text-align-left']">Totals</td>
+                <td colspan="1" [ngClass]="['text-align-left']">Totals</td>
                 <td [ngClass]="['text-align-right']">{{totalMaterialPredicted | currency}}</td>
                 <td [ngClass]="['text-align-right']">{{totalMaterialActual | currency}}</td>
                 <!-- hide total impact (total bueget - total actul) -->

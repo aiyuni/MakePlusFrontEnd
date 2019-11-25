@@ -7,7 +7,7 @@
     </mat-toolbar-row>
 </mat-toolbar>
 <mat-card>
-    <mat-card-title>Vacation</mat-card-title>
+    <mat-card-title class="cardTitle">Vacation</mat-card-title>
     <p-table [value]="vacationArr" [style]="{'min-width':'600px'}">
         <ng-template pTemplate="header">
             <tr>
@@ -45,7 +45,7 @@
                 <td pEditableColumn style="text-align: center;">
                     <p-cellEditor>
                         <ng-template pTemplate="input">
-                            <input pInputText type="text" [(ngModel)]="rowData.month2" required [ngClass]="['text-align-center']">>
+                            <input pInputText type="text" [(ngModel)]="rowData.month2" required [ngClass]="['text-align-center']">
                         </ng-template>
                         <ng-template pTemplate="output">
                             {{rowData.month2}}
