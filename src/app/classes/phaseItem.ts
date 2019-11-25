@@ -21,5 +21,7 @@ export class PhaseItem {
         this.name = name;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.predictedDurationInWeeks = predictedDurationInWeeks;
+        this.actualDurationInWeeks = actualDurationInWeeks;
     }
 }
