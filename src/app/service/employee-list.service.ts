@@ -32,12 +32,13 @@ export class EmployeeListService {
   ) { 
     this.url = 'https://localhost:44307/api/employeepage';    // .net api calls
     this.urlNextEmplyeeID = 'Perry goes here lol.';           // Perry's url goes here.
-    if(frontEndTestMode)
+    if(frontEndTestMode.forntEndTestMode)
       this.url = 'http://localhost:3000/employees';             // myJJSONfile fake api calls. 
       this.urlNextEmplyeeID = ' http://localhost:3000/totalEmployeeID';
   }
 
   getAllEmployees(): Observable<Employee[]> {
+    console.log(`frontEndTestMode=${frontEndTestMode.forntEndTestMode}`);
     return this.http.get<Employee[]>(this.url).pipe(
       tap(_ => this.log(`fetched project id`)),
       catchError(this.handleError<Employee[]>(`getProject id`))

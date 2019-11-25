@@ -19,7 +19,7 @@ export class WorkloadPageService {
     private messageService: MessageService
   ) { 
     this.url = 'http://localhost:3000/allWorkloads';   // TODO: Perry's url goes here.
-    if(frontEndTestMode)
+    if(frontEndTestMode.forntEndTestMode)
       this.url = 'http://localhost:3000/allWorkloads';
   }
 

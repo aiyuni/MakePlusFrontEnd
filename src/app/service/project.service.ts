@@ -32,7 +32,7 @@ export class ProjectService {
             this.url = 'https://localhost:44307/api/individualprojectpages/';   // TODO: Perry's url goes here.
             this.urlNextProjectID = 'URL HERE PERRY!'                           // TODO: Perry's url goes here.
             this.urlNextPhaseID = 'URL HERE PERRY!'                             // TODO: Perry's url goes here.
-            if(frontEndTestMode){
+            if(frontEndTestMode.forntEndTestMode){
               this.url = 'http://localhost:3000/singleProject';
               this.urlNextProjectID = 'http://localhost:3000/totalProjectID'
               this.urlNextPhaseID = 'http://localhost:3000/totalPhaseID'                                    

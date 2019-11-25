@@ -19,7 +19,7 @@ export class VacationService {
     private messageService: MessageService
   ) { 
     this.url = 'https://localhost:44307/api/vacationpage';   // TODO: Perry's url goes here.
-    if(frontEndTestMode)
+    if(frontEndTestMode.forntEndTestMode)
       this.url = 'http://localhost:3000/allVacation';
   }
 
