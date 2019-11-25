@@ -5,13 +5,25 @@
         </mat-toolbar>
         <mat-divider></mat-divider>
         <mat-nav-list class="sidebarTextColor">
-            <a mat-list-item [routerLink]="['']" class="sidebarTextColor">Home</a>
+            <a mat-list-item [routerLink]="['']" class="sidebarTextColor">
+                <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+                Home
+            </a>
             <mat-divider></mat-divider>
-            <a mat-list-item [routerLink]="['/workloadSummery']" class="sidebarTextColor">Workload Summery</a>
+            <a mat-list-item [routerLink]="['/workloadSummery']" class="sidebarTextColor">
+                <mat-icon aria-hidden="false" aria-label="Example home icon">poll</mat-icon>
+                Workloads
+            </a>
             <mat-divider></mat-divider>
-            <a mat-list-item [routerLink]="['systemAdmin']" class="sidebarTextColor">Add New Employee</a>
+            <a mat-list-item [routerLink]="['systemAdmin']" class="sidebarTextColor">
+                <mat-icon aria-hidden="false" aria-label="Example home icon">group_add</mat-icon>
+                Add New Employee
+            </a>
             <mat-divider></mat-divider>
-            <a mat-list-item [routerLink]="['vacationEntry']" class="sidebarTextColor">Vacation Entry</a>
+            <a mat-list-item [routerLink]="['vacationEntry']" class="sidebarTextColor">
+                <mat-icon aria-hidden="false" aria-label="Example home icon">beach_access</mat-icon>
+                Vacation Entry
+            </a>
         </mat-nav-list>
 
     </mat-sidenav>

@@ -1,6 +1,7 @@
 mat-card {
     margin: 10px;
     width: fit-content;
+    min-width: 1040px;
 }
 
 .mat-elevation-z8 {

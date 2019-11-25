@@ -8,7 +8,7 @@
         <mat-card-title class="cardTitle">Projects</mat-card-title>
     </mat-card-header>
     <div>
-        <p-table #dt sortField="startDate" [columns]="cols" [value]="allProjects" [paginator]="true" [rows]="40" (onFilter)="printFilteredItems($event)">
+        <p-table #dt sortField="startDate" [columns]="cols" [value]="allProjects" [paginator]="true" [rows]="40" (onFilter)="printFilteredItems($event)" [style]="{'min-width':'1180px'}">
             <ng-template pTemplate="colgroup" let-columns>
                 <colgroup>
                     <col *ngFor="let col of cols">
@@ -16,20 +16,20 @@
             </ng-template>
             <ng-template pTemplate="header" let-columns>
                 <tr>
-                    <th [ngStyle]="{'width':'170px'}">Project Name</th>
-                    <th [ngStyle]="{'width':'150px'}">Project Lead</th>
-                    <th [ngStyle]="{'width':'90px'}">Start date</th>
-                    <th [ngStyle]="{'width':'90px'}">End date</th>
-                    <th [ngStyle]="{'width':'80px'}">Completion</th>
-                    <th [ngStyle]="{'width':'110px'}">Salary Budget</th>
-                    <th [ngStyle]="{'width':'110px'}">Salary Invoiced</th>
-                    <th [ngStyle]="{'width':'60px'}">Records</th>
-                    <th [ngStyle]="{'width':'80px'}">ISO 13485</th>
-                    <th [ngStyle]="{'width':'100px'}">Business Codes</th>
-                    <th [ngStyle]="">In progress survey sent</th>
-                    <th [ngStyle]="">In progress survey result</th>
-                    <th [ngStyle]="">Follow up survey sent</th>
-                    <th [ngStyle]="">Follow up survey result</th>
+                    <th [ngStyle]="{'width':'170px','font-size':'12px'}">Project Name</th>
+                    <th [ngStyle]="{'width':'150px','font-size':'12px'}">Project Lead</th>
+                    <th [ngStyle]="{'width':'90px','font-size':'12px'}">Start date</th>
+                    <th [ngStyle]="{'width':'90px','font-size':'12px'}">End date</th>
+                    <th [ngStyle]="{'width':'70px','font-size':'12px'}">Completion</th>
+                    <th [ngStyle]="{'width':'110px','font-size':'12px'}">Salary Budget</th>
+                    <th [ngStyle]="{'width':'110px','font-size':'12px'}">Salary Invoiced</th>
+                    <th [ngStyle]="{'width':'60px','font-size':'12px'}">Records</th>
+                    <th [ngStyle]="{'width':'80px','font-size':'12px'}">ISO 13485</th>
+                    <th [ngStyle]="{'width':'80px','font-size':'12px'}">Business Codes</th>
+                    <th [ngStyle]="{'font-size':'10px'}">In progress survey sent</th>
+                    <th [ngStyle]="{'font-size':'10px'}">In progress survey result</th>
+                    <th [ngStyle]="{'font-size':'10px'}">Follow up survey sent</th>
+                    <th [ngStyle]="{'font-size':'10px'}">Follow up survey result</th>
                 </tr>
 
                 <tr>
@@ -38,11 +38,11 @@
                         <input *ngSwitchCase="'leadName'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, 'contains')" [ngStyle]="{'width':'100%'}">
 
 
-                        <div *ngSwitchCase="'completion'">
+                        <!-- <div *ngSwitchCase="'completion'">
                             Value > {{yearFilter}}%
                             <i class="fa fa-close" (click)="yearFilter=null;dt.filter(null, col.field, col.filterMatchMode)" style="cursor:pointer" *ngIf="yearFilter"></i>
                             <p-slider [style]="{'width':'100%','margin-top':'8px'}" [(ngModel)]="yearFilter" [min]="-1" [max]="101" (onChange)="onYearChange($event, dt)"></p-slider>
-                        </div>
+                        </div> -->
 
                     </th>
                 </tr>
@@ -63,7 +63,7 @@
                     <td>
                         <mat-checkbox [checked]="rowData['underISO13485']" [disabled]="true"></mat-checkbox>
                     </td>
-                    <td>{{rowData['businessCode']}}</td>
+                    <td [ngStyle]="{'font-size':'10px'}">{{rowData['businessCode']}}</td>
                     <td>
                         <mat-checkbox [checked]="rowData['progressSurveySent']" [disabled]="true"></mat-checkbox>
                     </td>
