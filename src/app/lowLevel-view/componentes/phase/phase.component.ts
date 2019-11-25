@@ -55,7 +55,7 @@ export class PhaseComponent implements OnInit {
     if(this.startTempDateCtr.status=="INVALID" || this.endTempDateCtr.status=="INVALID"){
       console.log(this.startTempDateCtr);
       console.log(this.endTempDateCtr);
-      this.openSnackBar('Invalidated dates','',2000);
+      this.openSnackBar('Invalidated dates','',3000);
       return;
     }
     this.phase.startDate = this.startTempDateCtr.value.toISOString();
@@ -63,20 +63,25 @@ export class PhaseComponent implements OnInit {
     if (this.newPhase) {
       this.projectService.getTotalPhaseID()
       .subscribe(p => {
+        console.log(this.phase);
+        console.log(p);
       var phaseID = p.id + (this.phaseCounter++);
       this.phase.phaseID = phaseID;
       this.phases.push(this.phase);
       this.addToMaterialTable(phaseID);
       this.addToSalaryTable(phaseID);
-      this.openSnackBar(`New phase ${this.phase.name} added.`,'',2000);
+      this.openSnackBar(`New phase ${this.phase.name} added.`,'',3000);
+      this.phase = null;
+      this.displayDialog = false;
       });
     }
     else{
       this.phases[this.phases.indexOf(this.selectedPhase)] = this.phase;
-      this.openSnackBar(`Phase ${this.phase.name} updated.`,'',2000);
+      this.openSnackBar(`Phase ${this.phase.name} updated.`,'',3000);
+      this.phase = null;
+      this.displayDialog = false;
     }
-    this.phase = null;
-    this.displayDialog = false;
+    
   }
 
   private addToSalaryTable(id:number) {
@@ -113,7 +118,7 @@ export class PhaseComponent implements OnInit {
     this.removePhasesTable(targetID);
     this.removeFromSalaryTable(targetID);
     this.phaseChangedEvent.emit();
-    this.openSnackBar(`Phase ${this.selectedPhase.name} removed.`,'',2000);
+    this.openSnackBar(`Phase ${this.selectedPhase.name} removed.`,'',3000);
   }
   private removePhasesTable(id: number) {
     for (var i = 0; i < this.project.phaseArr.length; i++) {

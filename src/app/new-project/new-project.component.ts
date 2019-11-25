@@ -53,7 +53,7 @@ export class NewProjectComponent implements OnInit {
     this.projectService.postProject(this.project).subscribe(     
       response=> {
         console.log("response is: " + response);
-        this.openSnackBar(`New project: ${this.project.Name} saved successfully`,'',2000);
+        this.openSnackBar(`New project: ${this.project.Name} saved successfully`,'',3000);
         this.router.navigate(['/project/'+this.project.ID]);
       });
   }

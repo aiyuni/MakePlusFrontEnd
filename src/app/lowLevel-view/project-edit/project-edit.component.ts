@@ -78,7 +78,7 @@ export class ProjectEditComponent implements OnInit {
         const controlErrors: ValidationErrors = this.formGroup.get(key).errors;
         if (controlErrors != null) {
               Object.keys(controlErrors).forEach(keyError => {
-                this.openSnackBar(`Invalidated ${key.toString()}`,'',2000);
+                this.openSnackBar(`Invalidated ${key.toString()}`,'',3000);
                 console.log('Key control: ' + key + ', keyError: ' + keyError + ', err value: ', controlErrors[keyError]);
               });
             }

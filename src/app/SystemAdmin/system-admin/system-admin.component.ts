@@ -29,11 +29,11 @@ export class SystemAdminComponent implements OnInit {
     this.employeeService.postEmployee(employee).subscribe(
       response=>{
         console.log(response);
-        this.openSnackBar(`New employee ${this.newEmployee.empID} ${this.newEmployee.name} saved.`,'',2000);
+        this.openSnackBar(`New employee ${this.newEmployee.empID} ${this.newEmployee.name} saved.`,'',3000);
       },
       err => {
         console.log(err);
-        this.openSnackBar(`Saving new employee ${this.newEmployee.empID} Error.`,'',2000);
+        this.openSnackBar(`Saving new employee ${this.newEmployee.empID} Error.`,'',3000);
       }
     );
   }
