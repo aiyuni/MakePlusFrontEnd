@@ -41,6 +41,11 @@ p-table td input {
     /* background-color: #F9AA33 !important; */
 }
 
+>>>body .ui-button {
+    background-color: #F9AA33;
+    color: #232f35;
+}
+
 >>>body .ui-paginator {
     background-color: inherit;
     border: 0px;
