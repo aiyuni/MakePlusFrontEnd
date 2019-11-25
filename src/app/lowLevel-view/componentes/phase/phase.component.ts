@@ -59,21 +59,21 @@ export class PhaseComponent implements OnInit {
       return;
     }
     this.phase.startDate = this.startTempDateCtr.value.toISOString();
-    this.phase.endDate = this.endTempDateCtr.value.toString();
+    this.phase.endDate = this.endTempDateCtr.value.toISOString();
     if (this.newPhase) {
-      this.projectService.getTotalPhaseID()
-      .subscribe(p => {
-        console.log(this.phase);
-        console.log(p);
-      var phaseID = p.id + (this.phaseCounter++);
-      this.phase.phaseID = phaseID;
+      // this.projectService.getTotalPhaseID()
+      // .subscribe(p => {
+      //   console.log(this.phase);
+      //   console.log(p);
+      //   var phaseID = p.id + (this.phaseCounter++);
       this.phases.push(this.phase);
-      this.addToMaterialTable(phaseID);
-      this.addToSalaryTable(phaseID);
+
+      this.addToMaterialTable(this.phase.phaseID);
+      this.addToSalaryTable(this.phase.phaseID);
       this.openSnackBar(`New phase ${this.phase.name} added.`,'',3000);
       this.phase = null;
       this.displayDialog = false;
-      });
+      // });
     }
     else{
       this.phases[this.phases.indexOf(this.selectedPhase)] = this.phase;
@@ -153,6 +153,17 @@ export class PhaseComponent implements OnInit {
   showDialogToAdd() {
     this.newPhase = true;
     this.phase = new PhaseItem(1, "", new Date(), new Date(),0,0,""); //TODO: The ID should be fixed
+
+    this.projectService.getTotalPhaseID()
+      .subscribe(p => {
+        console.log(this.phase);
+        console.log(p);
+        var phaseID = p.id + (this.phaseCounter++);
+        
+        this.phase.phaseID = phaseID;
+        console.log("phase id loading.");
+        console.log(this.phase);
+    });
     this.displayDialog = true;
     this.startTempDateCtr = new FormControl(new Date());
     this.endTempDateCtr = new FormControl(new Date());
