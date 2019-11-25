@@ -31,10 +31,11 @@ export class EmployeeListService {
     private messageService: MessageService
   ) { 
     this.url = 'https://localhost:44307/api/employeepage';    // .net api calls
-    this.urlNextEmplyeeID = 'Perry goes here lol.';           // Perry's url goes here.
-    if(frontEndTestMode.forntEndTestMode)
+    this.urlNextEmplyeeID = 'https://localhost:44307/api/EmployeePage/nextEmployeeId';           // Perry's url goes here.
+    if(frontEndTestMode.forntEndTestMode){
       this.url = 'http://localhost:3000/employees';             // myJJSONfile fake api calls. 
-      this.urlNextEmplyeeID = ' http://localhost:3000/totalEmployeeID';
+      this.urlNextEmplyeeID = ' https://localhost:44307/api/EmployeePage/nextEmployeeId';
+    }
   }
 
   getAllEmployees(): Observable<Employee[]> {
