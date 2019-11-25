@@ -26,7 +26,6 @@ export class WorkloadTableComponent implements OnInit {
 
   ngOnInit() {
     this.workloadPageItems=[];
-    this.employeesSelectItems=[];
     this.cols = [
       { field: 'projectName', header: 'Project Name' },
       { field: 'empName', header: 'Research Member' },
