@@ -6,6 +6,7 @@ import { ProjectService } from '../service/project.service';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { ProjectEditComponent } from './project-edit/project-edit.component';
 import { Subject } from 'rxjs';
+import { FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -20,6 +21,9 @@ export class ProjectViewComponent implements OnInit {
   eventsSubject: Subject<void> = new Subject<void>();
   project: Project;
   isDataLoaded: boolean;
+
+  formGroup: FormGroup;
+
   
   constructor(
     private route: ActivatedRoute,
@@ -29,6 +33,8 @@ export class ProjectViewComponent implements OnInit {
   ngOnInit() {
     this.getProject();
     this.isDataLoaded = false;
+    
+    this.formGroup = new FormGroup({});
   }
 
   getProject(): void {
