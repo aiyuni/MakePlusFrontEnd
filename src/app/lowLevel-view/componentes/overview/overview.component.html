@@ -5,7 +5,7 @@
             <td colspan=2>
                 <!-- project Name -->
                 <mat-form-field class="full-width" floatLabel="never">
-                    <input matInput placeholder="Project Name" [(ngModel)]="project.Name" [disabled]="readMode" class="projectTitle readOnly-Text">
+                    <input matInput placeholder="Project Name" [(ngModel)]="project.name" [disabled]="readMode" class="projectTitle readOnly-Text">
                 </mat-form-field>
                 <!-- project description -->
                 <mat-form-field class="full-width description" floatLabel="never">
@@ -133,29 +133,24 @@
                 <table class="mat-table">
                     <tr class="mat-header-row">
                         <!-- SalaryBudget -->
-                        <th>
-                            <mat-form-field class="">
-                                <input matInput placeholder="Salary Budget" [(ngModel)]="project.salaryBudget" [disabled]="true" type="number" class=" readOnly-Text">
-                                <span matPrefix>$&nbsp;</span></mat-form-field>
+                        <th class="toLeft">
+                            <span class="label">Salary Budget</span><br/>
+                            <span class="moneyvalue">{{project.salaryBudget|currency}}</span>
                         </th>
                         <!-- Total Invoiced	 -->
-                        <th>
-                            <mat-form-field class="">
-                                <input matInput placeholder="Total Invoiced	" [(ngModel)]="project.totalInvoice" [disabled]="true" type="number" class=" readOnly-Text">
-                                <span matPrefix>$&nbsp;</span></mat-form-field>
+                        <th class="toLeft">
+                            <span class="label">Total Invoiced	</span><br/>
+                            <span class="moneyvalue">{{project.totalInvoice|currency}}</span>
                         </th>
                         <!-- Material Budget -->
-                        <th>
-                            <mat-form-field class="">
-                                <input matInput placeholder="Material Budget" [(ngModel)]="project.materialBudget" [disabled]="true" type="number" class=" readOnly-Text">
-                                <span matPrefix>$&nbsp;</span></mat-form-field>
-                        </th>
-                        <!-- Spent to Date -->
-                        <th>
-                            <mat-form-field class="">
-                                <input matInput placeholder="Spent to Date" [(ngModel)]="project.spendToDate" [disabled]="true" type="number" class=" readOnly-Text">
-                                <span matPrefix>$&nbsp;</span></mat-form-field>
-                        </th>
+                        <th class="toLeft">
+                            <span class="label">Material Budget</span><br/>
+                            <span class="moneyvalue">{{project.materialBudget|currency}}</span>
+                            <!-- Spent to Date -->
+                            <th class="toLeft">
+                                <span class="label">Spent to Date</span><br/>
+                                <span class="moneyvalue">{{project.spendToDate|currency}}</span>
+                            </th>
                     </tr>
                 </table>
             </td>

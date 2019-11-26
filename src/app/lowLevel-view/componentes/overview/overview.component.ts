@@ -253,9 +253,6 @@ export class OverviewComponent implements OnInit {
   endDateChangeEvent(type: string, event: MatDatepickerInputEvent<Date>) {
     this.project.endDate = event.value;
   }
-
-  
-
   
 }
   
