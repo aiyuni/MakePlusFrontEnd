@@ -12,8 +12,8 @@ export class Project{
         Object.assign(this, data);
       }
     //project detail
-    ID : number;
-    Name:string;
+    id : number;
+    name:string;
     desc:string;
     salaryBudget:number;
     totalInvoice:number;

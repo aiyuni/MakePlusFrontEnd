@@ -39,7 +39,7 @@ export class NewProjectComponent implements OnInit {
         this.project = p;
         this.projectService.getTotalProjectID()
         .subscribe(p => {
-          this.project.ID = p.id;
+          this.project.id = p.id;
           console.log(this.project);
           this.isDataLoaded=true;
         });
@@ -55,8 +55,8 @@ export class NewProjectComponent implements OnInit {
         this.projectService.postProject(this.project).subscribe(
           response => {
             console.log("response is: " + response);
-            this.openSnackBar(`New project: ${this.project.Name} saved successfully`,'',3000);
-            this.router.navigate(['/project/'+this.project.ID]);
+            this.openSnackBar(`New project: ${this.project.name} saved successfully`,'',3000);
+            this.router.navigate(['/project/'+this.project.id]);
           }
         )
       });

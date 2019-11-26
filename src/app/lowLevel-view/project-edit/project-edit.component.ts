@@ -64,7 +64,7 @@ export class ProjectEditComponent implements OnInit {
       response=> {
         console.log("response is: " + response);
         this.openSnackBar('Save Success','',4000);
-        this.router.navigate(['/project/'+this.project.ID]);
+        this.router.navigate(['/project/'+this.project.id]);
       });
     }
   }
