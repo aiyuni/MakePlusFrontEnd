@@ -60,3 +60,7 @@ p-table td input {
     border-collapse: #4a6572;
     /* background-color: #4a6572; */
 }
+
+>>>body .ui-table .ui-sortable-column.ui-state-highlight {
+    background-color: #232f34 !important;
+}
