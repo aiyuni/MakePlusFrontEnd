@@ -61,7 +61,7 @@ export class ProjectService {
 
     getProject(id: number): Observable<Project> {
         let url = this.url;
-        if(!frontEndTestMode)
+        if(!frontEndTestMode.forntEndTestMode)
             url = url + id;
         return this.http.get<Project>(url).pipe(  
            tap(_ => this.log(`fetched project id=${id}`)),
