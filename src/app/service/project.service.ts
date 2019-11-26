@@ -38,6 +38,7 @@ export class ProjectService {
               this.urlNextPhaseID = 'http://localhost:3000/totalPhaseID'                                    
             }
          };
+         
     
     getTotalProjectID(): Observable<NextID> {
         // return of(Math.floor(Math.random() * 10000) + 100);
@@ -72,7 +73,7 @@ export class ProjectService {
     /** POST: add a new Project to the database */
     postProject (project: Project): Observable<Project> {
         let url = this.url;
-        if(!frontEndTestMode)
+        if(!frontEndTestMode.forntEndTestMode)
             url = 'http://localhost:3000/singleProjectPost';
         return this.http.post<Project>(this.url, project, this.httpOptions)
       .pipe(
