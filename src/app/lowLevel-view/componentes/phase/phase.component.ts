@@ -140,6 +140,8 @@ export class PhaseComponent implements OnInit {
     this.newPhase = false;
     this.phase = this.cloneCar(event.data);
     this.displayDialog = true;
+    this.startTempDateCtr = new FormControl(this.phase.startDate);
+    this.endTempDateCtr = new FormControl(this.phase.endDate);
   }
   cloneCar(p: PhaseItem): any {
     let phase = {};
@@ -164,8 +166,8 @@ export class PhaseComponent implements OnInit {
         console.log(this.phase);
     });
     this.displayDialog = true;
-    this.startTempDateCtr = new FormControl(new Date());
-    this.endTempDateCtr = new FormControl(new Date());
+    this.startTempDateCtr = new FormControl(this.phase.startDate);
+    this.endTempDateCtr = new FormControl(this.phase.endDate);
   }
 
   setPhaseBackgroundColor(i) {
