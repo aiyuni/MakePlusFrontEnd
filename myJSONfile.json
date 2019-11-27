@@ -1,216 +1,35 @@
 {
-    "singleProject": {
-        "employeeSalaryList": [{
-            "phaseDetailsList": [{
-                    "phaseID": 1,
-                    "phaseName": "consulting",
-                    "budgetHr": 0,
-                    "actualHr": 0,
-                    "impact": ""
-                },
-                {
-                    "phaseID": 2,
-                    "phaseName": "Requirements",
-                    "budgetHr": 0,
-                    "actualHr": 0,
-                    "impact": ""
-                },
-                {
-                    "phaseID": 3,
-                    "phaseName": "Concept",
-                    "budgetHr": 0,
-                    "actualHr": 0,
-                    "impact": ""
-                },
-                {
-                    "phaseID": 11,
-                    "phaseName": "gji3",
-                    "budgetHr": 0,
-                    "actualHr": 0,
-                    "impact": ""
-                },
-                {
-                    "phaseID": 12,
-                    "phaseName": "wefew",
-                    "budgetHr": 0,
-                    "actualHr": 0,
-                    "impact": ""
-                },
-                {
-                    "phaseID": 13,
-                    "phaseName": "ffff",
-                    "budgetHr": 0,
-                    "actualHr": 0,
-                    "impact": ""
-                }
-            ],
-            "empID": 3,
-            "empName": "Perry Li",
-            "wage": 200
-        }],
-        "id": 1,
-        "name": "PETER Ahneeee",
-        "desc": "I love JSF",
+    "individualprojectpages": {
+        "employeeSalaryList": [],
+        "ID": 1,
+        "Name": "",
+        "desc": "",
         "salaryBudget": 0,
-        "totalInvoice": 2110,
-        "materialBudget": 300,
-        "spendToDate": 600,
-        "startDate": "2019-12-26T08:00:00.000Z",
-        "endDate": "2019-12-30T08:00:00.000Z",
-        "completion": 43,
+        "totalInvoice": 0,
+        "materialBudget": 0,
+        "spendToDate": 0,
+        "startDate": null,
+        "endDate": null,
+        "completion": 0,
         "businessCode": "NA",
-        "costMultiplier": 1.75,
+        "costMultiplier": 1,
         "isProposal": false,
         "isUnderISO13485": false,
-        "recoredStoredCompleted": 99,
-        "progressSurveyRsult": true,
-        "progressSurveySent": true,
-        "followupSurveySent": true,
+        "recoredStoredCompleted": 0,
+        "progressSurveyRsult": false,
+        "progressSurveySent": false,
+        "followupSurveySent": false,
         "followupSurveyResult": false,
-        "lead": [{
-            "empID": 1,
-            "name": "Peter Ahn",
-            "wage": 100
-        }],
-        "member": [{
-            "empID": 3,
-            "name": "Perry Li",
-            "wage": 200
-        }],
-        "phaseArr": [{
-                "phaseID": 1,
-                "name": "consulting",
-                "startDate": "2019-11-25T08:00:00.000Z",
-                "endDate": "2019-11-29T08:00:00.000Z",
-                "isRecordDone": true,
-                "predictedDurationInWeeks": 20,
-                "actualDurationInWeeks": 25,
-                "impact": "high impact"
-            },
-            {
-                "phaseID": 2,
-                "name": "Requirements",
-                "startDate": "2019-11-25T08:00:00.000Z",
-                "endDate": "2019-11-28T08:00:00.000Z",
-                "isRecordDone": true,
-                "predictedDurationInWeeks": 20,
-                "actualDurationInWeeks": 25,
-                "impact": "high impact"
-            },
-            {
-                "phaseID": 3,
-                "name": "Concept",
-                "startDate": "2019-11-25T08:00:00.000Z",
-                "endDate": "2019-11-29T08:00:00.000Z",
-                "isRecordDone": true,
-                "predictedDurationInWeeks": 20,
-                "actualDurationInWeeks": 25,
-                "impact": "high impact"
-            },
-            {
-                "phaseID": 11,
-                "name": "gji3",
-                "startDate": "2019-11-25T23:05:48.460Z",
-                "endDate": "2019-11-25T23:05:48.460Z",
-                "predictedDurationInWeeks": 0,
-                "actualDurationInWeeks": 0
-            },
-            {
-                "phaseID": 12,
-                "name": "wefew",
-                "startDate": "2019-11-25T23:06:01.125Z",
-                "endDate": "2019-11-25T23:06:01.125Z",
-                "predictedDurationInWeeks": 0,
-                "actualDurationInWeeks": 0
-            },
-            {
-                "phaseID": 13,
-                "name": "ffff",
-                "startDate": "2019-11-25T23:06:26.798Z",
-                "endDate": "2019-11-25T23:06:26.799Z",
-                "predictedDurationInWeeks": 0,
-                "actualDurationInWeeks": 0
-            }
-        ],
-        "workloadArr": [{
-                "empID": 1,
-                "empName": "Peter Ahn",
-                "month1": 0,
-                "month2": 0,
-                "month3": 23,
-                "month4": 31,
-                "month5": 5,
-                "month6": 6
-            },
-            {
-                "empID": 3,
-                "empName": "Perry Li",
-                "month1": 10,
-                "month2": 9,
-                "month3": 8,
-                "month4": 7,
-                "month5": 6,
-                "month6": 99
-            }
-        ],
-        "invoiceArr": [{
-                "amount": 997,
-                "date": "2019-12-02T08:00:00.000Z"
-            },
-            {
-                "amount": 471,
-                "date": "2019-12-12T08:00:00.000Z"
-            },
-            {
-                "amount": 642,
-                "date": "2019-12-22T08:00:00.000Z"
-            }
-        ],
-        "material": [{
-                "phaseID": 1,
-                "phaseName": "consulting",
-                "actualBudget": 200,
-                "projectedBudget": 100,
-                "impact": "over $100"
-            },
-            {
-                "phaseID": 2,
-                "phaseName": "Requirements",
-                "actualBudget": 200,
-                "projectedBudget": 100,
-                "impact": "over $100"
-            },
-            {
-                "phaseID": 3,
-                "phaseName": "Concept",
-                "actualBudget": 200,
-                "projectedBudget": 100,
-                "impact": "over $100"
-            },
-            {
-                "phaseID": 11,
-                "phaseName": "gji3",
-                "actualBudget": 0,
-                "projectedBudget": 0,
-                "impact": ""
-            },
-            {
-                "phaseID": 12,
-                "phaseName": "wefew",
-                "actualBudget": 0,
-                "projectedBudget": 0,
-                "impact": ""
-            },
-            {
-                "phaseID": 13,
-                "phaseName": "ffff",
-                "actualBudget": 0,
-                "projectedBudget": 0,
-                "impact": ""
-            }
-        ]
+        "lead": [],
+        "member": [],
+        "phaseArr": [],
+        "workloadArr": [],
+        "invoiceArr": [],
+        "material": [],
+        "id": 1,
+        "name": "dfs"
     },
-    "employees": [{
+    "employeepage": [{
             "empID": 1,
             "name": "Peter Ahn",
             "wage": 100
@@ -276,7 +95,7 @@
             "wage": 100
         }
     ],
-    "allWorkloads": [{
+    "MiddleLevelPage": [{
             "projectID": 0,
             "projectName": "ISSP",
             "empID": 1,
@@ -361,7 +180,7 @@
             "projectEndDate": "2019-11-06T04:55:36.730Z"
         }
     ],
-    "allVacation": [{
+    "vacationpage": [{
             "empID": 1,
             "empName": "Reneil Pascua",
             "month1": 70,
@@ -412,118 +231,116 @@
             "month6": 0
         }
     ],
-    "allProjects": [{
-            "projectID": 0,
-            "projectName": "ISSP",
-            "leadName": "Peter Ahn",
-            "startDate": "2019-11-07T06:27:43.386Z",
-            "endDate": "2019-11-07T06:27:43.386Z",
-            "completion": 80,
-            "salaryBudget": 10000,
-            "salaryInvoiced": 8000,
-            "recoredStoredCompleted": 75,
-            "underISO13485": true,
-            "businessCode": "K73.1/8731",
-            "progressSurveySent": true,
-            "progressSurveyRsult": false,
-            "followupSurveySent": false,
-            "followupSurveyResult": false
-        },
-        {
-            "projectID": 1,
-            "projectName": "Baby Calmer",
-            "leadName": "Gord",
-            "startDate": "2019-11-07T06:27:43.386Z",
-            "endDate": "2019-11-07T06:27:43.386Z",
-            "completion": 75,
-            "salaryBudget": 20000,
-            "salaryInvoiced": 15000,
-            "recoredStoredCompleted": 50,
-            "underISO13485": false,
-            "businessCode": "NA",
-            "progressSurveySent": true,
-            "progressSurveyRsult": true,
-            "followupSurveySent": false,
-            "followupSurveyResult": false
-        },
-        {
-            "projectID": 2,
-            "projectName": "JB Exercise machine",
-            "leadName": "Johanne",
-            "startDate": "2019-11-07T06:27:43.386Z",
-            "endDate": "2019-11-07T06:27:43.386Z",
-            "completion": 75,
-            "salaryBudget": 20000,
-            "salaryInvoiced": 15000,
-            "recoredStoredCompleted": 50,
-            "underISO13485": false,
-            "businessCode": "DL33.10/3842",
-            "progressSurveySent": true,
-            "progressSurveyRsult": true,
-            "followupSurveySent": false,
-            "followupSurveyResult": false
-        },
-        {
-            "projectID": 3,
-            "projectName": "project name 1",
-            "leadName": "team lead",
-            "startDate": "2019-11-07T06:27:43.386Z",
-            "endDate": "2019-11-07T06:27:43.386Z",
-            "completion": 0,
-            "salaryBudget": 20000,
-            "salaryInvoiced": 13000,
-            "recoredStoredCompleted": 0,
-            "underISO13485": false,
-            "businessCode": "NA",
-            "progressSurveySent": false,
-            "progressSurveyRsult": false,
-            "followupSurveySent": false,
-            "followupSurveyResult": false
-        },
-        {
-            "projectID": 4,
-            "projectName": "project name 2",
-            "leadName": "team lead2",
-            "startDate": "2019-11-07T06:27:43.386Z",
-            "endDate": "2019-11-07T06:27:43.386Z",
-            "completion": 0,
-            "salaryBudget": 10000,
-            "salaryInvoiced": 9000,
-            "recoredStoredCompleted": 0,
-            "underISO13485": false,
-            "businessCode": "NA",
-            "progressSurveySent": false,
-            "progressSurveyRsult": false,
-            "followupSurveySent": false,
-            "followupSurveyResult": false
-        }
-    ],
-    "allProposals": [{
-            "projectID": 0,
-            "projectName": "proposal name 1",
-            "leadName": "lead name 1",
-            "salaryBudget": 10000
-        },
-        {
-            "projectID": 1,
-            "projectName": "another proposal name 2",
-            "leadName": " another lead name 2",
-            "salaryBudget": 21000
-        },
-        {
-            "projectID": 2,
-            "projectName": "proposal name 3",
-            "leadName": "lead name 3",
-            "salaryBudget": 9000
-        }
-    ],
-    "totalProjectID": {
-        "id": 1
+    "HighLevelPage": {
+        "allProposals": [{
+                "projectID": 0,
+                "projectName": "proposal name 1",
+                "leadName": "lead name 1",
+                "salaryBudget": 10000
+            },
+            {
+                "projectID": 1,
+                "projectName": "another proposal name 2",
+                "leadName": " another lead name 2",
+                "salaryBudget": 21000
+            },
+            {
+                "projectID": 2,
+                "projectName": "proposal name 3",
+                "leadName": "lead name 3",
+                "salaryBudget": 9000
+            }
+        ],
+        "allProjects": [{
+                "projectID": 0,
+                "projectName": "ISSP",
+                "leadName": "Peter Ahn",
+                "startDate": "2019-11-07T06:27:43.386Z",
+                "endDate": "2019-11-07T06:27:43.386Z",
+                "completion": 80,
+                "salaryBudget": 10000,
+                "salaryInvoiced": 8000,
+                "recoredStoredCompleted": 75,
+                "underISO13485": true,
+                "businessCode": "K73.1/8731",
+                "progressSurveySent": true,
+                "progressSurveyRsult": false,
+                "followupSurveySent": false,
+                "followupSurveyResult": false
+            },
+            {
+                "projectID": 1,
+                "projectName": "Baby Calmer",
+                "leadName": "Gord",
+                "startDate": "2019-11-07T06:27:43.386Z",
+                "endDate": "2019-11-07T06:27:43.386Z",
+                "completion": 75,
+                "salaryBudget": 20000,
+                "salaryInvoiced": 15000,
+                "recoredStoredCompleted": 50,
+                "underISO13485": false,
+                "businessCode": "NA",
+                "progressSurveySent": true,
+                "progressSurveyRsult": true,
+                "followupSurveySent": false,
+                "followupSurveyResult": false
+            },
+            {
+                "projectID": 2,
+                "projectName": "JB Exercise machine",
+                "leadName": "Johanne",
+                "startDate": "2019-11-07T06:27:43.386Z",
+                "endDate": "2019-11-07T06:27:43.386Z",
+                "completion": 75,
+                "salaryBudget": 20000,
+                "salaryInvoiced": 15000,
+                "recoredStoredCompleted": 50,
+                "underISO13485": false,
+                "businessCode": "DL33.10/3842",
+                "progressSurveySent": true,
+                "progressSurveyRsult": true,
+                "followupSurveySent": false,
+                "followupSurveyResult": false
+            },
+            {
+                "projectID": 3,
+                "projectName": "project name 1",
+                "leadName": "team lead",
+                "startDate": "2019-11-07T06:27:43.386Z",
+                "endDate": "2019-11-07T06:27:43.386Z",
+                "completion": 0,
+                "salaryBudget": 20000,
+                "salaryInvoiced": 13000,
+                "recoredStoredCompleted": 0,
+                "underISO13485": false,
+                "businessCode": "NA",
+                "progressSurveySent": false,
+                "progressSurveyRsult": false,
+                "followupSurveySent": false,
+                "followupSurveyResult": false
+            },
+            {
+                "projectID": 4,
+                "projectName": "project name 2",
+                "leadName": "team lead2",
+                "startDate": "2019-11-07T06:27:43.386Z",
+                "endDate": "2019-11-07T06:27:43.386Z",
+                "completion": 0,
+                "salaryBudget": 10000,
+                "salaryInvoiced": 9000,
+                "recoredStoredCompleted": 0,
+                "underISO13485": false,
+                "businessCode": "NA",
+                "progressSurveySent": false,
+                "progressSurveyRsult": false,
+                "followupSurveySent": false,
+                "followupSurveyResult": false
+            }
+        ],
+        "nextProjectId": { "id": 1 },
+        "nextPhaseId": { "id": 10 }
     },
-    "totalPhaseID": {
-        "id": 10
-    },
-    "totalEmployeeID": {
+    "nextEmployeeId": {
         "id": 100
     },
     "singleProjectPost": {}

@@ -4,7 +4,7 @@ import { MessageService } from './message.service';
 import { Observable, of } from 'rxjs';
 import { WorkloadPageItem } from '../classes/workLoadPageItem';
 import { tap, catchError } from 'rxjs/operators';
-import { frontEndTestMode } from 'src/environments/environment';
+import { frontEndTestMode, apiURL } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,15 +12,13 @@ import { frontEndTestMode } from 'src/environments/environment';
 export class WorkloadPageService {
 
   /** Test api call by using local sampleJson.json */
-  private url = 'http://localhost:3000/allWorkloads';
+  private url = '';
 
   constructor(
     private http: HttpClient,
     private messageService: MessageService
   ) { 
-    this.url = 'https://localhost:44307/api/MiddleLevelPage';   // TODO: Perry's url goes here.
-    if(frontEndTestMode.forntEndTestMode)
-      this.url = 'http://localhost:3000/allWorkloads';
+    this.url = apiURL.baseURL + '/MiddleLevelPage'
   }
 
   httpOptions = {

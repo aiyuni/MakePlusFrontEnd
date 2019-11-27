@@ -6,7 +6,7 @@ import { MessageService } from './message.service';
 
 import { ProjectListItem } from '../classes/projectListItem';
 import { ProposalListItem } from '../classes/proposalListItem';
-import { frontEndTestMode } from 'src/environments/environment';
+import { frontEndTestMode, apiURL } from 'src/environments/environment';
 
 
 
@@ -14,18 +14,18 @@ import { frontEndTestMode } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ProjectListService {
+
   /** Test api call by using local sampleJson.json */
   private url ;
   private urlProposals;
-  // = 'http://localhost:3000/';
+
   constructor(
     private http: HttpClient,
     private messageService: MessageService
   ) { 
-    this.url = 'https://localhost:44307/api/HighLevelPage/projects';   // TODO: Perry's url goes here.
-    this.urlProposals = 'https://localhost:44307/api/HighLevelPage/proposals';
-    if(frontEndTestMode.forntEndTestMode)
-      this.url = 'http://localhost:3000/allProjects';
+
+    this.url = apiURL.baseURL + '/HighLevelPage/projects';
+    this.urlProposals = apiURL.baseURL + '/HighLevelPage/proposals';
   }
 
   httpOptions = {

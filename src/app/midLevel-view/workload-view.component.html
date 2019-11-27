@@ -1,3 +1,4 @@
+<app-loading *ngIf="! isDataReady" [text]="'Loading...'"></app-loading>
 <div *ngIf="isDataReady">
     <app-workload-table [months]="months" [employeesSelectItems]="employeesSelectItems"></app-workload-table>
     <app-vacation-table [months]="months" [employeesSelectItems]="employeesSelectItems"></app-vacation-table>

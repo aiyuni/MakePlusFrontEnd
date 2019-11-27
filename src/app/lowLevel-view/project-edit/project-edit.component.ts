@@ -19,6 +19,7 @@ export class ProjectEditComponent implements OnInit {
   options: FormGroup;
   isDataLoaded:boolean;
   isDataPosting:boolean;
+  isSubmitting:boolean;
 
   validated:boolean;
 
@@ -38,7 +39,7 @@ export class ProjectEditComponent implements OnInit {
     this.getProject();
     this.isDataLoaded = false;
     this.validated=false;
-
+    this.isSubmitting=false;
     this.formGroup = new FormGroup({});
   }
 
@@ -57,6 +58,7 @@ export class ProjectEditComponent implements OnInit {
   
 
   submit(project:Project) {
+    this.isSubmitting = true;
     this.getFormValidationErrors();
     // if(this.validated)
     if(this.validated){

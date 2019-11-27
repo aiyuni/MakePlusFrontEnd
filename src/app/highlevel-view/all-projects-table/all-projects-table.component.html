@@ -3,7 +3,8 @@
         <button mat-stroked-button class="toolBarButton" routerLink="/newProject">New</button>
     </mat-toolbar-row>
 </mat-toolbar>
-<mat-card>
+<app-loading *ngIf="! isDataReady" [text]="'Loading...'"></app-loading>
+<mat-card *ngIf="isDataReady">
     <mat-card-header>
         <mat-card-title class="cardTitle">Projects</mat-card-title>
     </mat-card-header>

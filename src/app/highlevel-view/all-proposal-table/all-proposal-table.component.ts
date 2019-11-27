@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { SelectItem } from 'primeng/components/common/selectitem';
 import { ProjectListService } from 'src/app/service/project-list.service';
 import { ActivatedRoute } from '@angular/router';
@@ -12,10 +12,10 @@ import { ProposalListItem } from 'src/app/classes/proposalListItem';
 })
 export class AllProposalTableComponent implements OnInit {
 
-  
   allProposals: ProposalListItem[];
   proposalNamesSelectItem: SelectItem[];
   cols: any[];
+  isDataReady:boolean;
 
   total:number;
 
@@ -33,6 +33,7 @@ export class AllProposalTableComponent implements OnInit {
     var _self = this;
     console.log("all projects");
     this.allProposals = [];
+    this.isDataReady=false;
     this.cols = [
       { field: 'projectName', header: 'Proposal Name' },
       { field: 'leadName', header: 'Project Lead' },
@@ -52,6 +53,7 @@ export class AllProposalTableComponent implements OnInit {
         console.log("get All proposals api result:");
         console.log(JSON.stringify(this.allProposals));
         this.calculateTotal();
+        this.isDataReady=true;
       });
   }
 

@@ -25,8 +25,7 @@ export class AllProjectsTableComponent implements OnInit {
   totalInvoiced:number;
   balance:number;
   hideQS:boolean;
-
-
+  isDataReady:boolean;
 
   @ViewChild('myTable',{static: false}) private _table: Table;
   name = 'Primeng data table date range filter';
@@ -42,6 +41,7 @@ export class AllProjectsTableComponent implements OnInit {
   ngOnInit() {
     var _self = this;
     this.allProjects = [];
+    this.isDataReady=false;
     this.projectNamesSelectItem = [];
     this.cols = [
       { field: 'projectName', header: 'Project Name' },
@@ -71,20 +71,12 @@ export class AllProjectsTableComponent implements OnInit {
   }
 
   getAllProjects(): void {
-    // this.projectListService.getAllProjects()
-    //   .subscribe(w => {
-    //     this.allProjects = w;
-    //     console.log("get All projects api result: before");
-    //     console.log(JSON.stringify(w));
-    //     console.log("get All projects api result:");
-    //     console.log(JSON.stringify(this.allProjects));
-    //   });
-
     this.projectListService.getAllProjects()
       .subscribe(w => {
         this.allProjects = w;
         this.paraProjectNameToSelectItem();
         this.calculateTotal();
+        this.isDataReady = true;
       });
   }
 

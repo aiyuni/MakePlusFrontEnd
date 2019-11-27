@@ -69,7 +69,7 @@ export class WorkloadViewComponent implements OnInit {
       this.isDataReady = false;
     if (this.employeesSelectItems == null)
       this.isDataReady = false;
-      this.isDataReady = true;
+    this.isDataReady = true;
   }
 
 }

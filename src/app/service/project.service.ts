@@ -5,7 +5,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { MessageService } from './message.service';
 
 import { Project } from '../classes/project';
-import { frontEndTestMode } from 'src/environments/environment';
+import { frontEndTestMode, apiURL } from 'src/environments/environment';
 import { NextID } from '../classes/nextID';
 
 @Injectable({
@@ -29,14 +29,9 @@ export class ProjectService {
         private http: HttpClient,
         private messageService: MessageService) 
         {
-            this.url = 'https://localhost:44307/api/individualprojectpages/';   // TODO: Perry's url goes here.
-            this.urlNextProjectID = 'https://localhost:44307/api/HighLevelPage/nextProjectId'                           // TODO: Perry's url goes here.
-            this.urlNextPhaseID = 'https://localhost:44307/api/HighLevelPage/nextPhaseId'                             // TODO: Perry's url goes here.
-            if(frontEndTestMode.forntEndTestMode){
-              this.url = 'http://localhost:3000/singleProject';
-              this.urlNextProjectID = 'http://localhost:3000/totalProjectID'
-              this.urlNextPhaseID = 'http://localhost:3000/totalPhaseID'                                    
-            }
+            this.url = apiURL.baseURL + '/individualprojectpages';
+            this.urlNextPhaseID = apiURL.baseURL + '/HighLevelPage/nextPhaseId';
+            this.urlNextProjectID = apiURL.baseURL + '/HighLevelPage/nextProjectId' 
          };
          
     
@@ -61,9 +56,9 @@ export class ProjectService {
     }
 
     getProject(id: number): Observable<Project> {
-        let url = this.url;
-        if(!frontEndTestMode.forntEndTestMode)
-            url = url + id;
+        let url = this.url + `/${id}`;
+        if(frontEndTestMode.forntEndTestMode)           // used for json fake api server.
+            url = this.url + '/individualprojectpages';
         return this.http.get<Project>(url).pipe(  
            tap(_ => this.log(`fetched project id=${id}`)),
            catchError(this.handleError<Project>(`getProject id=${id}`))
@@ -73,9 +68,9 @@ export class ProjectService {
     /** POST: add a new Project to the database */
     postProject (project: Project): Observable<Project> {
         let url = this.url;
-        if(!frontEndTestMode.forntEndTestMode)
-            url = 'http://localhost:3000/singleProjectPost';
-        return this.http.post<Project>(this.url, project, this.httpOptions)
+        if(frontEndTestMode.forntEndTestMode)           // used for json fake api server.
+            url = this.url+'/singleProjectPost';
+        return this.http.post<Project>(url, project, this.httpOptions)
       .pipe(
         catchError(this.handleError('postProject', project))
       );

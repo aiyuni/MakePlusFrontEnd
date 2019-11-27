@@ -1,4 +1,5 @@
-<mat-card>
+<app-loading *ngIf="! isDataReady" [text]="'Loading...'"></app-loading>
+<mat-card *ngIf="isDataReady">
     <mat-card-header>
         <mat-card-title class="cardTitle">Proposals</mat-card-title>
     </mat-card-header>

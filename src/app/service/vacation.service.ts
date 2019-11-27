@@ -4,7 +4,7 @@ import { MessageService } from './message.service';
 import { VacationPageItem } from '../classes/vacationPageItem';
 import { Observable, of } from 'rxjs';
 import { tap, catchError, map } from 'rxjs/operators';
-import { frontEndTestMode } from 'src/environments/environment';
+import { frontEndTestMode, apiURL } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -18,9 +18,7 @@ export class VacationService {
     private http: HttpClient,
     private messageService: MessageService
   ) { 
-    this.url = 'https://localhost:44307/api/vacationpage';   // TODO: Perry's url goes here.
-    if(frontEndTestMode.forntEndTestMode)
-      this.url = 'http://localhost:3000/allVacation';
+    this.url = apiURL.baseURL + '/vacationpage'
   }
 
   httpOptions = {

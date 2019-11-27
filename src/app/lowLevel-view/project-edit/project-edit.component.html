@@ -1,5 +1,6 @@
 <app-loading *ngIf="! isDataLoaded" class="top-layer" [text]="'Loading...'"></app-loading>
-<div *ngIf="isDataLoaded">
+<app-loading *ngIf="isSubmitting" [text]="'Saving...'"></app-loading>
+<div *ngIf="isDataLoaded && ! isSubmitting">
     <mat-toolbar>
         <mat-toolbar-row style="background-color: #344955; color: white; text-align: right;">
             <button mat-stroked-button class="toolBarButton" (click)="submit(project)">Submit</button>

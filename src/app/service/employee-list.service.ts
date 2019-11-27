@@ -5,7 +5,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { MessageService } from './message.service';
 import { Employee } from '../classes/employee';
-import { frontEndTestMode } from 'src/environments/environment';
+import { frontEndTestMode, apiURL } from 'src/environments/environment';
 import { NextID } from '../classes/nextID';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
@@ -30,16 +30,14 @@ export class EmployeeListService {
     private http: HttpClient,
     private messageService: MessageService
   ) { 
-    this.url = 'https://localhost:44307/api/employeepage';    // .net api calls
-    this.urlNextEmplyeeID = 'https://localhost:44307/api/EmployeePage/nextEmployeeId';           // Perry's url goes here.
+    this.url = apiURL.baseURL + '/employeepage';
+    this.urlNextEmplyeeID = apiURL.baseURL + '/EmployeePage/nextEmployeeId';
     if(frontEndTestMode.forntEndTestMode){
-      this.url = 'http://localhost:3000/employees';             // myJJSONfile fake api calls. 
-      this.urlNextEmplyeeID = ' https://localhost:44307/api/EmployeePage/nextEmployeeId';
+      this.urlNextEmplyeeID = apiURL.baseURL + '/nextEmployeeId'; //used for front-end fake api json server.
     }
   }
 
   getAllEmployees(): Observable<Employee[]> {
-    console.log(`frontEndTestMode=${frontEndTestMode.forntEndTestMode}`);
     return this.http.get<Employee[]>(this.url).pipe(
       tap(_ => this.log(`fetched project id`)),
       catchError(this.handleError<Employee[]>(`getProject id`))
@@ -48,8 +46,6 @@ export class EmployeeListService {
 
   /** POST: add a new hero to the database */
   postEmployee (employee: Employee): Observable<Employee> {
-    console.log("POST Sucessful");
-    console.log(JSON.stringify(employee));
     return this.http.post<Employee>(this.url, employee, this.httpOptions)
   .pipe(
     catchError(this.handleError('postProject', employee))
