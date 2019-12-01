@@ -5,26 +5,34 @@ import { ProjectListService } from 'src/app/service/project-list.service';
 import { ActivatedRoute } from '@angular/router';
 import { Table } from 'primeng/table';
 
-
-
-
+/** The All project table component in High level view. */
 @Component({
   selector: 'app-all-projects-table',
   templateUrl: './all-projects-table.component.html',
   styleUrls: ['./all-projects-table.component.css']
 })
+
 export class AllProjectsTableComponent implements OnInit {
 
+  /** Each rows of project list table. */
   allProjects: ProjectListItem[];
+  /** The temporay filter result of the project name search. */
   projectNamesSelectItem: SelectItem[];
+  /** The column headers. */
   cols: any[];
   frozenCols: any[];
+  /** The completion percentage filter. */
   yearFilter: number;
+  /** The completion percentage input for searching. */
   yearTimeout: any;
+  /** Summing all salary budget. */
   totalSalaryBuget:number;
+  /** Summing all invoice amount. */
   totalInvoiced:number;
+  /** The total salary minus invoiced amount. */
   balance:number;
-  hideQS:boolean;
+  // hideQS:boolean;
+  /** Indicator if the api calls returns. */
   isDataReady:boolean;
 
   @ViewChild('myTable',{static: false}) private _table: Table;
@@ -32,12 +40,13 @@ export class AllProjectsTableComponent implements OnInit {
   data: any;
   dateFilters: any;
 
-
+  /** constructor before calling directive/component hook method */
   constructor(
     private route: ActivatedRoute,
     private projectListService: ProjectListService,
   ) { }
 
+  /** Initialize the directive/component. */
   ngOnInit() {
     var _self = this;
     this.allProjects = [];
@@ -70,6 +79,7 @@ export class AllProjectsTableComponent implements OnInit {
 
   }
 
+  /** GET all project api calls. */
   getAllProjects(): void {
     this.projectListService.getAllProjects()
       .subscribe(w => {
@@ -80,6 +90,7 @@ export class AllProjectsTableComponent implements OnInit {
       });
   }
 
+  /** Add project name into the project name selection dropdown menu. */
   paraProjectNameToSelectItem() {
     for (var i = 0; i < this.allProjects.length; i++) {
       this.projectNamesSelectItem.push({ label: this.allProjects[i].projectName, value: this.allProjects[i].projectName });
@@ -87,6 +98,7 @@ export class AllProjectsTableComponent implements OnInit {
     }
   }
 
+  /** Filter event when completion filter changed. */
   onYearChange(event, dt) {
     if (this.yearTimeout) {
       clearTimeout(this.yearTimeout);
@@ -97,6 +109,7 @@ export class AllProjectsTableComponent implements OnInit {
     }, 250);
   }
 
+  /** Calcualte the totals of the table. */
   calculateTotal(){
     this.totalSalaryBuget = 0;
     this.totalInvoiced=0;
@@ -108,6 +121,7 @@ export class AllProjectsTableComponent implements OnInit {
 
   }
 
+  /** Calcualte the totals of the table when the filter event changed. */
   printFilteredItems(event: any) {
     this.totalSalaryBuget = 0;
     this.totalInvoiced=0;

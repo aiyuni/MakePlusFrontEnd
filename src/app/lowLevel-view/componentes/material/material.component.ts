@@ -5,6 +5,7 @@ import { Project } from 'src/app/classes/project';
 import { Column } from 'primeng/components/common/shared';
 import { Observable } from 'rxjs';
 
+/** The calendar component in LOW level view. */
 @Component({
   selector: 'app-material',
   templateUrl: './material.component.html',
@@ -12,23 +13,29 @@ import { Observable } from 'rxjs';
 })
 export class MaterialComponent implements OnInit {
   eventsSubscription: any
-
+  /** the current project */
   @Input() project:Project;
+  /** indicator if this page is read only or not. */
   @Input() readMode: boolean;
+  /** each row of the material table. */
   @Input() material: MaterialItem[];
+  /** the input event when other module add phase */
   @Input() phaseChangedEvent: Observable<void>;
 
-
+  /** the total material estimates */
   totalMaterialPredicted:number;
+  /** the total material actual amount. */
   totalMaterialActual:number;
 
   constructor() { }
 
+  /** Initialize the directive/component. */
   ngOnInit() {
     this.calcuateTotal();
     this.eventsSubscription = this.phaseChangedEvent.subscribe(() => this.calcuateTotal());
   }
 
+  /** applying the phase color to the phase number. */
   setPhaseBackgroundColor(i){
     let styles = {
       'color': PhaseColors.colors[i],
@@ -38,7 +45,7 @@ export class MaterialComponent implements OnInit {
     return styles;
   }
 
-
+  /** summing all the material amount */
   calcuateTotal(){
     this.totalMaterialPredicted = 0;
     this.totalMaterialActual = 0;
@@ -49,6 +56,7 @@ export class MaterialComponent implements OnInit {
     this.updateOverviewTotal();
   }
 
+  /** update the project overview material amount */
   updateOverviewTotal(){
     this.project.materialBudget = this.totalMaterialPredicted;
 
@@ -62,10 +70,12 @@ export class MaterialComponent implements OnInit {
     this.project.spendToDate = parseFloat(this.getTotalActualMaterial().toString()) + projectTotalSalaryActual;
   }
 
+  /** fired when user exit the field */
   onEditComplete(event: {column: Column, data: any}): void {
     this.calcuateTotal();
   }
 
+  /** summing all atual material spend. */
   getTotalActualMaterial(){
     let totalMaterialActual = 0;
     for(var i = 0; i < this.project.material.length; i++){
@@ -74,7 +84,7 @@ export class MaterialComponent implements OnInit {
     return totalMaterialActual;
 }
 
-
+/** fired when user change the text of the field. */
   onTextEnterdInField(event: {originalEvent: any, column: Column, data: any}): void {
     this.calcuateTotal();
   }

@@ -4,7 +4,7 @@ import { ProjectListService } from 'src/app/service/project-list.service';
 import { ActivatedRoute } from '@angular/router';
 import { ProposalListItem } from 'src/app/classes/proposalListItem';
 
-
+/** The All proposal table component in High level view. */
 @Component({
   selector: 'app-all-proposal-table',
   templateUrl: './all-proposal-table.component.html',
@@ -12,23 +12,28 @@ import { ProposalListItem } from 'src/app/classes/proposalListItem';
 })
 export class AllProposalTableComponent implements OnInit {
 
+  /** Each rows of proposal list table. */
   allProposals: ProposalListItem[];
+  /** The temporay filter result of the proposal name search. */
   proposalNamesSelectItem: SelectItem[];
+  /** The column headers. */
   cols: any[];
+  /** Indicator if the api calls returns. */
   isDataReady:boolean;
-
+  /** Summing all budget. */
   total:number;
 
   name = 'Primeng data table date range filter';
   data: any;
   dateFilters: any;
 
-
+  /** constructor before calling directive/component hook method */
   constructor(
     private route: ActivatedRoute,
     private projectListService: ProjectListService,
   ) { }
 
+  /** Initialize the directive/component. */
   ngOnInit() {
     var _self = this;
     console.log("all projects");
@@ -46,6 +51,7 @@ export class AllProposalTableComponent implements OnInit {
 
   }
 
+  /** GET all proposals api calls. */
   getAllProposals(): void {
     this.projectListService.getAllProposals()
       .subscribe(w => {
@@ -57,12 +63,14 @@ export class AllProposalTableComponent implements OnInit {
       });
   }
 
+  /** calculate total budget. */
   calculateTotal(){
     this.total = 0;
     for(var i = 0; i < this.allProposals.length; i++)
       this.total += this.allProposals[i].salaryBudget;
   }
 
+  /** Calcualte the totals of the table when the filter event changed. */
   printFilteredItems(event: any) {
     this.total = 0;
     for(var i = 0; i < event.filteredValue.length; i++){

@@ -9,8 +9,8 @@ import { PhaseDetail } from 'src/app/classes/phaseDetail';
 import { BusinessCodeService } from 'src/app/service/business-code.service';
 import { FormBuilder, FormGroup, Validators, FormControl, ValidationErrors, ValidatorFn, AbstractControl } from '@angular/forms';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
-// import { BusinessCodeService } from 'src/app/service/business-Code.service';
 
+/** The invoice component in LOW level view. */
 @Component({
   selector: 'app-overview',
   templateUrl: './overview.component.html',
@@ -19,20 +19,34 @@ import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 
 export class OverviewComponent implements OnInit {
 
+  /** current project. */
   @Input() project: Project;
+  /** indicator if this page is read only or not. */
   @Input() readMode: boolean;
+  /** indicator if this project is new or not. */
   @Input() newProjectMode:boolean;
+  /** the total spend to date. */
   @Input() spendtToDate: number;
+  /** the form controller group */
   @Input() formGroup:FormGroup;
+  /** pass event to other module when team member change */
   @Output() teamChangedEvent= new EventEmitter<any>();
 
+  /** all employees in thie project. */
   employees: Employee[];
+  /** all employees selection items in the drop down menu. */
   allEmployeeItems: SelectItem[];
+  /** the selected row from the team dropdown. */
   teamMemberSelected: string[] = [];
+  /** the selected row from the lead dropdown. */
   teamLeadSelected: string[] = [];
+  /** the selection items in the business code dropdown. */
   businessCodeOptions: string[];
+  /** start date controller */
   startDateCtr: FormControl;
+  /** end date controller. */
   endDateCtr: FormControl;
+
 
   constructor(
     private employeeListService: EmployeeListService,
@@ -42,6 +56,7 @@ export class OverviewComponent implements OnInit {
     this.newProjectMode = false;
   }
 
+  /** Initialize the directive/component. */
   ngOnInit() {
     this.startDateCtr = new FormControl(this.project.startDate);
     this.endDateCtr = new FormControl(this.project.endDate);
@@ -50,7 +65,7 @@ export class OverviewComponent implements OnInit {
     this.putFormControlers();
   }
 
-
+  /** populate team menbmer option into selection items. */
   private initTeamMembersOptions(): void {
     if (this.employees == null || this.project == null)
       return;
@@ -65,6 +80,7 @@ export class OverviewComponent implements OnInit {
     }
   }
 
+  /** fired when team selection list changed. */
   teamMemberSelectionChanged(e) {
     var id = this.findEmployeeByName(e).empID;
     let wage = this.findEmployeeByName(e).wage;
@@ -88,6 +104,7 @@ export class OverviewComponent implements OnInit {
     console.log(this.project);
   }
 
+  /** fired when lead selection changed. */
   teamLeadSelectionChanged(e) {
     var id = this.findEmployeeByName(e).empID;
     let wage = this.findEmployeeByName(e).wage;
@@ -113,6 +130,7 @@ export class OverviewComponent implements OnInit {
     console.log(this.project);
   }
 
+  /** state if the member is selected already or not. */
   private isSelectedMember(name: string) {
     for (var i = 0; i < this.teamMemberSelected.length; i++) {
       if (name == this.teamMemberSelected[i])
@@ -121,6 +139,7 @@ export class OverviewComponent implements OnInit {
     return false;
   }
 
+  /** state if the member is selected already or not. */
   private isSelectedLead(name: string) {
     for (var i = 0; i < this.teamLeadSelected.length; i++) {
       if (name == this.teamLeadSelected[i])
@@ -129,15 +148,19 @@ export class OverviewComponent implements OnInit {
     return false;
   }
 
+  /** saving the lead selection to project lead arr. */
   private addToLeadTable(id: number, name: string, wage: number){
     let temp = new Employee(id,name,wage);
     this.project.lead.push(temp);
   }
+
+  /** saving the member selection to project member arr. */
   private addToMemberTable(id: number, name: string, wage: number){
     let temp = new Employee(id,name,wage);
     this.project.member.push(temp);
   }
 
+  /** add new selection employee to salary table. */
   private addToSalaryTable(id: number, name: string, wage: number) {
     let temp = new EmployeeSalary();
     temp.empID = id;
@@ -150,10 +173,12 @@ export class OverviewComponent implements OnInit {
     }
     this.project.employeeSalaryList.push(temp);
   }
+  /** add new selection employee to workload table. */
   private addToWorkloadTable(id: number, name: string) {
     let temp = new WorkloadItem(id, name, 0, 0, 0, 0, 0, 0);
     this.project.workloadArr.push(temp);
   }
+  /** remove selection employee from workload table. */
   private removeFromWorkloadTable(name: string) {
     for (var i = 0; i < this.project.workloadArr.length; i++) {
       if (name == this.project.workloadArr[i].empName) {
@@ -161,6 +186,7 @@ export class OverviewComponent implements OnInit {
       }
     }
   }
+  /** remove selection employee from salary table. */
   private removeFromSalaryTable(id: number) {
     for (var i = 0; i < this.project.employeeSalaryList.length; i++) {
       if (id == this.project.employeeSalaryList[i].empID) {
@@ -168,6 +194,7 @@ export class OverviewComponent implements OnInit {
       }
     }
   }
+  /** remove selection employee from lead in the project. */
   private removeFromLeadTable(id: number) {
     for (var i = 0; i < this.project.lead.length; i++) {
       if (id == this.project.lead[i].empID) {
@@ -175,6 +202,7 @@ export class OverviewComponent implements OnInit {
       }
     }
   }
+  /** remove selection employee from member in the project. */
   private removeFromMemberTable(id: number) {
     for (var i = 0; i < this.project.member.length; i++) {
       if (id == this.project.member[i].empID) {
@@ -183,6 +211,7 @@ export class OverviewComponent implements OnInit {
     }
   }
 
+  /** find the name is the employee is in the project employees(lead and members). */
   private findEmployeeByName(name: string) {
     for (var i = 0; i < this.employees.length; i++) {
       if (this.employees[i].name == name)
@@ -190,6 +219,7 @@ export class OverviewComponent implements OnInit {
     }
   }
 
+  /** get all employee for populating employee selection dropdown. */
   getAllEmployees(): void {
     this.employeeListService.getAllEmployees()
       .subscribe(employees => {
@@ -199,6 +229,7 @@ export class OverviewComponent implements OnInit {
         this.initTeamMembersOptions();
       });
   }
+  /** hardcoded business code selection. */
   getBusinessCodes(): void {
   this.businessCodeOptions = [
     'NA',
@@ -210,14 +241,9 @@ export class OverviewComponent implements OnInit {
     'DL3310/3845'
   ];
   }
-
-
-
-  // From Controler
-
-  
-
+  /** recorded stored field control */
   recoredStoredFC = new FormControl('', [Validators.required, Validators.max(100), Validators.min(0)]);    
+  /** returen the validator result string */
   getRecoredStoredErrorMessage() {
     this.formGroup.get
     return this.recoredStoredFC.hasError('required') ? 'You must enter a value' :
@@ -225,20 +251,25 @@ export class OverviewComponent implements OnInit {
         this.recoredStoredFC.hasError('min') ? 'Minimun is 0' :
           '';
   }
+  /** completion field control */
   completionFC = new FormControl('', [Validators.required, Validators.max(100), Validators.min(0)]);     
+  /** returen the validator result string */
   getCompletionErrorMessage() {
     return this.completionFC.hasError('required') ? 'You must enter a value' :
         this.completionFC.hasError('max') ? 'Maximun is 100' :
         this.completionFC.hasError('min') ? 'Minimun is 0' :
           '';
   }
+  /** cost multiplier field control */
   costMultiplierFC = new FormControl('', [Validators.required, Validators.max(10), Validators.min(0)]);   
+  /** returen the validator result string */
   getCostMultiplierErrorMessage() {
     return this.costMultiplierFC.hasError('required') ? 'You must enter a value' :
         this.costMultiplierFC.hasError('max') ? 'Maximun is 10' :
         this.costMultiplierFC.hasError('min') ? 'Minimun is 0' :
           '';
   }
+  /** add form controller to form group. */
   putFormControlers(){
     this.formGroup.addControl('Record Stored Completed', this.recoredStoredFC);
     this.formGroup.addControl('Completed', this.completionFC);
@@ -247,9 +278,11 @@ export class OverviewComponent implements OnInit {
     this.formGroup.addControl('End Date',this.endDateCtr);
   }
 
+  /** start date change event */
   startDateChangeEvent(type: string, event: MatDatepickerInputEvent<Date>) {
     this.project.startDate = event.value;
   }
+  /** end date change event */
   endDateChangeEvent(type: string, event: MatDatepickerInputEvent<Date>) {
     this.project.endDate = event.value;
   }
