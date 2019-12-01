@@ -1,19 +1,38 @@
+/**
+ * This class represents the single row in the project table in the HIGH level page.
+ */
 export class ProjectListItem {
+    /** unique project id */
     projectID: number;
+    /** project name */
     projectName: string;
+    /** project lead name */
     leadName: String;
+    /** the start date of this project. */
     startDate: Date;
+    /** the end date of this project. */
     endDate: Date;
+    /** the percentage of project completion */
     completion: number;
+    /** the total salary estimated */
     salaryBudget: number;
+    /** the total invoiced amount. */
     salaryInvoiced: number;
+    /** the percentage of records completed. */
     recoredStoredCompleted: number;
+    /** indicator if this project is under iso. */
     underISO13485: boolean;
+    /** the business code the this project belongs to */
     businessCode: string;
+    /** quality system status */
     progressSurveySent: boolean;
+    /** quality system status */
     progressSurveyRsult: boolean;
+    /** quality system status */
     followupSurveySent: boolean;
+    /** quality system status */
     followupSurveyResult: boolean;
+    /** indicator of this is project of proposal */
     isProposal: boolean;
 
     constructor(

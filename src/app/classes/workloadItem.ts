@@ -1,11 +1,22 @@
+/**
+ * This class represents the workload table in LOW-level page only.
+ */
 export class WorkloadItem {
+    /** unique employee id */
     empID: number;
+    /** employee name */
     empName: string;
+    /** the next 1st month by today */
     month1: number;
+    /** the next 2nd month by today */
     month2: number;
+    /** the next 3rd month by today */
     month3: number;
+    /** the next 4th month by today */
     month4: number;
+    /** the next 5th month by today */
     month5: number;
+    /** the next 6th month by today */
     month6: number;
     
     constructor(

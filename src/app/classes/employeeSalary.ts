@@ -1,24 +1,27 @@
 
 import{PhaseDetail} from './phaseDetail';
 
+/**
+ * This class represents Employee Salary in the low level page.
+ * This reperesnts a signle employee member in a project.
+ */
 export class EmployeeSalary {
+
+    /** unique employee number. */
     empID: number;
+
+    /** employee name. */
     empName: string;
+
+    /** employee hourly salary */
     wage:number;
-    phaseDetailsList:PhaseDetail[];
+
+    /** an employee can have salary input for each phase. */
+    phaseDetailsList:PhaseDetail[];     
 
     constructor(
         
     ) {
         this.phaseDetailsList=[];
     }
-    // constructor(
-    //     empID: number,
-    //     empName:string,
-    //     wage:number,
-    // ) {
-    //     this.empID=empID;
-    //     this.empName=empName;
-    //     this.wage=wage;
-    // }
 }

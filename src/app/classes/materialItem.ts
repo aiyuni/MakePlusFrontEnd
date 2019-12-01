@@ -1,8 +1,16 @@
+/**
+ * This class represents Material spent on low level page.
+ */
 export class MaterialItem {
+    /** unique phase id */
     phaseID: number;
+    /** the phase name. */
     phaseName:string;
-    projectedBudget: number;     //budget
-    actualBudget: number;     //actual
+    /** the estimated money amount. */
+    projectedBudget: number;
+    /** the actual money amount. */
+    actualBudget: number;
+    /** the user input note of the material items of this phase. */
     impact: string;
 
     constructor(

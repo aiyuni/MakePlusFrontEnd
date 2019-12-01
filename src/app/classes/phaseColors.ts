@@ -1,4 +1,8 @@
+/**
+ * This class represent the color scheme for the phase label.
+ */
 export class PhaseColors {
+    /** the color. eg. color[0] = phase 1 color. */
     public static colors = [
         "#AD1B57", "#F4511F", "#E4C440", "#0C8043", "#3F51B4", "#8E25AA",
         "#D9235F", "#C0CB34", "#009588", "#7986CB", "#795548",
