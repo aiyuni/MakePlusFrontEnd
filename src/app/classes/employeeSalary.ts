@@ -19,6 +19,7 @@ export class EmployeeSalary {
     /** an employee can have salary input for each phase. */
     phaseDetailsList:PhaseDetail[];     
 
+    /** constructor when an employee is added from salary table. */
     constructor(
         
     ) {

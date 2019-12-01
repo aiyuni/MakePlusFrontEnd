@@ -13,7 +13,7 @@ export class PhaseDetail {
     /** the notes of the salary impact. */
     impact: string;
 
-
+    /** constructor for adding phase */
     constructor(
         phaseID: number,
         phaseName: string,

@@ -9,6 +9,7 @@ export class InvoiceItem {
     /** the invoiced date. */
     date: Date;
 
+    /** constructor for adding invoice */
     constructor(
         amount: number,
         date: Date, ) {

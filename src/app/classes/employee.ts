@@ -12,6 +12,7 @@ export class Employee {
     /** employee hourly salary */
     wage: number;
 
+    /** constructor for an employee is added */
     constructor(
         empID: number,
         name: string,

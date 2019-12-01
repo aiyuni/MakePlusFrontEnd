@@ -11,6 +11,7 @@ export class ProposalListItem {
     /** the salary estimated. */
     salaryBudget: number;
 
+    /** constructor for adding a proposal to the proposal table in front-end. */
     constructor(
         projectID: number,
         projectName: string,

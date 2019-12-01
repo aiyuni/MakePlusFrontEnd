@@ -30,6 +30,7 @@ export class WorkloadPageItem {
     /** Indicator of this is project time or vacation time. */
     isNonePorjectTime:boolean;
     
+    /** constructor for adding a row to workload table in front-end*/
     constructor(
         projectID: number,
         projectName: string,

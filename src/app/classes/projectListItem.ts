@@ -35,6 +35,7 @@ export class ProjectListItem {
     /** indicator of this is project of proposal */
     isProposal: boolean;
 
+    /** constructor for adding a project to front-end*/
     constructor(
         projectID: number,
         projectName: string,

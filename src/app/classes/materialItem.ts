@@ -13,6 +13,7 @@ export class MaterialItem {
     /** the user input note of the material items of this phase. */
     impact: string;
 
+    /** constructor for adding material item */
     constructor(
         phaseID: number,
         phaseName:string,

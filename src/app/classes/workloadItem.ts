@@ -19,6 +19,7 @@ export class WorkloadItem {
     /** the next 6th month by today */
     month6: number;
     
+    /** constructor for adding a row in the workload table*/
     constructor(
         empID: number,
         empName: string,

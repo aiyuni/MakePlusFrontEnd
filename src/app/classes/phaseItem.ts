@@ -19,6 +19,7 @@ export class PhaseItem {
     /** the user notes of the impact on this phase. */
     impact: string;
 
+    /** constructor for adding a phase */
     constructor(
         phaseID: number,
         name: string,
