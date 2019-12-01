@@ -3,20 +3,19 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { MessageService } from './message.service';
-
 import { ProjectListItem } from '../classes/projectListItem';
 import { ProposalListItem } from '../classes/proposalListItem';
 import { frontEndTestMode, apiURL } from 'src/environments/environment';
 
-
-
+/** roots */
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectListService {
 
-  /** Test api call by using local sampleJson.json */
+  /** the get all projects url for HIGH level view */
   private url ;
+  /** the get all proposals url for HIGH level view */
   private urlProposals;
 
   constructor(
@@ -28,10 +27,12 @@ export class ProjectListService {
     this.urlProposals = apiURL.baseURL + '/HighLevelPage/proposals';
   }
 
+  /** headers in an httpOptions object that will be passed to every HttpClient save method. */
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
+  /** GET: get all projects from database */
   getAllProjects(): Observable<ProjectListItem[]> {
     return this.http.get<ProjectListItem[]>(this.url).pipe(
       tap(_ => this.log(`fetched project id`)),
@@ -39,6 +40,7 @@ export class ProjectListService {
     );
   };
 
+  /** GET: get all proposals from database */
   getAllProposals(): Observable<ProposalListItem[]> {
     return this.http.get<ProposalListItem[]>(this.urlProposals).pipe(
       tap(_ => this.log(`fetched project id`)),

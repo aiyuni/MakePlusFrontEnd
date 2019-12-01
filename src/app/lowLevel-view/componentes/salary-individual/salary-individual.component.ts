@@ -5,6 +5,7 @@ import { Column } from 'primeng/components/common/shared';
 import { Project } from 'src/app/classes/project';
 import { Observable } from 'rxjs';
 
+/** The salary details component in LOW level view. */
 @Component({
   selector: 'app-salary-individual',
   templateUrl: './salary-individual.component.html',
@@ -12,24 +13,32 @@ import { Observable } from 'rxjs';
 })
 export class SalaryIndividualComponent implements OnInit {
   eventsSubscription: any
-
+  /** employee index in the project employee array. */
   @Input() empIndex:number;
+  /** current employee */
   @Input() employeeSalary:EmployeeSalary;
+  /** indicator if this page is read only or not. */
   @Input() readMode:boolean;
+  /** current project */
   @Input() project:Project;
+  /** reciever of phased changed event from other module. */
   @Input() phaseChangeListener: Observable<void>;
 
+  /** total salary budget estimated hours */
   projectTotalSalaryBugetHr:number;
+  /** total salary budget actual hours */
   projectTotalSalaryActualHr:number;
 
   constructor() { }
 
+  /** Initialize the directive/component. */
   ngOnInit() {
     this.calcuateTotal();
     this.eventsSubscription = this.phaseChangeListener.subscribe(() => this.calcuateTotal());
     console.log(this.empIndex);
   }
 
+  /** applying phase color based on phase index */
   setPhaseBackgroundColor(i){
     let styles = {
       'color': PhaseColors.colors[i],
@@ -39,6 +48,7 @@ export class SalaryIndividualComponent implements OnInit {
     return styles;
   }
 
+  /** calculate totoal salary */
   calcuateTotal(){
     this.projectTotalSalaryBugetHr = 0;
     this.projectTotalSalaryActualHr = 0;
@@ -50,16 +60,17 @@ export class SalaryIndividualComponent implements OnInit {
     console.log(this.project);
   }
 
-
+  /** fired when user exits field */
   onEditComplete(event: {column: Column, data: any}): void {
     this.calcuateTotal();
   }
 
-
+  /** fired when text changed */
   onTextEnterdInField(event: {originalEvent: any, column: Column, data: any}): void {
     this.calcuateTotal();
   }
 
+  /** update project overview module.(project level.) */
   updateProjectOverview(){
     let projectTotalSalaryBuget  = 0;
     let projectTotalSalaryActual = 0;
@@ -74,7 +85,7 @@ export class SalaryIndividualComponent implements OnInit {
     this.project.spendToDate = parseFloat(this.getTotalActualMaterial().toString()) + projectTotalSalaryActual;
   }
 
-
+  /** get total material actual amount. */
   getTotalActualMaterial(){
       let totalMaterialActual = 0;
       for(var i = 0; i < this.project.material.length; i++){

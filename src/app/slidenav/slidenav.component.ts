@@ -3,13 +3,14 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 
+/** The nav bar component in all level. */
 @Component({
   selector: 'app-slidenav',
   templateUrl: './slidenav.component.html',
   styleUrls: ['./slidenav.component.css']
 })
 export class SlidenavComponent {
-
+  
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),

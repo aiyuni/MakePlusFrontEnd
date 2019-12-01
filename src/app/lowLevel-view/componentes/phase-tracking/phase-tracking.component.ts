@@ -5,6 +5,7 @@ import { Column } from 'primeng/components/common/shared';
 import { Project } from 'src/app/classes/project';
 import { Observable } from 'rxjs';
 
+/** The phase component in LOW level view. */
 @Component({
   selector: 'app-phase-tracking',
   templateUrl: './phase-tracking.component.html',
@@ -13,16 +14,22 @@ import { Observable } from 'rxjs';
 export class PhaseTrackingComponent implements OnInit {
    eventsSubscription: any
 
+  /** the current project in this page */
   @Input() porject:Project;
+  /** each row of the phase  */
   @Input() phases:PhaseItem[];
+  /** indicator if this page is read only or not. */
   @Input() readMode:boolean;
+  /** Recive of other module fired phase change event. */
   @Input() phaseChangedEventListener: Observable<void>;
-
+  /** total weeks of phase estimates */
   totalPhasePredicted:number;
+  /** total weeks of actual phases. */
   totalActualPredicted:number;
 
   constructor() { }
 
+  /** Initialize the directive/component. */
   ngOnInit() {
     this.totalPhasePredicted = 0;
     this.totalActualPredicted = 0;
@@ -31,6 +38,7 @@ export class PhaseTrackingComponent implements OnInit {
 
   }
 
+  /** applying phase color based on phase index */
   setPhaseBackgroundColor(i){
     let styles = {
       'color': PhaseColors.colors[i],
@@ -40,6 +48,7 @@ export class PhaseTrackingComponent implements OnInit {
     return styles;
   }
 
+  /** calculate phase totals */
   calcuateTotal(){
     this.totalPhasePredicted = 0;
     this.totalActualPredicted = 0;
@@ -49,12 +58,12 @@ export class PhaseTrackingComponent implements OnInit {
     }
   }
 
-
+  /** fires when user exit field */
   onEditComplete(event: {column: Column, data: any}): void {
     this.calcuateTotal();
   }
 
-
+  /** fires when user change the text */
   onTextEnterdInField(event: {originalEvent: any, column: Column, data: any}): void {
     this.calcuateTotal();
   }

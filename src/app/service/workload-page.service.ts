@@ -6,12 +6,13 @@ import { WorkloadPageItem } from '../classes/workLoadPageItem';
 import { tap, catchError } from 'rxjs/operators';
 import { frontEndTestMode, apiURL } from 'src/environments/environment';
 
+/** roots */
 @Injectable({
   providedIn: 'root'
 })
 export class WorkloadPageService {
 
-  /** Test api call by using local sampleJson.json */
+  /** The url for the workload table */
   private url = '';
 
   constructor(
@@ -20,11 +21,12 @@ export class WorkloadPageService {
   ) { 
     this.url = apiURL.baseURL + '/MiddleLevelPage'
   }
-
+  /** headers in an httpOptions object that will be passed to every HttpClient save method. */
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
+  /** GET: get all workload array from database */
   getAllWorkloadItems(): Observable<WorkloadPageItem[]> {
     return this.http.get<WorkloadPageItem[]>(this.url).pipe(
       tap(_ => this.log(`fetched all workloads`)),
@@ -40,13 +42,8 @@ export class WorkloadPageService {
   */
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-
-      // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
-
-      // TODO: better job of transforming error for user consumption
       this.log(`${operation} failed: ${error.message}`);
-
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };

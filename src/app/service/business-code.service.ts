@@ -3,6 +3,7 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { MessageService } from './message.service';
 import { Observable, of } from 'rxjs';
 
+/** roots */
 @Injectable({
   providedIn: 'root'
 })
@@ -13,6 +14,7 @@ export class BusinessCodeService {
     private messageService: MessageService
   ) { }
 
+  /** the hard coded business codes instead of calling api */
   hardCodedBusinessCodeOptions = [
     'NA',
     'K73.1/8731',
@@ -23,10 +25,12 @@ export class BusinessCodeService {
     'DL3310/3845'
   ];
 
+  /** headers in an httpOptions object that will be passed to every HttpClient save method. */
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
+  /** async call to get all business code */
   getBusinessCodes(): Observable<string[]> {
     return of(this.hardCodedBusinessCodeOptions);
   };

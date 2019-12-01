@@ -6,26 +6,34 @@ import { FormGroup, ValidationErrors } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+/** The project edit component in LOW level. */
 @Component({
   selector: 'app-project-edit',
   templateUrl: './project-edit.component.html',
   styleUrls: ['./project-edit.component.css']
 })
 export class ProjectEditComponent implements OnInit {
-
+  /** event handler for getting/recieving event */
   eventsSubject: Subject<void> = new Subject<void>();
 
+  /** current project */
   project: Project;
+  /** the form group */
   options: FormGroup;
+  /** the indicator shows if api call response is recieved */
   isDataLoaded:boolean;
+  /** the indicator shows if the data is posting */
   isDataPosting:boolean;
+  /** the indicator shows if the data is submitting and waiting response. */
   isSubmitting:boolean;
-
+  /** the indicator shows if this page is verified. */
   validated:boolean;
-
+  /** the form group for all the controller(validation purpose.) */
   formGroup: FormGroup;
 
+  /** the total phase estimates in weeks */
   totalPhasePredicted = 0;
+  /** the total phase actual in weeks */
   totalActualPredicted = 0;
 
   constructor(
@@ -35,6 +43,7 @@ export class ProjectEditComponent implements OnInit {
     private _snackBar: MatSnackBar
   ) { }
 
+  /** Initialize the directive/component. */
   ngOnInit() {
     this.getProject();
     this.isDataLoaded = false;
@@ -43,6 +52,7 @@ export class ProjectEditComponent implements OnInit {
     this.formGroup = new FormGroup({});
   }
 
+  /** get project by url project id */
   getProject(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     // this.project = this.projectService.getProject(id);
@@ -55,8 +65,7 @@ export class ProjectEditComponent implements OnInit {
       });
   }
 
-  
-
+  /** submits the project */
   submit(project:Project) {
     this.isSubmitting = true;
     this.getFormValidationErrors();
@@ -71,10 +80,12 @@ export class ProjectEditComponent implements OnInit {
     }
   }
 
+  /** the reciever event when phase changed from other module */
   getPhaseChangedEvent(){
     this.eventsSubject.next()
   }
 
+  /** get the form (all) validation erros */
   getFormValidationErrors() {
     Object.keys(this.formGroup.controls).forEach(key => {
         const controlErrors: ValidationErrors = this.formGroup.get(key).errors;
@@ -90,6 +101,7 @@ export class ProjectEditComponent implements OnInit {
       });
     }
 
+  /** pop-up message bar. toast */
   openSnackBar(message: string, action: string, duration:number) {
     this._snackBar.open(message, action, {
       duration: duration,

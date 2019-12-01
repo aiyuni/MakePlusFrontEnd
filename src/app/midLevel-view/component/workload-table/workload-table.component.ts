@@ -13,10 +13,13 @@ import { SelectItem } from 'primeng/components/common/selectitem';
   styleUrls: ['./workload-table.component.css']
 })
 export class WorkloadTableComponent implements OnInit {
-
+  /** each row in the workload table. */
   workloadPageItems: WorkloadPageItem[];
+  /** table column header names */
   cols: any[];
+  /** employee names of drowpdown item */
   @Input() employeesSelectItems:SelectItem[];
+  /** next 6 montes names. */
   @Input() months:Date[];
 
   constructor(
@@ -24,6 +27,7 @@ export class WorkloadTableComponent implements OnInit {
     private workloadPageService: WorkloadPageService,
   ) { }
 
+  /** Initialize the directive/component. */
   ngOnInit() {
     this.workloadPageItems=[];
     this.cols = [
@@ -40,7 +44,7 @@ export class WorkloadTableComponent implements OnInit {
     ];
     this.getWorkload();
   }
-
+  /** get all workload items. */
   getWorkload(): void {
     this.workloadPageService.getAllWorkloadItems()
       .subscribe(w => {

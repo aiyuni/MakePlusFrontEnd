@@ -4,6 +4,7 @@ import { EmployeeListService } from '../service/employee-list.service';
 import { Employee } from '../classes/employee';
 import { SelectItem } from 'primeng/components/common/selectitem';
 
+/** The workload page component in MID level. */
 @Component({
   selector: 'app-workload-view',
   templateUrl: './workload-view.component.html',
@@ -11,17 +12,21 @@ import { SelectItem } from 'primeng/components/common/selectitem';
 })
 export class WorkloadViewComponent implements OnInit {
 
+  /** the next 6 months names */
   months: Date[];
+  /** the all employeses */
   employees: Employee[];
+  /** the selectable employee item in the dropdown. */
   employeesSelectItems: SelectItem[];
+  /** the indicator shows if api call response is recieved */
   isDataReady:boolean;
-
 
   constructor(
     private route: ActivatedRoute,
     private employeeListService: EmployeeListService
   ) { }
 
+  /** Initialize the directive/component. */
   ngOnInit() {
     this.isDataReady = false;
     this.months = [];
@@ -32,7 +37,7 @@ export class WorkloadViewComponent implements OnInit {
     this.initMonths();
   }
 
-
+  /** get all employess for population the dropdwon */
   getEmployees(): void {
     this.employeeListService.getAllEmployees()
       .subscribe(e => {
@@ -42,6 +47,7 @@ export class WorkloadViewComponent implements OnInit {
       });
   }
 
+  /** parsing the employee into the selecteable list item in the dropdown menu. */
   paraEmployeeListToSelectItem() {
     for (var i = 0; i < this.employees.length; i++) {
       this.employeesSelectItems.push({ label: this.employees[i].name, value: this.employees[i].name });
@@ -49,6 +55,7 @@ export class WorkloadViewComponent implements OnInit {
     this.checkDateReady();
   }
 
+  /** set next 6 months based on current date */
   private initMonths() {
     let currentM = new Date().getMonth();
     let currentY = new Date().getFullYear();
@@ -64,6 +71,7 @@ export class WorkloadViewComponent implements OnInit {
 
   }
 
+  /** check if all api response returned */
   private checkDateReady() {
     if (this.months == null)
       this.isDataReady = false;

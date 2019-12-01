@@ -4,6 +4,7 @@ import { EmployeeListService } from 'src/app/service/employee-list.service';
 import { ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+/** The employe edit component in System admin page. */
 @Component({
   selector: 'app-system-admin',
   templateUrl: './system-admin.component.html',
@@ -11,6 +12,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class SystemAdminComponent implements OnInit {
 
+  /** new employee in this page */
   newEmployee:Employee;
   constructor(
     private route: ActivatedRoute,
@@ -18,11 +20,13 @@ export class SystemAdminComponent implements OnInit {
     private _snackBar: MatSnackBar
   ) { }
 
+  /** Initialize the directive/component. */
   ngOnInit() {
     this.newEmployee = new Employee(0,"EmpoyeeName", 50);
     this.writeEmployID();
   }
 
+  /** submits the employee */
   submit(employee:Employee) {
     console.log("new employee created!");
     console.log(employee);
@@ -37,6 +41,8 @@ export class SystemAdminComponent implements OnInit {
       }
     );
   }
+
+  /** display next empolyee id by calling database. */
   writeEmployID(){
     this.employeeService.getTotalEmployeeID()
         .subscribe(p => {
@@ -46,6 +52,7 @@ export class SystemAdminComponent implements OnInit {
         });
   }
 
+  /** pop-up message bar. toast */
   openSnackBar(message: string, action: string, duration:number) {
     this._snackBar.open(message, action, {
       duration: duration,

@@ -6,12 +6,13 @@ import { Observable, of } from 'rxjs';
 import { tap, catchError, map } from 'rxjs/operators';
 import { frontEndTestMode, apiURL } from 'src/environments/environment';
 
+/** roots */
 @Injectable({
   providedIn: 'root'
 })
 export class VacationService {
 
-  /** Test api call by using local sampleJson.json */
+  /** The url for vaction arrays */
   private url ;
 
   constructor(
@@ -20,11 +21,12 @@ export class VacationService {
   ) { 
     this.url = apiURL.baseURL + '/vacationpage'
   }
-
+  /** headers in an httpOptions object that will be passed to every HttpClient save method. */
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
+  /** GET: get vacation arrays from database */
   getVacationArr(): Observable<VacationPageItem[]> {
     return this.http.get<VacationPageItem[]>(this.url).pipe(
       tap(_ => this.log(`fetched all workloads`)),
@@ -49,13 +51,8 @@ export class VacationService {
   */
  private handleError<T>(operation = 'operation', result?: T) {
   return (error: any): Observable<T> => {
-
-    // TODO: send the error to remote logging infrastructure
     console.error(error); // log to console instead
-
-    // TODO: better job of transforming error for user consumption
     this.log(`${operation} failed: ${error.message}`);
-
     // Let the app keep running by returning an empty result.
     return of(result as T);
   };

@@ -12,7 +12,9 @@ import { Router } from '@angular/router';
 })
 export class VacationEntryComponent implements OnInit {
 
+  /** the next 6 months names */
   months:Date[];
+  /** the vacation array */
   vacationArr:VacationPageItem[];
 
   constructor(
@@ -20,11 +22,13 @@ export class VacationEntryComponent implements OnInit {
     private router: Router
   ) { }
 
+  /** Initialize the directive/component. */
   ngOnInit() {
     this.initMonths();
     this.getVacationArr();
   }
 
+  /** set next 6 months names based on current date. */
   private initMonths(){
     let currentM = new Date().getMonth();
     let currentY = new Date().getFullYear();
@@ -38,6 +42,7 @@ export class VacationEntryComponent implements OnInit {
     ]
   }
 
+  /** get all vacation arr */
   getVacationArr(): void {
     this.vacationService.getVacationArr()
       .subscribe(v => {
@@ -47,6 +52,7 @@ export class VacationEntryComponent implements OnInit {
       });
   }
 
+  /** submits the vaction table */
   submit() {
     this.vacationService.postVacationArr(this.vacationArr).subscribe(     
       response=> {

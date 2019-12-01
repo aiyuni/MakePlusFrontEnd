@@ -12,8 +12,11 @@ export class CalendarComponent implements OnInit {
   /** Each row of the phase table. */
   @Input() phases: PhaseItem[];
 
+  /** may not in used. TODO: need to be confirmed. */
   value: Date;  // not in used.
+  /** may not in used. TODO: need to be confirmed. */
   phase1end: number;  // not in used.
+  /** may not in used. TODO: need to be confirmed. */
   phase1start: number;  // not in used.
   /** The hardcoded phase colors. */
   phaseColors: string[] = [

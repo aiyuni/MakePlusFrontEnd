@@ -1,15 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { WorkloadPageItem } from 'src/app/classes/workLoadPageItem';
-import { ActivatedRoute } from '@angular/router';
-import { WorkloadPageService } from 'src/app/service/workload-page.service';
-import { EmployeeListService } from 'src/app/service/employee-list.service';
-import { EmployeeSalary } from 'src/app/classes/employeeSalary';
-import { Employee } from 'src/app/classes/employee';
 import { SelectItem } from 'primeng/components/common/selectitem';
 import { VacationService } from 'src/app/service/vacation.service';
 import { VacationPageItem } from 'src/app/classes/vacationPageItem';
 
-
+/** The vacation component in MID level. */
 @Component({
   selector: 'app-vacation-table',
   templateUrl: './vacation-table.component.html',
@@ -17,15 +11,20 @@ import { VacationPageItem } from 'src/app/classes/vacationPageItem';
 })
 export class VacationTableComponent implements OnInit {
 
+  /** column header names */
   cols: any[];
+  /** each row of vaction table */
   vacationArr:VacationPageItem[];
+  /** the dropdown of employee names. */
   @Input()  employeesSelectItems:SelectItem[];
+  /** the next 6 months names. */
   @Input()  months:Date[];
 
   constructor(
     private vacationService: VacationService,
   ) { }
 
+  /** Initialize the directive/component. */
   ngOnInit() {
     this.vacationArr=[];
     this.cols = [
@@ -40,6 +39,7 @@ export class VacationTableComponent implements OnInit {
     ];
     this.getVacationArr();
   }
+  /** api calls to get vacation items */
   getVacationArr(): void {
     this.vacationService.getVacationArr()
       .subscribe(v => {

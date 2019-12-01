@@ -289,11 +289,9 @@ export class OverviewComponent implements OnInit {
   
 }
   
-
-
-
-
-
+/** 
+ * this interface represents the business codes.
+ */
 export interface BusinessCode {
   value: string;
   viewValue: string;

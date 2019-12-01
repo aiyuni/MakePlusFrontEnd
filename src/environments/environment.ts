@@ -2,14 +2,17 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+/** the project mode */
 export const environment = {
   production: false
 };
 
+/** the test mode of using json-server */
 export const frontEndTestMode = {
   forntEndTestMode: false
 }
 
+/** the api urls for differnt test envrionment */
 export const apiURL = {
   // baseURL: 'https://localhost:44307/api'    // Windows .net core url
   baseURL: 'http://localhost:5000/api'      // mac .net core url

@@ -9,8 +9,7 @@ import { SystemAdminComponent } from './SystemAdmin/system-admin/system-admin.co
 import { NewProjectComponent } from './new-project/new-project.component';
 import { LoadingComponent } from './loading/loading.component';
 
-
-
+/** the routers of the pages */
 const routes: Routes = [
   {path: '',component: HighlevelViewComponent},
   {path: 'workloadSummery',component: WorkloadViewComponent},
@@ -22,8 +21,10 @@ const routes: Routes = [
   {path: 'loading', component: LoadingComponent},
 ];
 
+/** Decorator that marks a class as an NgModule and supplies configuration metadata. */
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+/** export the app routing module */
 export class AppRoutingModule { }

@@ -1,24 +1,24 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { MessageService } from './message.service';
 import { Employee } from '../classes/employee';
 import { frontEndTestMode, apiURL } from 'src/environments/environment';
 import { NextID } from '../classes/nextID';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
+/** roots */
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeeListService {
 
-  /** Test api call by using local sampleJson.json */
+  /** the get all employe url */
   private url;
+  /** the get next employe id url */
   private urlNextEmplyeeID;
    
-
+  /** headers in an httpOptions object that will be passed to every HttpClient save method. */
   httpOptions = {
     headers: new HttpHeaders({ 
       'Content-Type': 'application/json',
@@ -37,6 +37,7 @@ export class EmployeeListService {
     }
   }
 
+  /** GET: get all empployee from database */
   getAllEmployees(): Observable<Employee[]> {
     return this.http.get<Employee[]>(this.url).pipe(
       tap(_ => this.log(`fetched project id`)),
@@ -44,7 +45,7 @@ export class EmployeeListService {
     );
   };
 
-  /** POST: add a new hero to the database */
+  /** POST: add a new employee to the database */
   postEmployee (employee: Employee): Observable<Employee> {
     return this.http.post<Employee>(this.url, employee, this.httpOptions)
   .pipe(
@@ -52,6 +53,7 @@ export class EmployeeListService {
   );
 }
 
+/** GET: get next empployee id from database */
 getTotalEmployeeID(): Observable<NextID> {
   return this.http.get<NextID>(this.urlNextEmplyeeID).pipe(  
     tap(_ => this.log(`fetched getTotalEmployeeID`)),
