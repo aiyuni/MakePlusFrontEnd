@@ -63,7 +63,7 @@ export class ProjectService {
     getProject(id: number): Observable<Project> {
         let url = this.url + `/${id}`;
         if(frontEndTestMode.forntEndTestMode)           // used for json fake api server.
-            url = this.url + '/individualprojectpages';
+            url = apiURL.baseURL +'/individualprojectpages';
         return this.http.get<Project>(url).pipe(  
            tap(_ => this.log(`fetched project id=${id}`)),
            catchError(this.handleError<Project>(`getProject id=${id}`))
