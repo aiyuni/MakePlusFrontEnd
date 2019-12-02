@@ -70,7 +70,7 @@ export class PhaseComponent implements OnInit {
     if(this.startTempDateCtr.status=="INVALID" || this.endTempDateCtr.status=="INVALID"){
       console.log(this.startTempDateCtr);
       console.log(this.endTempDateCtr);
-      this.openSnackBar('Invalidated dates','',3000);
+      this.openSnackBar('Invalidate Date Selected. Please make sure End Date is after Start Date.','',3000);
       return;
     }
     this.phase.startDate = this.startTempDateCtr.value.toISOString();

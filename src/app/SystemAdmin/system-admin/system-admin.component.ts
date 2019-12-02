@@ -22,7 +22,7 @@ export class SystemAdminComponent implements OnInit {
 
   /** Initialize the directive/component. */
   ngOnInit() {
-    this.newEmployee = new Employee(0,"EmpoyeeName", 50);
+    this.newEmployee = new Employee(0,"YourEmployeeName", 0);
     this.writeEmployID();
   }
 

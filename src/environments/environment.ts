@@ -14,8 +14,8 @@ export const frontEndTestMode = {
 
 /** the api urls for differnt test envrionment */
 export const apiURL = {
-  // baseURL: 'https://localhost:44307/api'    // Windows .net core url
-  baseURL: 'http://localhost:5000/api'      // mac .net core url
+   baseURL: 'https://localhost:44307/api'    // Windows .net core url
+  //baseURL: 'http://localhost:5000/api'      // mac .net core url
   // baseURL: 'http://localhost:3000'      // Frontend json server fake api url
 }
 

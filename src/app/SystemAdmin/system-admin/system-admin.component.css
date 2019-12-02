@@ -16,3 +16,10 @@ mat-card {
     background-color: #4a6572;
     margin: 5px;
 }
+
+.invisible{
+    display: block;
+    visibility: hidden;
+    height: 0;
+    width: 0;
+}

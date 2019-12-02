@@ -14,8 +14,8 @@
         <mat-card-title>Add New Employee</mat-card-title>
     </mat-card-header>
 
-    <mat-form-field class="full-width" floatLabel="always">
-        <input matInput placeholder="Unique Empolyee ID [Read-only]" [(ngModel)]="newEmployee.empID" type="number" readonly="true"><br>
+    <mat-form-field class="invisible full-width" floatLabel="always">
+        <input matInput placeholder="Unique Employee ID [Read-only]" [(ngModel)]="newEmployee.empID" type="number" readonly="true"><br>
     </mat-form-field><br/>
     <mat-form-field class="full-width" floatLabel="always">
         <input matInput placeholder="Employee Name " [(ngModel)]="newEmployee.name"><br>
