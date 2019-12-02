@@ -10,3 +10,11 @@ Note: suggest to open this project in VS code.
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+## Authors
+Peter Ahn (A01041611)
+Peihou Li (A01042078)
+Chungju Hsieh (A01018666)
+Reneil Pascua (A01047816
+
+Version: 1.0
+Date: 1 December 2019
